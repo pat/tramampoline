@@ -1,0 +1,3 @@
+This is the new Rails app for the "Trampoline website":http://trampolineday.com. The old (maybe still existing, depending on when you're reading this) site is static HTML with a touch of Ruby, and we now want the site to manage all the regsitrations as well.
+
+So, this will be hacked on at "Rails Camp":http://railscamps.com, and functional before Tuesday in time for everyone to register!
