@@ -19,9 +19,41 @@ describe AttendeesController do
     end
     
     it "should pass through the given referral code" do
-      get :new, :attendee => {:referral_code => 'foo'}
+      attendee = Attendee.make
       
-      assigns[:attendee].referral_code.should == 'foo'
+      get :new, :attendee => {:referral_code => attendee.invite_code}
+      
+      assigns[:attendee].referral_code.should == attendee.invite_code
+    end
+    
+    context 'invalid referral code' do
+      before :each do
+        get :new, :attendee => {:referral_code => 'foo'}
+      end
+      
+      it "should provide a warning" do
+        flash[:notice].should match(/link you just clicked isn't quite right/)
+      end
+      
+      it "should render the warning view" do
+        response.should render_template('attendees/warning')
+      end
+    end
+    
+    context 'already used referral code' do
+      before :each do
+        attendee = Attendee.make :referral_code => Attendee.make.invite_code
+        
+        get :new, :attendee => {:referral_code => attendee.referral_code}
+      end
+      
+      it "should provide a warning" do
+        flash[:notice].should match(/invitation has already been registered/)
+      end
+      
+      it "should render the warning view" do
+        response.should render_template('attendees/warning')
+      end
     end
   end
   
