@@ -1,3 +1,4 @@
 *.tmproj
 Gemfile.lock
 .bundle
+rerun.txt
