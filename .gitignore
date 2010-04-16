@@ -1,0 +1,3 @@
+*.tmproj
+Gemfile.lock
+.bundle
