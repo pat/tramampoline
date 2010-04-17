@@ -1,4 +1,5 @@
 class AttendeesController < ApplicationController
+  before_filter :translate_params
   before_filter :check_if_sold_out, :only => [:new, :create]
   
   def show
@@ -48,5 +49,12 @@ class AttendeesController < ApplicationController
   def sold_out?
     (params[:attendee].blank? || params[:attendee][:referral_code].blank?) &&
     Attendee.sold_out?
+  end
+  
+  def translate_params
+    return if params[:invite_code].blank?
+    
+    params[:attendee] ||= {}
+    params[:attendee][:referral_code] = params[:invite_code]
   end
 end

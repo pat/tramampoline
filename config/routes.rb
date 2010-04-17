@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
   
   map.register '/register', :controller => 'attendees', :action => 'new'
+  map.accept '/accept_invite/:invite_code',
+    :controller => 'attendees', :action => 'new'
   
   map.resources :attendees, :collection => {
     :sold_out => :get

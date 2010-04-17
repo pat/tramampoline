@@ -26,6 +26,14 @@ describe AttendeesController do
       assigns[:attendee].referral_code.should == attendee.invite_code
     end
     
+    it "should accept invite codes in simple parameters" do
+      attendee = Attendee.make
+      
+      get :new, :invite_code => attendee.invite_code
+      
+      assigns[:attendee].referral_code.should == attendee.invite_code
+    end
+    
     context 'invalid referral code' do
       before :each do
         get :new, :attendee => {:referral_code => 'foo'}
