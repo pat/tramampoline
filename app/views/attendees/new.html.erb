@@ -2,7 +2,9 @@
   <% f.inputs do %>
     <%= f.input :name %>
     <%= f.input :email, :label => 'Email Address' %>
-    <%= f.input :invite_email, :label => 'Invitation Email' %>
+    <%- unless @attendee.invited? -%>
+      <%= f.input :invite_email, :label => 'Invitation Email Address' %>
+    <%- end -%>
     <%= f.input :referral_code, :as => :hidden %>
   <% end %>
   <% f.buttons do %>

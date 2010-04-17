@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'home'
+  
   map.register '/register', :controller => 'attendees', :action => 'new'
   
   map.resources :attendees, :collection => {

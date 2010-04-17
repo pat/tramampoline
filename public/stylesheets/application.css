@@ -1,0 +1,129 @@
+body {
+  font-family: "Myriad Pro", "Lucida Grande", Arial, Verdana, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #333;
+}
+
+p, ul {
+  margin: 1.5em 0;
+}
+
+h1 {
+  font-size: 6em;
+  line-height: 1;
+  text-transform: lowercase;
+  margin: 0.5em 0 0 0;
+  color: #000;
+}
+
+h2 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin: 1.5em 0 -0.5em 0;
+  color: #000;
+}
+
+a {
+  color: #FF7400;
+}
+
+strong {
+  color: #000;
+}
+
+#content {
+  width: 50em;
+  text-align: left;
+  margin: 0 auto;
+}
+
+#details {
+  width: 32em;
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 3em;
+  margin-top: -1.5em;
+}
+
+#secondary {
+  width: 16em;
+  float: right;
+}
+
+.summary {
+  font-size: 2em;
+  line-height: 1.5em;
+  margin: 1.5em auto 0.75em auto;
+  text-align: left;
+  width: 25em;
+  color: #A64B00;
+}
+
+.summary em {
+  font-weight: bold;
+  color: #7F3500;
+}
+
+.no-split {
+  white-space: nowrap;
+}
+
+.ordinal {
+  position: relative;
+  bottom: 0.4em;
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+#secondary p {
+  font-size: 0.875em;
+  line-height: 1.7143;
+  margin: 1.7143em 0;
+  clear: right;
+}
+
+.caption {
+  font-size: 0.875em;
+  line-height: 1.7143;
+  margin: 0;
+}
+
+a img {
+  width: 100%;
+  border: none;
+}
+
+#secondary form {
+  text-align: right;
+}
+
+#secondary form label {
+  font-weight: bold;
+  float: left;
+}
+
+#secondary form input[type=text] {
+  width: 17em;
+}
+
+.focus {
+  background-color: #FFBDAA;
+  border: 0.1428em solid #A64B00;
+  margin-top: 0.5em;
+  margin-left: -0.6072em;
+  margin-right: -0.6072em;
+  padding: 0.6072em 0.6072em;
+  -moz-border-radius: 0.5em;
+}
+
+.focus h2 {
+  margin-top: 0;
+}
+
+#secondary .focus p {
+  margin-bottom: 0;
+}
