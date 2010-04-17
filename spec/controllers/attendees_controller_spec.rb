@@ -55,6 +55,26 @@ describe AttendeesController do
         response.should render_template('attendees/warning')
       end
     end
+    
+    context 'initial release booked out' do
+      before :each do
+        Attendee.stub!(:sold_out? => true)
+      end
+      
+      it "should redirect to the sold out view if there's no places free" do
+        get :new
+        
+        response.should redirect_to(sold_out_attendees_path)
+      end
+      
+      it "should render the default view if a valid referral code is provided" do
+        attendee = Attendee.make
+
+        get :new, :attendee => {:referral_code => attendee.invite_code}
+        
+        response.should render_template('attendees/new')
+      end
+    end
   end
   
   describe '#create' do

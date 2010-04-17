@@ -1,4 +1,6 @@
 class AttendeesController < ApplicationController
+  before_filter :check_if_sold_out, :only => [:new, :create]
+  
   def show
     @attendee = Attendee.find_by_invite_code params[:id]
   end
@@ -37,5 +39,14 @@ class AttendeesController < ApplicationController
     return false if attendee.referral_code.blank?
     
     !Attendee.find_by_referral_code(attendee.referral_code).nil?
+  end
+  
+  def check_if_sold_out
+    redirect_to sold_out_attendees_path if sold_out?
+  end
+  
+  def sold_out?
+    (params[:attendee].blank? || params[:attendee][:referral_code].blank?) &&
+    Attendee.sold_out?
   end
 end

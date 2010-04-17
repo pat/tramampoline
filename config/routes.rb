@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'attendees', :action => 'new'
   
-  map.resources :attendees
+  map.resources :attendees, :collection => {
+    :sold_out => :get
+  }
   
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -12,12 +12,12 @@
 ActiveRecord::Schema.define(:version => 20100416052939) do
 
   create_table "attendees", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "invite_email"
-    t.string   "invite_code"
-    t.string   "referral_code"
+    t.string   "name",                          :null => false
+    t.string   "email",                         :null => false
+    t.string   "phone",         :default => ""
+    t.string   "invite_email",  :default => ""
+    t.string   "invite_code",   :default => ""
+    t.string   "referral_code", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
