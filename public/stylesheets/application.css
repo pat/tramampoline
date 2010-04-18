@@ -33,6 +33,18 @@ section.main {
   float: left;
   width: 480px; }
 
+section.main p img {
+  border: 10px solid #e2eefe;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.03) 4px 4px 0; }
+
+img.left {
+  float: left;
+  margin: 0 20px 20px 0; }
+
+img.right {
+  float: right;
+  margin: 0 0 20px 20px; }
+
 aside {
   float: right;
   width: 320px; }
