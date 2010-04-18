@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100416052939) do
+ActiveRecord::Schema.define(:version => 20100418164529) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                          :null => false
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(:version => 20100416052939) do
     t.string   "invite_email",  :default => ""
     t.string   "invite_code",   :default => ""
     t.string   "referral_code", :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscribers", :force => true do |t|
+    t.string   "name",       :default => ""
+    t.string   "email",                      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
