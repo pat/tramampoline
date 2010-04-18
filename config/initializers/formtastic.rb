@@ -39,7 +39,7 @@ Formtastic::SemanticFormBuilder.all_fields_required_by_default = false
 # errors messages. Sometimes you want the hints to be rendered first than
 # the input, in the following order: hints, input and errors. You can
 # customize it doing just as below:
-# Formtastic::SemanticFormBuilder.inline_order = [:input, :hints, :errors]
+Formtastic::SemanticFormBuilder.inline_order = [:input, :errors, :hints]
 
 # Specifies if labels/hints for input fields automatically be looked up using I18n.
 # Default value: false. Overridden for specific fields by setting value to true,
