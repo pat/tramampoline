@@ -1,6 +1,7 @@
-html, body, div, p, h1 {
+html, body, div, p, h1, h2, h3 {
   margin: 0;
   padding: 0;
+  font-weight: normal;
 }
 
 html {
@@ -10,4 +11,32 @@ html {
 body {
   width: 810px;
   margin: 0 auto;
+  font: 14px/21px "Aller", "Myriad Pro", sans-serif;
+}
+p {
+  margin: 20px 0;
+}
+header h1 {
+  font: 110px "Aller Display", "Myriad Pro", sans-serif;
+  text-transform: lowercase;
+}
+header p {
+  font-size: 28px;
+}
+
+header p, h2, h3 {
+  color: white;
+  text-shadow: #091e23 1px 1px 0px;
+}
+
+body {
+  overflow: auto;
+}
+section.main {
+  float: left;
+  width: 480px;
+}
+aside {
+  float: right;
+  width: 320px;
 }
