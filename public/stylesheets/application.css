@@ -1,4 +1,4 @@
-html, body, div, p, h1, h2, h3 {
+html, body, div, p, h1, h2, h3, dl, dd, dt {
   margin: 0;
   padding: 0;
   font-weight: normal; }
@@ -10,10 +10,14 @@ html {
 body {
   width: 810px;
   margin: 0 auto;
-  font: 14px/21px "Aller", "Myriad Pro", sans-serif; }
+  font: 14px/21px "Aller", "Myriad Pro", sans-serif;
+  padding: 20px 0 40px 0; }
+
+section#content {
+  overflow: hidden; }
 
 p {
-  margin: 20px 0; }
+  margin: 10px 0; }
 
 header h1 {
   font: 110px "Aller Display", "Myriad Pro", sans-serif;
@@ -26,16 +30,13 @@ header p, h2, h3 {
   color: white;
   text-shadow: #091e23 1px 1px 0px; }
 
-body {
-  overflow: auto; }
-
 section.main {
   float: left;
   width: 480px; }
 
 section.main p img {
   border: 10px solid #e2eefe;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.03) 4px 4px 0; }
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0; }
 
 img.left {
   float: left;
@@ -47,4 +48,52 @@ img.right {
 
 aside {
   float: right;
-  width: 320px; }
+  width: 280px;
+  margin-left: 40px; }
+  aside h2 {
+    margin-top: 40px; }
+
+aside .register {
+  background-color: #e2eefe;
+  text-align: center;
+  padding: 20px;
+  margin: 10px 10px 0 0;
+  -webkit-transform: rotate(3deg);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
+  font-family: "Museo Slab", sans-serif; }
+  aside .register a {
+    display: block;
+    background-color: #576645;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 35px;
+    text-decoration: none;
+    color: #abb3a2; }
+    aside .register a:hover {
+      background-color: #657453; }
+  aside .register h2, aside .register h3 {
+    text-shadow: none; }
+  aside .register h2, aside .register dt {
+    color: #a6c6ff; }
+  aside .register h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0;
+    /* BAAAAAD */ }
+  aside .register h3 {
+    font: 24px/36px "Aller";
+    color: #091e23; }
+  aside .register dl {
+    font-size: 13px;
+    margin: 10px 0 15px 0;
+    overflow: hidden; }
+  aside .register dt {
+    float: left;
+    text-align: right;
+    padding-right: 5%;
+    width: 30%; }
+  aside .register dd {
+    float: left;
+    text-align: left;
+    width: 65%; }
