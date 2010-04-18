@@ -57,9 +57,9 @@
   .mailing-list
     %h2 Mailing List
     %p Join the Trampoline community and discuss lorem, ipsum and all sorts of great things yeah.
-    %form(action="" method="post")
-      %input(type="text" placeholder="Name" name="name" title="Name")
-      %input(type="text" placeholder="Email address" name="name" title="Email address")
+    - form_tag subscribers_path do
+      %input(type="text" placeholder="Name" name="subscriber[name]" title="Name")
+      %input(type="text" placeholder="Email address" name="subscriber[email]" title="Email address")
       %input(type="submit" value="Subscribe")
 
   .past-events
