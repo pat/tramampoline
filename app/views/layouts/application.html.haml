@@ -3,10 +3,10 @@
   %head
     %meta(http-equiv="Content-type" content="text/html; charset=utf-8")
     %title Trampoline
-    != stylesheet_link_tag 'formtastic', 'application', 'formtastic_changes', 'hashgrid'
+    != stylesheet_link_tag 'formtastic', 'application', 'formtastic_changes'
   %body
-    %header Trampoline
+    %header
+      %h1 Trampoline
+      %p Come and share what you find amazing
     %section#content!= yield
-    != javascript_include_tag 'jquery-1.4.2.min.js', 'hashgrid'
-    %script
-      $(function() { Hashgrid("#content") })
+    != javascript_include_tag 'jquery-1.4.2.min.js'
