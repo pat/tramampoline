@@ -1,0 +1,33 @@
+.register
+  %h2 Next Event
+  %h3 Trampoline 3
+  %dl
+    %dt When
+    %dd Sunday May 3 2010
+    %dt Where
+    %dd Donkey Wheel House Melbourne
+  %a{:href => register_path} Register
+
+.follow
+  %h2 Follow Trampoline
+  %ul
+    %li.flickr
+      %a(href="#") Flickr
+    %li.vimeo
+      %a(href="#") Vimeo
+    %li.flickr
+      %a(href="#") Flickr
+    %li.vimeo
+      %a(href="#") Vimeo
+      
+.mailing-list
+  %h2 Mailing List
+  %p Join the Trampoline community and discuss lorem, ipsum and all sorts of great things yeah.
+  != render :partial => 'subscribers/form'
+
+.past-events
+  %h2 Past Events
+  %h3 1st December 2009 - Melbourne
+  %p Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff. 
+  %h3 1st April 2009 - Melbourne
+  %p Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff.

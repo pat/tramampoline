@@ -23,6 +23,10 @@ p {
 header h1 {
   font: 110px "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase;
+  a {
+    text-decoration: none;
+    color: #091e23;
+  }
 }
 header p {
   font-size: 28px;
@@ -58,56 +62,71 @@ aside {
   }
 }
 
-aside .register {
-  background-color: #e2eefe;
-  text-align: center;
-  padding: 20px;
-  margin: 10px 10px 0 0;
-  -webkit-transform: rotate(3deg);
-  -webkit-box-shadow: rgba(0,0,0,.05) 4px 4px 0;
-  font-family: "Museo Slab", sans-serif;
-  a {
-    display: block;
-    background-color: #576645;
-    -webkit-box-shadow: rgba(0,0,0,.1) 4px 4px 0;
-    border-radius: 5px;
-    font-size: 18px;
-    line-height: 35px;
-    text-decoration: none;
-    color: #abb3a2;
-    &:hover {
-      background-color: #657453;
+aside {
+  .register {
+    background-color: #e2eefe;
+    text-align: center;
+    padding: 20px;
+    margin: 10px 10px 0 0;
+    -webkit-transform: rotate(3deg);
+    -webkit-box-shadow: rgba(0,0,0,.05) 4px 4px 0;
+    font-family: "Museo Slab", sans-serif;
+    a {
+      display: block;
+      background-color: #576645;
+      -webkit-box-shadow: rgba(0,0,0,.1) 4px 4px 0;
+      border-radius: 5px;
+      font-size: 18px;
+      line-height: 35px;
+      text-decoration: none;
+      color: #abb3a2;
+      &:hover {
+        background-color: #657453;
+      }
+    }
+    h2, h3 {
+      text-shadow: none;
+    }
+    h2, dt {
+      color: #a6c6ff;
+    }
+    h2 {
+      font-size: 15px;
+      text-transform: uppercase;
+      margin: 0; /* BAAAAAD */
+    }
+    h3 {
+      font: 24px/36px "Aller";
+      color: #091e23;
+    }
+    dl {
+      font-size: 13px;
+      margin: 10px 0 15px 0;
+      overflow: hidden;
+    }
+    dt {
+      float: left;
+      text-align: right;
+      padding-right: 5%;
+      width: 30%;
+    }
+    dd {
+      float: left;
+      text-align: left;
+      width: 65%;
     }
   }
-  h2, h3 {
-    text-shadow: none;
+  
+  form {
+    input {
+      width: 100%;
+    }
+    input.submit {
+      width: auto;
+    }
   }
-  h2, dt {
-    color: #a6c6ff;
-  }
-  h2 {
-    font-size: 15px;
-    text-transform: uppercase;
-    margin: 0; /* BAAAAAD */
-  }
-  h3 {
-    font: 24px/36px "Aller";
-    color: #091e23;
-  }
-  dl {
-    font-size: 13px;
-    margin: 10px 0 15px 0;
-    overflow: hidden;
-  }
-  dt {
-    float: left;
-    text-align: right;
-    padding-right: 5%;
-    width: 30%;
-  }
-  dd {
-    float: left;
-    text-align: left;
-    width: 65%;
-  }
+}
+
+form.new_subscriber input {
+  display: block;
 }

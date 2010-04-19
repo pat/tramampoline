@@ -22,6 +22,9 @@ p {
 header h1 {
   font: 110px "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase; }
+  header h1 a {
+    text-decoration: none;
+    color: #091e23; }
 
 header p {
   font-size: 28px; }
@@ -97,3 +100,10 @@ aside .register {
     float: left;
     text-align: left;
     width: 65%; }
+aside form input {
+  width: 100%; }
+aside form input.submit {
+  width: auto; }
+
+form.new_subscriber input {
+  display: block; }
