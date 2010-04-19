@@ -226,11 +226,11 @@ aside .follow ul {
     aside .follow ul li:nth-child(1) a {
       background-position: 50% 3px; }
     aside .follow ul li:nth-child(2) a {
-      background-position: 50% 3px; }
+      background-position: 50% -25px; }
     aside .follow ul li:nth-child(3) a {
-      background-position: 50% -25px; }
+      background-position: 50% -55px; }
     aside .follow ul li:nth-child(4) a {
-      background-position: 50% -25px; }
+      background-position: 50% -89px; }
 aside .past-events ul li {
   margin-top: 15px;
   font: bold 13px/20px "Aller", sans-serif;
