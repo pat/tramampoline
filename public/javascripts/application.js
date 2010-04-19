@@ -1,6 +1,6 @@
 (function() {
-  var aside    = $('aside');
-  var link     = $('aside .register a');
+  var aside    = $('#aside');
+  var link     = $('#aside .register a');
   var patience = $('.patience');
 
   patience.css('width', aside.css('width'));
