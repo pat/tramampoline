@@ -1,0 +1,23 @@
+%p
+  %strong
+    Thanks for registering,
+    = @attendee.name
+
+%p Now that your spot at Trampoline is secure, you should add the key details to your diary:
+
+%ul
+  %li Sunday, 2nd May, from 9:00am to 6:00pm
+  %li Donkey Wheel House, 673 Bourke Street, Melbourne 3000
+
+- unless @attendee.invited?
+  - if @attendee.inviting?
+    %p
+      We've sent an email to
+      = @attendee.invite_email
+      inviting them along for the day as well. However, if they can't make it, then you'll need to give the following link off to someone else:
+  - else
+    Don't forget, you have a spare ticket to invite someone who has not been to a Trampoline before. Please give them the following link so they can register their place.
+  
+  %p!= link_to referral_link(@attendee), referral_link(@attendee)
+
+%p We have sent you an email with all these details as well - so you don't need to bookmark or print out this page (though feel free to do either of those things).

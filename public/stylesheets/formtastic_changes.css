@@ -34,3 +34,8 @@ form.formtastic fieldset.inputs ol li input {
 form.formtastic fieldset.buttons {
   padding-left: 0;
 }
+
+form.formtastic fieldset.inputs ol li p.inline-errors {
+  margin-left: 0;
+  text-transform: capitalize;
+}
