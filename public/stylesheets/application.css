@@ -94,6 +94,14 @@ section.main {
     margin-bottom: 20px;
     font-size: 21px;
     line-height: 31px; }
+  section.main ul {
+    padding-left: 1em; }
+    section.main ul li {
+      padding: 0.1em 1em;
+      list-style: square;
+      color: #4c7385; }
+      section.main ul li span {
+        color: #091e23; }
 
 section.main p img {
   border: 10px solid #e2eefe;
@@ -234,7 +242,7 @@ aside .mailing-list input[type="submit"] {
   color: #e2eefe;
   border: 0;
   font-size: 13px; }
-aside .past-events h3 {
+aside .past-events ul li {
   margin-top: 15px;
   font: bold 13px/20px "Aller", sans-serif;
   color: #4c7385;
