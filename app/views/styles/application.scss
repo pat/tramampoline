@@ -1,3 +1,59 @@
+@font-face {
+	font-family: 'Museo Slab';
+	src: url('/fonts/museo_slab_500.eot');
+	src: local('☺'), url('/fonts/museo_slab_500.woff') format('woff'), url('/fonts/museo_slab_500.ttf') format('truetype'), url('/fonts/museo_slab_500.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Museo Sans';
+	src: url('/fonts/museosans_500.eot');
+	src: local('☺'), url('/fonts/museosans_500.woff') format('woff'), url('/fonts/museosans_500.ttf') format('truetype'), url('/fonts/museosans_500.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Aller Display';
+	src: url('/fonts/allerdisplay.eot');
+	src: local('☺'), url('/fonts/allerdisplay.woff') format('woff'), url('/fonts/allerdisplay.ttf') format('truetype'), url('/fonts/allerdisplay.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Aller';
+	src: url('/fonts/aller_it.eot');
+	src: local('☺'), url('/fonts/aller_it.woff') format('woff'), url('/fonts/aller_it.ttf') format('truetype'), url('/fonts/aller_it.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Aller';
+	src: url('/fonts/aller_bdit.eot');
+	src: local('☺'), url('/fonts/aller_bdit.woff') format('woff'), url('/fonts/aller_bdit.ttf') format('truetype'), url('/fonts/aller_bdit.svg#webfont') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Aller';
+	src: url('/fonts/aller_rg.eot');
+	src: local('☺'), url('/fonts/aller_rg.woff') format('woff'), url('/fonts/aller_rg.ttf') format('truetype'), url('/fonts/aller_rg.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Aller';
+	src: url('/fonts/aller_bd.eot');
+	src: local('☺'), url('/fonts/aller_bd.woff') format('woff'), url('/fonts/aller_bd.ttf') format('truetype'), url('/fonts/aller_bd.svg#webfont') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
 html, body, div, p, h1, h2, h3, dl, dd, dt {
   margin: 0;
   padding: 0;
@@ -17,11 +73,15 @@ body {
 section#content {
   overflow: hidden;
 }
+h2 {
+  margin-top: .8em;
+  font: 24px "Aller", "Myriad Pro", sans-serif;
+}
 p {
   margin: 10px 0;
 }
 header h1 {
-  font: 110px "Aller Display", "Myriad Pro", sans-serif;
+  font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase;
   a {
     text-decoration: none;
@@ -29,6 +89,7 @@ header h1 {
   }
 }
 header p {
+  margin: 5px 0 40px;
   font-size: 28px;
 }
 
@@ -40,7 +101,11 @@ header p, h2, h3 {
 section.main {
   float: left;
   width: 480px;
-  padding-bottom: 40px
+  p.summary {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 31px;
+  }
 }
 section.main p img {
   border: 10px solid #e2eefe;
@@ -66,82 +131,137 @@ aside {
   float: right;
   width: 280px;
   margin-left: 40px;
-  h2 {
+  font-size: 13px; }
+  aside h2 {
     margin-top: 40px;
+    font-size: 18px; }
+  aside p {
+    padding-right: 20px;
+    color: #4c7385;
   }
-}
+
+aside .register {
+  background-color: #e2eefe;
+  text-align: center;
+  padding: 20px;
+  margin: 10px 10px 0 0;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
+  font-family: "Museo Slab", sans-serif; }
+  aside .register a {
+    display: block;
+    background-color: #576645;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 35px;
+    text-decoration: none;
+    color: #abb3a2;
+    border-radius: .7em;
+    -moz-border-radius: .7em;
+    -webkit-border-radius: .7em;
+     }
+    aside .register a:hover {
+      background-color: #657453; }
+  aside .register h2, aside .register h3 {
+    text-shadow: none; }
+  aside .register h2, aside .register dt {
+    color: #a6c6ff; }
+  aside .register h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0; }
+  aside .register h3 {
+    font: 24px/36px "Aller";
+    color: #091e23; }
+  aside .register dl {
+    font-size: 13px;
+    margin: 10px 0 15px 0;
+    overflow: hidden; }
+  aside .register dt {
+    float: left;
+    text-align: right;
+    padding: 4px 5% 0 0;
+    width: 30%;
+    line-height: 15px;
+    text-transform: uppercase; }
+  aside .register dd {
+    float: left;
+    padding-top: 4px;
+    text-align: left;
+    width: 65%;
+    font: 13px/15px "Museo Sans",sans-serif; }
 
 aside {
-  .register {
-    background-color: #e2eefe;
-    text-align: center;
-    padding: 20px;
-    margin: 10px 10px 0 0;
-    -webkit-transform: rotate(3deg);
-    -webkit-box-shadow: rgba(0,0,0,.05) 4px 4px 0;
-    font-family: "Museo Slab", sans-serif;
-    a {
+  .follow ul {
+    margin: 1em 0;
+    padding: 0;
+    overflow: auto;
+    li {
       display: block;
-      background-color: #576645;
-      -webkit-box-shadow: rgba(0,0,0,.1) 4px 4px 0;
+      float: left;
+      margin: 3px 10px 3px 0;
+      padding: 0;
+      width: 48%;
+      height: 22px;
+      background-color: #bed7ff;
       border-radius: 5px;
-      font-size: 18px;
-      line-height: 35px;
-      text-decoration: none;
-      color: #abb3a2;
-      &:hover {
-        background-color: #657453;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      a {
+        display: block;
+        text-indent: -9999em;
+        background-image: url(/images/follow.png);
+      }
+      &:nth-child(1) a {
+        background-position: 50% 3px;
+      }
+      &:nth-child(2) a {
+        background-position: 50% 3px;
+      }
+      &:nth-child(3) a {
+        background-position: 50% -25px;
+      }
+      &:nth-child(4) a {
+        background-position: 50% -25px;
       }
     }
-    h2, h3 {
+  }
+  .mailing-list {
+    input[type="text"] {
+      margin-bottom: 10px;
+      padding: 4px;
+      width: 90%;
+      border: 2px solid #7e9bc8;
+      font-size: 13px;
+      &:focus {
+        border: 2px solid #091e23;
+      }
+    }
+    input[type="submit"] {
+      padding: 6px;
+      background: #091e23;
+      color: #e2eefe;
+      border: 0;
+      font-size: 13px;
+    }
+  }
+  .past-events {
+    h3 {
+      margin-top: 15px;
+      font: bold 13px/20px "Aller", sans-serif;
+      color: #4C7385;
       text-shadow: none;
     }
-    h2, dt {
-      color: #a6c6ff;
-    }
-    h2 {
-      font-size: 15px;
-      text-transform: uppercase;
-      margin: 0; /* BAAAAAD */
-    }
-    h3 {
-      font: 24px/36px "Aller";
-      color: #091e23;
-    }
-    dl {
-      font-size: 13px;
-      margin: 10px 0 15px 0;
-      overflow: hidden;
-    }
-    dt {
-      float: left;
-      text-align: right;
-      padding-right: 5%;
-      width: 30%;
-    }
-    dd {
-      float: left;
-      text-align: left;
-      width: 65%;
-    }
-  }
-  
-  form {
-    input {
-      width: 100%;
-    }
-    input.submit {
-      width: auto;
-    }
-  }
-  
-  ul#previous {
-    margin-left: 0;
-    padding-left: 0;
-    
-    li {
-      color: white;
-      text-shadow: #091e23 1px 1px 0px;
+    p {
+      margin-top: 0;
     }
   }
 }
