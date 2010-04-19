@@ -106,6 +106,17 @@ section.main {
     font-size: 21px;
     line-height: 31px;
   }
+  ul {
+    padding-left: 1em;
+    li {
+      padding: .1em 1em;
+      list-style: square;
+      color: #4C7385;
+      span {
+        color: #091E23;
+      }
+    }
+  }
 }
 section.main p img {
   border: 10px solid #e2eefe;
@@ -254,7 +265,7 @@ aside {
     }
   }
   .past-events {
-    h3 {
+    ul li {
       margin-top: 15px;
       font: bold 13px/20px "Aller", sans-serif;
       color: #4C7385;
