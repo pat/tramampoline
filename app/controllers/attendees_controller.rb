@@ -1,5 +1,6 @@
 class AttendeesController < ApplicationController
   before_filter :translate_params
+  before_filter :check_if_on_sale,  :only => [:new, :create]
   before_filter :check_if_sold_out, :only => [:new, :create]
   
   def show
@@ -40,6 +41,10 @@ class AttendeesController < ApplicationController
     return false if attendee.referral_code.blank?
     
     !Attendee.find_by_referral_code(attendee.referral_code).nil?
+  end
+  
+  def check_if_on_sale
+    redirect_to patience_attendees_path unless Attendee.on_sale?
   end
   
   def check_if_sold_out
