@@ -83,6 +83,10 @@ p {
 header h1 {
   font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase;
+  a {
+    text-decoration: none;
+    color: #091e23;
+  }
 }
 header p {
   margin: 5px 0 40px;
@@ -114,6 +118,13 @@ img.left {
 img.right {
   float: right;
   margin: 0 0 20px 20px;
+}
+img.full {
+  display: block;
+  margin: 20px 0;
+}
+p.under {
+  clear: left;
 }
 
 aside {
@@ -253,4 +264,29 @@ aside {
       margin-top: 0;
     }
   }
+}
+
+form.new_subscriber input {
+  display: block;
+}
+
+iframe {
+  display: block;
+  margin: 10px 0;
+}
+
+.summary {
+  font-weight: bold;
+}
+
+.patience {
+  display: none;
+  background-color: white;
+  padding: 10px 20px;
+  font-size: 12px;
+  position: absolute;
+}
+
+.wait {
+  display: block;
 }

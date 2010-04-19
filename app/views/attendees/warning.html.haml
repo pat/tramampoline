@@ -1,0 +1,10 @@
+%p.summary= flash[:notice]
+
+%p If you had it given to you by a friend, ask them to confirm it's correct and they've not given it to someone else to use.
+
+%p
+  Otherwise, either
+  != link_to 'register normally', register_path
+  or
+  != enkode_mail 'pat@freelancing-gods.com', 'get in touch'
+  if you think something's not quite right.

@@ -12,6 +12,18 @@ describe AttendeesController do
   end
   
   describe '#new' do
+    before :each do
+      Attendee.stub!(:on_sale? => true)
+    end
+    
+    it "should redirect if tickets aren't on sale yet" do
+      Attendee.stub!(:on_sale? => false)
+      
+      get :new
+      
+      response.should redirect_to(patience_attendees_path)
+    end
+    
     it "should assign a new attendee" do
       get :new
       

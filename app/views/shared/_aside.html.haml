@@ -1,0 +1,38 @@
+.register
+  %h2 Next Event
+  %h3 Trampoline 3
+  %dl
+    %dt When
+    %dd Sunday May 2nd 2010
+    %dt Where
+    %dd Donkey Wheel House, Melbourne
+  %a{:href => register_path} Register
+
+.mailing-list
+  %h2 Mailing List
+  %p To be sent official announcements regarding future Trampolines from the team, make sure you're on our announcements mailing list:
+  != render :partial => 'subscribers/form'
+
+.follow
+  %h2 Follow Trampoline
+  %ul
+    %li.flickr
+      %a(href="http://www.flickr.com/groups/trampolineday/") Flickr
+    %li.vimeo
+      %a(href="http://vimeo.com/channels/trampolineday") Vimeo
+    %li.flickr
+      %a(href="http://twitter.com/trampolineday") Twitter
+    %li.vimeo
+      %a(href="http://groups.google.com/group/trampoline-melb/") Google Group
+
+.past-events
+  %h2 Past Events
+  %ul#previous
+    %li 28th March 2009 - Melbourne 
+    %li 24th October 2009 - Melbourne
+
+- unless Attendee.on_sale?
+  .patience
+    %p Registration isn't open yet! We'll be letting people in on the 20th of April at 10am, and will be announcing this on <a href="/subscribers/new">the mailing list</a>.
+    
+    %p There will only be 75 tickets released - so make sure you're here at 10am on the dot to confirm your place at Trampoline.

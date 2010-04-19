@@ -6,7 +6,8 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'attendees', :action => 'new'
   
   map.resources :attendees, :collection => {
-    :sold_out => :get
+    :sold_out => :get,
+    :patience => :get
   }
   map.resources :subscribers
   
