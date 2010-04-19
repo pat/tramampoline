@@ -72,6 +72,9 @@ h2 {
 p {
   margin: 10px 0; }
 
+strong {
+  font-weight: bold; }
+
 header h1 {
   font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase; }
