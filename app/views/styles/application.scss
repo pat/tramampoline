@@ -125,6 +125,16 @@ aside {
       width: auto;
     }
   }
+  
+  ul#previous {
+    margin-left: 0;
+    padding-left: 0;
+    
+    li {
+      color: white;
+      text-shadow: #091e23 1px 1px 0px;
+    }
+  }
 }
 
 form.new_subscriber input {

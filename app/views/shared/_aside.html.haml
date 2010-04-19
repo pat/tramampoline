@@ -3,31 +3,30 @@
   %h3 Trampoline 3
   %dl
     %dt When
-    %dd Sunday May 3 2010
+    %dd Sunday May 2nd 2010
     %dt Where
-    %dd Donkey Wheel House Melbourne
+    %dd Donkey Wheel House, Melbourne
   %a{:href => register_path} Register
+
+.mailing-list
+  %h2 Mailing List
+  %p To be sent official announcements regarding future Trampolines from the team, make sure you're on our announcements mailing list:
+  != render :partial => 'subscribers/form'
 
 .follow
   %h2 Follow Trampoline
   %ul
     %li.flickr
-      %a(href="#") Flickr
+      %a(href="http://www.flickr.com/groups/trampolineday/") Flickr
     %li.vimeo
-      %a(href="#") Vimeo
+      %a(href="http://vimeo.com/channels/trampolineday") Vimeo
     %li.flickr
-      %a(href="#") Flickr
+      %a(href="http://twitter.com/trampolineday") Twitter
     %li.vimeo
-      %a(href="#") Vimeo
-      
-.mailing-list
-  %h2 Mailing List
-  %p Join the Trampoline community and discuss lorem, ipsum and all sorts of great things yeah.
-  != render :partial => 'subscribers/form'
+      %a(href="http://groups.google.com/group/trampoline-melb/") Google Group
 
 .past-events
   %h2 Past Events
-  %h3 1st December 2009 - Melbourne
-  %p Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff. 
-  %h3 1st April 2009 - Melbourne
-  %p Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff. Featured a bunch of things awesome and lots of great stuff.
+  %ul#previous
+    %li 28th March 2009 - Melbourne 
+    %li 24th October 2009 - Melbourne

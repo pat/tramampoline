@@ -104,6 +104,12 @@ aside form input {
   width: 100%; }
 aside form input.submit {
   width: auto; }
+aside ul#previous {
+  margin-left: 0;
+  padding-left: 0; }
+  aside ul#previous li {
+    color: white;
+    text-shadow: #091e23 1px 1px 0px; }
 
 form.new_subscriber input {
   display: block; }
