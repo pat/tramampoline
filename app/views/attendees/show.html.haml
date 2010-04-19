@@ -1,13 +1,14 @@
-%p
-  %strong
-    Thanks for registering,
-    = @attendee.name
+%p.summary
+  Thanks for registering,
+  = @attendee.name
 
 %p Now that your spot at Trampoline is secure, you should add the key details to your diary:
 
 %ul
   %li Sunday, 2nd May, from 9:00am to 6:00pm
-  %li Donkey Wheel House, 673 Bourke Street, Melbourne 3000
+  %li!= link_to "Donkey Wheel House, 673 Bourke Street, Melbourne 3000", "http://maps.google.com.au/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=673+Bourke+Street,+Melbourne&amp;sll=-25.335448,135.745076&amp;sspn=58.82617,78.046875&amp;ie=UTF8&amp;hq=&amp;hnear=673+Bourke+St,+Melbourne+Victoria+3000&amp;ll=-37.815005,144.957304&amp;spn=0.011866,0.018239&amp;z=15"
+  
+%iframe(width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=673+Bourke+Street,+Melbourne&amp;sll=-25.335448,135.745076&amp;sspn=58.82617,78.046875&amp;ie=UTF8&amp;hq=&amp;hnear=673+Bourke+St,+Melbourne+Victoria+3000&amp;ll=-37.815005,144.957304&amp;spn=0.011866,0.018239&amp;z=15&amp;output=embed")
 
 - unless @attendee.invited?
   - if @attendee.inviting?

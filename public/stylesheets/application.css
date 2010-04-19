@@ -35,7 +35,8 @@ header p, h2, h3 {
 
 section.main {
   float: left;
-  width: 480px; }
+  width: 480px;
+  padding-bottom: 40px; }
 
 section.main p img {
   border: 10px solid #e2eefe;
@@ -113,3 +114,10 @@ aside ul#previous {
 
 form.new_subscriber input {
   display: block; }
+
+iframe {
+  display: block;
+  margin: 10px 0; }
+
+.summary {
+  font-weight: bold; }
