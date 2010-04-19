@@ -150,3 +150,15 @@ iframe {
 .summary {
   font-weight: bold;
 }
+
+.patience {
+  display: none;
+  background-color: white;
+  padding: 10px 20px;
+  font-size: 12px;
+  position: absolute;
+}
+
+.wait {
+  display: block;
+}

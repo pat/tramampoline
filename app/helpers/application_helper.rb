@@ -7,4 +7,8 @@ module ApplicationHelper
   def all_released?
     Time.now >= Time.local(2010, 4, 29, 10, 0)
   end
+  
+  def before_launch?
+    Time.now < Time.local(2010, 4, 20, 10, 0)
+  end
 end
