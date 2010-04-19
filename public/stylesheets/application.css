@@ -62,7 +62,7 @@ body {
   font: 14px/21px "Aller", "Myriad Pro", sans-serif;
   padding: 20px 0 40px 0; }
 
-section#content {
+.section#content {
   overflow: hidden; }
 
 h2 {
@@ -75,38 +75,38 @@ p {
 strong {
   font-weight: bold; }
 
-header h1 {
+#header h1 {
   font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase; }
-  header h1 a {
+  #header h1 a {
     text-decoration: none;
     color: #091e23; }
 
-header p {
+#header p {
   margin: 5px 0 40px;
   font-size: 28px; }
 
-header p, h2, h3 {
+#header p, h2, h3 {
   color: white;
   text-shadow: #091e23 1px 1px 0px; }
 
-section.main {
+.section.main {
   float: left;
   width: 480px; }
-  section.main p.summary {
+  .section.main p.summary {
     margin-bottom: 20px;
     font-size: 21px;
     line-height: 31px; }
-  section.main ul {
+  .section.main ul {
     padding-left: 1em; }
-    section.main ul li {
+    .section.main ul li {
       padding: 0.1em 1em;
       list-style: square;
       color: #4c7385; }
-      section.main ul li span {
+      .section.main ul li span {
         color: #091e23; }
 
-section.main p img {
+.section.main p img {
   border: 10px solid #e2eefe;
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0; }
 
@@ -125,7 +125,7 @@ img.full {
 p.under {
   clear: left; }
 
-aside {
+#aside {
   float: right;
   width: 280px;
   margin-left: 40px;
@@ -139,7 +139,7 @@ aside p {
   padding-right: 20px;
   color: #4c7385; }
 
-aside .register {
+#aside .register {
   background-color: #e2eefe;
   text-align: center;
   padding: 20px;
@@ -149,64 +149,55 @@ aside .register {
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   font-family: "Museo Slab", sans-serif; }
+  #aside .register a {
+    display: block;
+    background-color: #576645;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 35px;
+    text-decoration: none;
+    color: #abb3a2;
+    border-radius: 0.7em;
+    -moz-border-radius: 0.7em;
+    -webkit-border-radius: 0.7em; }
+    #aside .register a:hover {
+      background-color: #657453; }
+  #aside .register h2, #aside .register aside .register h3 {
+    text-shadow: none; }
+  #aside .register h2, #aside .register dt {
+    color: #a6c6ff; }
+  #aside .register h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0; }
+  #aside .register h3 {
+    font: 24px/36px "Aller";
+    color: #091e23; }
+  #aside .register dl {
+    font-size: 13px;
+    margin: 10px 0 15px 0;
+    overflow: hidden; }
+  #aside .register dt {
+    float: left;
+    text-align: right;
+    padding: 4px 5% 0 0;
+    width: 30%;
+    line-height: 15px;
+    text-transform: uppercase; }
+  #aside .register dd {
+    float: left;
+    padding-top: 4px;
+    text-align: left;
+    width: 65%;
+    font: 13px/15px "Museo Sans", sans-serif; }
 
-aside .register a {
-  display: block;
-  background-color: #576645;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
-  border-radius: 5px;
-  font-size: 18px;
-  line-height: 35px;
-  text-decoration: none;
-  color: #abb3a2;
-  border-radius: 0.7em;
-  -moz-border-radius: 0.7em;
-  -webkit-border-radius: 0.7em; }
-
-aside .register a:hover {
-  background-color: #657453; }
-
-aside .register h2, aside .register h3 {
-  text-shadow: none; }
-
-aside .register h2, aside .register dt {
-  color: #a6c6ff; }
-
-aside .register h2 {
-  font-size: 15px;
-  text-transform: uppercase;
-  margin: 0; }
-
-aside .register h3 {
-  font: 24px/36px "Aller";
-  color: #091e23; }
-
-aside .register dl {
-  font-size: 13px;
-  margin: 10px 0 15px 0;
-  overflow: hidden; }
-
-aside .register dt {
-  float: left;
-  text-align: right;
-  padding: 4px 5% 0 0;
-  width: 30%;
-  line-height: 15px;
-  text-transform: uppercase; }
-
-aside .register dd {
-  float: left;
-  padding-top: 4px;
-  text-align: left;
-  width: 65%;
-  font: 13px/15px "Museo Sans", sans-serif; }
-
-aside .follow ul {
+#aside .follow ul {
   margin: 1em 0;
   padding: 0;
   overflow: auto; }
-  aside .follow ul li {
+  #aside .follow ul li {
     display: block;
     float: left;
     margin: 3px 10px 3px 0;
@@ -217,26 +208,26 @@ aside .follow ul {
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px; }
-    aside .follow ul li:nth-child(even) {
+    #aside .follow ul li:nth-child(even) {
       margin-right: 0; }
-    aside .follow ul li a {
+    #aside .follow ul li a {
       display: block;
       text-indent: -9999em;
       background-image: url(/images/follow.png); }
-    aside .follow ul li:nth-child(1) a {
+    #aside .follow ul li:nth-child(1) a {
       background-position: 50% 3px; }
-    aside .follow ul li:nth-child(2) a {
+    #aside .follow ul li:nth-child(2) a {
       background-position: 50% -25px; }
-    aside .follow ul li:nth-child(3) a {
+    #aside .follow ul li:nth-child(3) a {
       background-position: 50% -55px; }
-    aside .follow ul li:nth-child(4) a {
+    #aside .follow ul li:nth-child(4) a {
       background-position: 50% -89px; }
-aside .past-events ul li {
+#aside .past-events ul li {
   margin-top: 15px;
   font: bold 13px/20px "Aller", sans-serif;
   color: #4c7385;
   text-shadow: none; }
-aside .past-events p {
+#aside .past-events p {
   margin-top: 0; }
 
 form.formtastic fieldset.inputs ol li {
