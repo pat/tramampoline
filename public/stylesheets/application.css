@@ -228,20 +228,6 @@ aside .follow ul {
       background-position: 50% -25px; }
     aside .follow ul li:nth-child(4) a {
       background-position: 50% -25px; }
-aside .mailing-list input[type="text"] {
-  margin-bottom: 10px;
-  padding: 4px;
-  width: 90%;
-  border: 2px solid #7e9bc8;
-  font-size: 13px; }
-  aside .mailing-list input[type="text"]:focus {
-    border: 2px solid #091e23; }
-aside .mailing-list input[type="submit"] {
-  padding: 6px;
-  background: #091e23;
-  color: #e2eefe;
-  border: 0;
-  font-size: 13px; }
 aside .past-events ul li {
   margin-top: 15px;
   font: bold 13px/20px "Aller", sans-serif;
@@ -250,8 +236,27 @@ aside .past-events ul li {
 aside .past-events p {
   margin-top: 0; }
 
-form.new_subscriber input {
-  display: block; }
+form.formtastic fieldset.inputs ol li {
+  width: 100%; }
+
+input[type="text"],
+form.formtastic fieldset.inputs input[type="text"] {
+  margin-bottom: 10px;
+  padding: 4px;
+  width: 90%;
+  border: 2px solid #7e9bc8;
+  font-size: 13px; }
+  input[type="text"]:focus,
+  form.formtastic fieldset.inputs input[type="text"]:focus {
+    border: 2px solid #091e23; }
+
+input[type="submit"],
+form.formtastic fieldset.buttons input[type="submit"] {
+  padding: 6px;
+  background: #091e23;
+  color: #e2eefe;
+  border: 0;
+  font-size: 13px; }
 
 iframe {
   display: block;

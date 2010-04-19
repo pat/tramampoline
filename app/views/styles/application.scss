@@ -245,25 +245,6 @@ aside {
       }
     }
   }
-  .mailing-list {
-    input[type="text"] {
-      margin-bottom: 10px;
-      padding: 4px;
-      width: 90%;
-      border: 2px solid #7e9bc8;
-      font-size: 13px;
-      &:focus {
-        border: 2px solid #091e23;
-      }
-    }
-    input[type="submit"] {
-      padding: 6px;
-      background: #091e23;
-      color: #e2eefe;
-      border: 0;
-      font-size: 13px;
-    }
-  }
   .past-events {
     ul li {
       margin-top: 15px;
@@ -277,8 +258,28 @@ aside {
   }
 }
 
-form.new_subscriber input {
-  display: block;
+form.formtastic fieldset.inputs ol li {
+  width: 100%
+}
+
+input[type="text"],
+form.formtastic fieldset.inputs input[type="text"] {
+  margin-bottom: 10px;
+  padding: 4px;
+  width: 90%;
+  border: 2px solid #7e9bc8;
+  font-size: 13px;
+  &:focus {
+    border: 2px solid #091e23;
+  }
+}
+input[type="submit"],
+form.formtastic fieldset.buttons input[type="submit"] {
+  padding: 6px;
+  background: #091e23;
+  color: #e2eefe;
+  border: 0;
+  font-size: 13px;
 }
 
 iframe {
