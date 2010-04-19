@@ -1,4 +1,4 @@
-class Notifications < ActionMailer::Base
+class Announcements < ActionMailer::Base
   def tickets(subscriber)
     subject     'Trampoline Tickets Available!'
     recipients  subscriber.email
