@@ -50,6 +50,13 @@ img.right {
   float: right;
   margin: 0 0 20px 20px; }
 
+img.full {
+  display: block;
+  margin: 20px 0; }
+
+p.under {
+  clear: left; }
+
 aside {
   float: right;
   width: 280px;
