@@ -6,15 +6,15 @@ class Attendee < ActiveRecord::Base
   before_validation_on_create :set_invite_code
   after_create :send_attendee_email, :send_invited_email
   
-  OnSale     = Time.local(2010, 4, 20, 10, 0)
-  FreeForAll = Time.local(2010, 4, 29, 10, 0)
+  OnSale     = Time.zone.local(2010, 4, 20, 10, 0)
+  FreeForAll = Time.zone.local(2010, 4, 29, 10, 0)
   
   def self.on_sale?
-    Time.now >= OnSale
+    Time.zone.now >= OnSale
   end
   
   def self.sold_out?
-    if Time.now > FreeForAll
+    if Time.zone.now > FreeForAll
       Attendee.count >= 150
     else
       Attendee.count(:conditions => {:referral_code => ''}) >= 75

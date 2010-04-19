@@ -5,6 +5,6 @@ module ApplicationHelper
   end
   
   def all_released?
-    Time.now >= Attendee::FreeForAll
+    Time.zone.now >= Attendee::FreeForAll
   end
 end

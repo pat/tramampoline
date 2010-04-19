@@ -53,7 +53,7 @@ describe Attendee do
   describe '.sold_out?' do
     context 'before 29th April at 10am' do
       before :each do
-        Timecop.travel Time.local(2010, 4, 29, 9, 59)
+        Timecop.travel Time.zone.local(2010, 4, 29, 9, 59)
       end
       
       after :each do
@@ -81,7 +81,7 @@ describe Attendee do
     
     context 'after 29th April at 10am' do
       before :each do
-        Timecop.travel Time.local(2010, 4, 29, 10, 0)
+        Timecop.travel Time.zone.local(2010, 4, 29, 10, 0)
       end
       
       after :each do
