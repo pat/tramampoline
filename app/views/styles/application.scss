@@ -70,7 +70,7 @@ body {
   font: 14px/21px "Aller", "Myriad Pro", sans-serif;
   padding: 20px 0 40px 0;
 }
-section#content {
+.section#content {
   overflow: hidden;
 }
 h2 {
@@ -80,7 +80,12 @@ h2 {
 p {
   margin: 10px 0;
 }
-header h1 {
+
+strong {
+  font-weight: bold;
+}
+
+#header h1 {
   font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
   text-transform: lowercase;
   a {
@@ -88,17 +93,17 @@ header h1 {
     color: #091e23;
   }
 }
-header p {
+#header p {
   margin: 5px 0 40px;
   font-size: 28px;
 }
 
-header p, h2, h3 {
+#header p, h2, h3 {
   color: white;
   text-shadow: #091e23 1px 1px 0px;
 }
 
-section.main {
+.section.main {
   float: left;
   width: 480px;
   p.summary {
@@ -118,7 +123,7 @@ section.main {
     }
   }
 }
-section.main p img {
+.section.main p img {
   border: 10px solid #e2eefe;
   -webkit-box-shadow: rgba(0,0,0,.05) 4px 4px 0;
 }
@@ -138,7 +143,7 @@ p.under {
   clear: left;
 }
 
-aside {
+#aside {
   float: right;
   width: 280px;
   margin-left: 40px;
@@ -151,7 +156,7 @@ aside {
     color: #4c7385;
   }
 
-aside .register {
+#aside .register {
   background-color: #e2eefe;
   text-align: center;
   padding: 20px;
@@ -160,8 +165,8 @@ aside .register {
   -moz-transform: rotate(3deg);
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
-  font-family: "Museo Slab", sans-serif; }
-  aside .register a {
+  font-family: "Museo Slab", sans-serif;
+  a {
     display: block;
     background-color: #576645;
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
@@ -174,39 +179,40 @@ aside .register {
     border-radius: .7em;
     -moz-border-radius: .7em;
     -webkit-border-radius: .7em;
-     }
-    aside .register a:hover {
-      background-color: #657453; }
-  aside .register h2, aside .register h3 {
+    &:hover {
+      background-color: #657453;
+    }
+  }
+  h2, aside .register h3 {
     text-shadow: none; }
-  aside .register h2, aside .register dt {
+  h2, dt {
     color: #a6c6ff; }
-  aside .register h2 {
+  h2 {
     font-size: 15px;
     text-transform: uppercase;
     margin: 0; }
-  aside .register h3 {
+  h3 {
     font: 24px/36px "Aller";
     color: #091e23; }
-  aside .register dl {
+  dl {
     font-size: 13px;
     margin: 10px 0 15px 0;
     overflow: hidden; }
-  aside .register dt {
+  dt {
     float: left;
     text-align: right;
     padding: 4px 5% 0 0;
     width: 30%;
     line-height: 15px;
     text-transform: uppercase; }
-  aside .register dd {
+  dd {
     float: left;
     padding-top: 4px;
     text-align: left;
     width: 65%;
     font: 13px/15px "Museo Sans",sans-serif; }
-
-aside {
+}
+#aside {
   .follow ul {
     margin: 1em 0;
     padding: 0;
@@ -245,25 +251,6 @@ aside {
       }
     }
   }
-  .mailing-list {
-    input[type="text"] {
-      margin-bottom: 10px;
-      padding: 4px;
-      width: 90%;
-      border: 2px solid #7e9bc8;
-      font-size: 13px;
-      &:focus {
-        border: 2px solid #091e23;
-      }
-    }
-    input[type="submit"] {
-      padding: 6px;
-      background: #091e23;
-      color: #e2eefe;
-      border: 0;
-      font-size: 13px;
-    }
-  }
   .past-events {
     ul li {
       margin-top: 15px;
@@ -277,8 +264,28 @@ aside {
   }
 }
 
-form.new_subscriber input {
-  display: block;
+form.formtastic fieldset.inputs ol li {
+  width: 100%
+}
+
+input[type="text"],
+form.formtastic fieldset.inputs input[type="text"] {
+  margin-bottom: 10px;
+  padding: 4px;
+  width: 90%;
+  border: 2px solid #7e9bc8;
+  font-size: 13px;
+  &:focus {
+    border: 2px solid #091e23;
+  }
+}
+input[type="submit"],
+form.formtastic fieldset.buttons input[type="submit"] {
+  padding: 6px;
+  background: #091e23;
+  color: #e2eefe;
+  border: 0;
+  font-size: 13px;
 }
 
 iframe {
