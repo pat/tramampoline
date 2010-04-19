@@ -13,6 +13,10 @@
     }
   });
   
+  patience.click(function() {
+    patience.toggleClass('wait');
+  });
+  
   if(!Modernizr.input.placeholder) {
     $("input").each(function() {
       if($(this).val() == "" && $(this).attr("placeholder") != "") {

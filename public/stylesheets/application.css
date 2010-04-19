@@ -264,7 +264,12 @@ iframe {
   background-color: white;
   padding: 10px 20px;
   font-size: 12px;
-  position: absolute; }
+  position: absolute;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0; }
 
 .wait {
   display: block; }
