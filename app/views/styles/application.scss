@@ -109,6 +109,8 @@ h2, h3, #header p {
   }
   p a {
     color: #4C7385;
+    text-decoration: none;
+    border-bottom: 2px solid #4C7385;
     &:hover {
       color: lighten(#4C7385, 10%);
     }
