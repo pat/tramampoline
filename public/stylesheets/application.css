@@ -202,7 +202,7 @@ aside p {
     float: left;
     margin: 3px 10px 3px 0;
     padding: 0;
-    width: 48%;
+    width: 46%;
     height: 22px;
     background-color: #bed7ff;
     border-radius: 5px;
@@ -214,13 +214,13 @@ aside p {
       display: block;
       text-indent: -9999em;
       background-image: url(/images/follow.png); }
-    #aside .follow ul li:nth-child(1) a {
+    #aside .follow ul li.flickr a {
       background-position: 50% 3px; }
-    #aside .follow ul li:nth-child(2) a {
+    #aside .follow ul li.vimeo a {
       background-position: 50% -25px; }
-    #aside .follow ul li:nth-child(3) a {
+    #aside .follow ul li.twitter a {
       background-position: 50% -55px; }
-    #aside .follow ul li:nth-child(4) a {
+    #aside .follow ul li.google a {
       background-position: 50% -89px; }
 #aside .past-events ul li {
   margin-top: 15px;
