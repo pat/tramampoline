@@ -74,31 +74,33 @@ body {
   overflow: hidden;
 }
 h2 {
-  margin-top: .8em;
+  margin-top: 30px;
   font: 24px "Aller", "Myriad Pro", sans-serif;
 }
 p {
   margin: 10px 0;
 }
-
 strong {
   font-weight: bold;
 }
 
-#header h1 {
-  font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
-  text-transform: lowercase;
-  a {
-    text-decoration: none;
-    color: #091e23;
-  }
-}
-#header p {
-  margin: 5px 0 40px;
-  font-size: 28px;
+#header {
+  margin-left: -15px;
+  h1 {
+    font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
+    text-transform: lowercase;
+    a {
+      text-decoration: none;
+      color: #091e23; } }
+  p {
+    margin: 0 0 30px 15px;
+    font-size: 21px;
+    text-transform: lowercase;
+    font-style: italic;
+    font-weight: bold; }
 }
 
-#header p, h2, h3 {
+h2, h3, #header p {
   color: white;
   text-shadow: #091e23 1px 1px 0px;
 }
@@ -110,6 +112,7 @@ strong {
     margin-bottom: 20px;
     font-size: 21px;
     line-height: 31px;
+    font-weight: bold;
   }
   ul {
     padding-left: 1em;
@@ -120,6 +123,15 @@ strong {
       span {
         color: #091E23;
       }
+    }
+  }
+  p a {
+    color: #4C7385;
+    &:hover {
+      color: lighten(#4C7385, 10%);
+    }
+    &:active {
+      color: darken(#4C7385, 10%);
     }
   }
 }
@@ -160,12 +172,12 @@ p.under {
   background-color: #e2eefe;
   text-align: center;
   padding: 20px;
-  margin: 10px 10px 0 0;
+  margin: 10px 10px 40px 0;
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
-  font-family: "Museo Slab", sans-serif;
+  font-family: "Museo Slab", serif;
   a {
     display: block;
     background-color: #576645;
@@ -193,7 +205,10 @@ p.under {
     margin: 0; }
   h3 {
     font: 24px/36px "Aller";
-    color: #091e23; }
+    color: #091e23;
+    text-shadow: none;
+    font-weight: bold;
+    font-style: italic; }
   dl {
     font-size: 13px;
     margin: 10px 0 15px 0;
@@ -223,7 +238,7 @@ p.under {
       margin: 3px 10px 3px 0;
       padding: 0;
       width: 46%;
-      height: 22px;
+      height: 25px;
       background-color: #bed7ff;
       border-radius: 5px;
       -moz-border-radius: 5px;
@@ -231,14 +246,18 @@ p.under {
       &:nth-child(even) {
         margin-right: 0;
       }
+      &:hover {
+        background-color: lighten(#bed7ff, 3%);
+      }
 
       a {
         display: block;
+        height: 100%;
         text-indent: -9999em;
         background-image: url(/images/follow.png);
       }
       &.flickr a {
-        background-position: 50% 3px;
+        background-position: 50% 4px;
       }
       &.vimeo a {
         background-position: 50% -25px;
@@ -247,20 +266,20 @@ p.under {
         background-position: 50% -55px;
       }
       &.google a {
-        background-position: 50% -89px;
+        background-position: 50% -87px;
       }
     }
   }
   .past-events {
-    ul li {
-      margin-top: 15px;
-      font: bold 13px/20px "Aller", sans-serif;
-      color: #4C7385;
-      text-shadow: none;
+    ul {
+      margin-top: 10px;
+      li {
+        font: bold 13px/20px "Aller", sans-serif;
+        color: #4C7385;
+        text-shadow: none; }
     }
     p {
-      margin-top: 0;
-    }
+      margin-top: 0; }
   }
 }
 
@@ -281,20 +300,23 @@ form.formtastic fieldset.inputs input[type="text"] {
 }
 input[type="submit"],
 form.formtastic fieldset.buttons input[type="submit"] {
-  padding: 6px;
+  padding: 6px 10px;
   background: #091e23;
   color: #e2eefe;
+  font: 13px "Museo Slab", serif;
   border: 0;
-  font-size: 13px;
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  &:hover {
+    background: lighten(#091e23, 10%);
+  }
 }
 
 iframe {
   display: block;
   margin: 10px 0;
-}
-
-.summary {
-  font-weight: bold;
 }
 
 .patience {

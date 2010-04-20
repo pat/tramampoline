@@ -66,7 +66,7 @@ body {
   overflow: hidden; }
 
 h2 {
-  margin-top: 0.8em;
+  margin-top: 30px;
   font: 24px "Aller", "Myriad Pro", sans-serif; }
 
 p {
@@ -75,18 +75,22 @@ p {
 strong {
   font-weight: bold; }
 
-#header h1 {
-  font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
-  text-transform: lowercase; }
-  #header h1 a {
-    text-decoration: none;
-    color: #091e23; }
+#header {
+  margin-left: -15px; }
+  #header h1 {
+    font: 110px/1 "Aller Display", "Myriad Pro", sans-serif;
+    text-transform: lowercase; }
+    #header h1 a {
+      text-decoration: none;
+      color: #091e23; }
+  #header p {
+    margin: 0 0 30px 15px;
+    font-size: 21px;
+    text-transform: lowercase;
+    font-style: italic;
+    font-weight: bold; }
 
-#header p {
-  margin: 5px 0 40px;
-  font-size: 28px; }
-
-#header p, h2, h3 {
+h2, h3, #header p {
   color: white;
   text-shadow: #091e23 1px 1px 0px; }
 
@@ -96,7 +100,8 @@ strong {
   .section.main p.summary {
     margin-bottom: 20px;
     font-size: 21px;
-    line-height: 31px; }
+    line-height: 31px;
+    font-weight: bold; }
   .section.main ul {
     padding-left: 1em; }
     .section.main ul li {
@@ -105,6 +110,12 @@ strong {
       color: #4c7385; }
       .section.main ul li span {
         color: #091e23; }
+  .section.main p a {
+    color: #4c7385; }
+    .section.main p a:hover {
+      color: #608fa4; }
+    .section.main p a:active {
+      color: #395765; }
 
 .section.main p img {
   border: 10px solid #e2eefe;
@@ -143,12 +154,12 @@ aside p {
   background-color: #e2eefe;
   text-align: center;
   padding: 20px;
-  margin: 10px 10px 0 0;
+  margin: 10px 10px 40px 0;
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
-  font-family: "Museo Slab", sans-serif; }
+  font-family: "Museo Slab", serif; }
   #aside .register a {
     display: block;
     background-color: #576645;
@@ -174,7 +185,10 @@ aside p {
     margin: 0; }
   #aside .register h3 {
     font: 24px/36px "Aller";
-    color: #091e23; }
+    color: #091e23;
+    text-shadow: none;
+    font-weight: bold;
+    font-style: italic; }
   #aside .register dl {
     font-size: 13px;
     margin: 10px 0 15px 0;
@@ -203,30 +217,34 @@ aside p {
     margin: 3px 10px 3px 0;
     padding: 0;
     width: 46%;
-    height: 22px;
+    height: 25px;
     background-color: #bed7ff;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px; }
     #aside .follow ul li:nth-child(even) {
       margin-right: 0; }
+    #aside .follow ul li:hover {
+      background-color: #cde0ff; }
     #aside .follow ul li a {
       display: block;
+      height: 100%;
       text-indent: -9999em;
       background-image: url(/images/follow.png); }
     #aside .follow ul li.flickr a {
-      background-position: 50% 3px; }
+      background-position: 50% 4px; }
     #aside .follow ul li.vimeo a {
       background-position: 50% -25px; }
     #aside .follow ul li.twitter a {
       background-position: 50% -55px; }
     #aside .follow ul li.google a {
-      background-position: 50% -89px; }
-#aside .past-events ul li {
-  margin-top: 15px;
-  font: bold 13px/20px "Aller", sans-serif;
-  color: #4c7385;
-  text-shadow: none; }
+      background-position: 50% -87px; }
+#aside .past-events ul {
+  margin-top: 10px; }
+  #aside .past-events ul li {
+    font: bold 13px/20px "Aller", sans-serif;
+    color: #4c7385;
+    text-shadow: none; }
 #aside .past-events p {
   margin-top: 0; }
 
@@ -246,18 +264,22 @@ form.formtastic fieldset.inputs input[type="text"] {
 
 input[type="submit"],
 form.formtastic fieldset.buttons input[type="submit"] {
-  padding: 6px;
+  padding: 6px 10px;
   background: #091e23;
   color: #e2eefe;
+  font: 13px "Museo Slab", serif;
   border: 0;
-  font-size: 13px; }
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
+  input[type="submit"]:hover,
+  form.formtastic fieldset.buttons input[type="submit"]:hover {
+    background: #13414c; }
 
 iframe {
   display: block;
   margin: 10px 0; }
-
-.summary {
-  font-weight: bold; }
 
 .patience {
   display: none;
