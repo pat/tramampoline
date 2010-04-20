@@ -1,49 +1,49 @@
 @font-face {
   font-family: "Museo Slab";
   src: url('/fonts/museo_slab_500.eot');
-  src: local("☺"), url('/fonts/museo_slab_500.woff') format("woff"), url('/fonts/museo_slab_500.ttf') format("truetype"), url('/fonts/museo_slab_500.svg#webfont') format("svg");
+  src: local("Museo Slab"), url('/fonts/museo_slab_500.woff') format("woff"), url('/fonts/museo_slab_500.ttf') format("truetype"), url('/fonts/museo_slab_500.svg#webfont') format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Museo Sans";
   src: url('/fonts/museosans_500.eot');
-  src: local("☺"), url('/fonts/museosans_500.woff') format("woff"), url('/fonts/museosans_500.ttf') format("truetype"), url('/fonts/museosans_500.svg#webfont') format("svg");
+  src: local("Museo Sans"), url('/fonts/museosans_500.woff') format("woff"), url('/fonts/museosans_500.ttf') format("truetype"), url('/fonts/museosans_500.svg#webfont') format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "Aller Display";
   src: url('/fonts/allerdisplay.eot');
-  src: local("☺"), url('/fonts/allerdisplay.woff') format("woff"), url('/fonts/allerdisplay.ttf') format("truetype"), url('/fonts/allerdisplay.svg#webfont') format("svg");
+  src: local("Aller Display"), url('/fonts/allerdisplay.woff') format("woff"), url('/fonts/allerdisplay.ttf') format("truetype"), url('/fonts/allerdisplay.svg#webfont') format("svg");
   font-weight: normal;
   font-style: normal; }
-
-@font-face {
-  font-family: "Aller";
-  src: url('/fonts/aller_it.eot');
-  src: local("☺"), url('/fonts/aller_it.woff') format("woff"), url('/fonts/aller_it.ttf') format("truetype"), url('/fonts/aller_it.svg#webfont') format("svg");
-  font-weight: normal;
-  font-style: italic; }
-
-@font-face {
-  font-family: "Aller";
-  src: url('/fonts/aller_bdit.eot');
-  src: local("☺"), url('/fonts/aller_bdit.woff') format("woff"), url('/fonts/aller_bdit.ttf') format("truetype"), url('/fonts/aller_bdit.svg#webfont') format("svg");
-  font-weight: bold;
-  font-style: italic; }
 
 @font-face {
   font-family: "Aller";
   src: url('/fonts/aller_rg.eot');
-  src: local("☺"), url('/fonts/aller_rg.woff') format("woff"), url('/fonts/aller_rg.ttf') format("truetype"), url('/fonts/aller_rg.svg#webfont') format("svg");
+  src: local("Aller"), url('/fonts/aller_rg.woff') format("woff"), url('/fonts/aller_rg.ttf') format("truetype"), url('/fonts/aller_rg.svg#webfont') format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
-  font-family: "Aller";
+  font-family: "Aller Italic";
+  src: url('/fonts/aller_it.eot');
+  src: local("Aller Italic"), url('/fonts/aller_it.woff') format("woff"), url('/fonts/aller_it.ttf') format("truetype"), url('/fonts/aller_it.svg#webfont') format("svg");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Aller Bold Italic";
+  src: url('/fonts/aller_bdit.eot');
+  src: local("Aller Bold Italic"), url('/fonts/aller_bdit.woff') format("woff"), url('/fonts/aller_bdit.ttf') format("truetype"), url('/fonts/aller_bdit.svg#webfont') format("svg");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Aller Bold";
   src: url('/fonts/aller_bd.eot');
-  src: local("☺"), url('/fonts/aller_bd.woff') format("woff"), url('/fonts/aller_bd.ttf') format("truetype"), url('/fonts/aller_bd.svg#webfont') format("svg");
+  src: local("Aller Bold"), url('/fonts/aller_bd.woff') format("woff"), url('/fonts/aller_bd.ttf') format("truetype"), url('/fonts/aller_bd.svg#webfont') format("svg");
   font-weight: bold;
   font-style: normal; }
 
@@ -85,10 +85,8 @@ strong {
       color: #091e23; }
   #header p {
     margin: 0 0 30px 15px;
-    font-size: 21px;
     text-transform: lowercase;
-    font-style: italic;
-    font-weight: bold; }
+    font: 21px "Aller Bold Italic", sans-serif; }
 
 h2, h3, #header p {
   color: white;
@@ -99,9 +97,7 @@ h2, h3, #header p {
   width: 480px; }
   .section.main p.summary {
     margin-bottom: 20px;
-    font-size: 21px;
-    line-height: 31px;
-    font-weight: bold; }
+    font: 21px/31px "Aller Bold", sans-serif; }
   .section.main ul {
     padding-left: 1em; }
     .section.main ul li {
@@ -184,11 +180,9 @@ aside p {
     text-transform: uppercase;
     margin: 0; }
   #aside .register h3 {
-    font: 24px/36px "Aller";
+    font: 24px/36px "Aller Bold Italic";
     color: #091e23;
-    text-shadow: none;
-    font-weight: bold;
-    font-style: italic; }
+    text-shadow: none; }
   #aside .register dl {
     font-size: 13px;
     margin: 10px 0 15px 0;
@@ -242,7 +236,7 @@ aside p {
 #aside .past-events ul {
   margin-top: 10px; }
   #aside .past-events ul li {
-    font: bold 13px/20px "Aller", sans-serif;
+    font: bold 13px/20px "Aller Bold", sans-serif;
     color: #4c7385;
     text-shadow: none; }
 #aside .past-events p {
