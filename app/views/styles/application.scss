@@ -2,24 +2,18 @@
 	font-family: 'Museo Slab';
 	src: url('/fonts/museo_slab_500.eot');
 	src: local('Museo Slab'), url('/fonts/museo_slab_500.woff') format('woff'), url('/fonts/museo_slab_500.ttf') format('truetype'), url('/fonts/museo_slab_500.svg#webfont') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Museo Sans';
 	src: url('/fonts/museosans_500.eot');
 	src: local('Museo Sans'), url('/fonts/museosans_500.woff') format('woff'), url('/fonts/museosans_500.ttf') format('truetype'), url('/fonts/museosans_500.svg#webfont') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Aller Display';
 	src: url('/fonts/allerdisplay.eot');
 	src: local('Aller Display'), url('/fonts/allerdisplay.woff') format('woff'), url('/fonts/allerdisplay.ttf') format('truetype'), url('/fonts/allerdisplay.svg#webfont') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 
@@ -27,32 +21,24 @@
 	font-family: 'Aller';
 	src: url('/fonts/aller_rg.eot');
 	src: local('Aller'), url('/fonts/aller_rg.woff') format('woff'), url('/fonts/aller_rg.ttf') format('truetype'), url('/fonts/aller_rg.svg#webfont') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Aller Italic';
 	src: url('/fonts/aller_it.eot');
 	src: local('Aller Italic'), url('/fonts/aller_it.woff') format('woff'), url('/fonts/aller_it.ttf') format('truetype'), url('/fonts/aller_it.svg#webfont') format('svg');
-	font-weight: normal;
-	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Aller Bold Italic';
 	src: url('/fonts/aller_bdit.eot');
 	src: local('Aller Bold Italic'), url('/fonts/aller_bdit.woff') format('woff'), url('/fonts/aller_bdit.ttf') format('truetype'), url('/fonts/aller_bdit.svg#webfont') format('svg');
-	font-weight: bold;
-	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Aller Bold';
 	src: url('/fonts/aller_bd.eot');
 	src: local('Aller Bold'), url('/fonts/aller_bd.woff') format('woff'), url('/fonts/aller_bd.ttf') format('truetype'), url('/fonts/aller_bd.svg#webfont') format('svg');
-	font-weight: bold;
-	font-style: normal;
 }
 
 html, body, div, p, h1, h2, h3, dl, dd, dt {
