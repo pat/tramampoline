@@ -16,7 +16,6 @@
 	src: local('Aller Display'), url('/fonts/allerdisplay.woff') format('woff'), url('/fonts/allerdisplay.ttf') format('truetype'), url('/fonts/allerdisplay.svg#webfont') format('svg');
 }
 
-
 @font-face {
 	font-family: 'Aller';
 	src: url('/fonts/aller_rg.eot');
@@ -255,7 +254,7 @@ p.under {
     ul {
       margin-top: 10px;
       li {
-        font: bold 13px/20px "Aller Bold", sans-serif;
+        font: 13px/20px "Aller Bold", sans-serif;
         color: #4C7385;
         text-shadow: none; }
     }
