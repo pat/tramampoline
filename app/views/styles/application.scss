@@ -222,7 +222,7 @@ p.under {
       float: left;
       margin: 3px 10px 3px 0;
       padding: 0;
-      width: 48%;
+      width: 46%;
       height: 22px;
       background-color: #bed7ff;
       border-radius: 5px;
@@ -237,16 +237,16 @@ p.under {
         text-indent: -9999em;
         background-image: url(/images/follow.png);
       }
-      &:nth-child(1) a {
+      &.flickr a {
         background-position: 50% 3px;
       }
-      &:nth-child(2) a {
+      &.vimeo a {
         background-position: 50% -25px;
       }
-      &:nth-child(3) a {
+      &.twitter a {
         background-position: 50% -55px;
       }
-      &:nth-child(4) a {
+      &.google a {
         background-position: 50% -89px;
       }
     }
