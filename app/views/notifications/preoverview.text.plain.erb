@@ -1,0 +1,60 @@
+Hi there, <%= @attendee.name %>
+
+Congratulations on getting your hands on a Trampoline ticket! It is going to be a great day now you are going to be there (aw, shucks!). We have outlined some details about the day for you below.
+
+<%- if !@attendee.invited? && @attendee.invited.nil? -%>
+* What should I do with this spare (golden!) ticket?
+
+You have received an extra ticket to give out to someone. Think of yourself as Willie Wonka, with one golden ticket to hand to someone you would really like to see at Trampoline. Simply send the following link to the person you would like to have your extra ticket.
+
+http://trampolineday.com<%= accept_path(@attendee.invite_code) %>
+
+They need to have used it to register before Thursday 29th April at 10am - because any spare tickets will be offered to those who missed out last week.
+<%- end -%>
+
+* Presenting on the day
+
+Anyone can present at Trampoline and this time around there will be more great talks to listen to. To find out more about the format of Trampoline, and some tips on how to construct your presentation, peruse our guide.
+
+http://trampolineday.com/guide
+
+Some of the sessions from last time:
+- David and Dan held a session on how to juggle
+- Sam talked about smart energy
+- Erica showed us how to grow our own food
+- Jan lead a group meditation session
+- Matt talked about a video he saw about the first 1000 year old human
+- Jo talked about resumes and the concept of job pitches
+
+Finally, if you're stuck for ideas check out the Google Group and see if there is anyone you can partner with on the day to present a shared idea or concept.
+
+* What about lunch?
+
+We're in the CBD, so there'll be plenty of places to eat nearby, but you could also bring your lunch (and maybe some more, to share) - something that came together successfully last time.
+
+* Who pays for all this?
+
+Trampoline is a free event, but we do have expenses and would appreciate your help in covering them. To run the day it will cost us around $1500 (which works out to be around $10 per person) - donating is optional, but of course any support you can provide is appreciated. You can send a few dollars our way via an online pledge website:
+
+http://pledgie.com/campaigns/10300
+
+* Continuing conversations
+
+If Twitter is your thing, you can track the discussions via the #trampoline hashtag:
+
+http://search.twitter.com/search?q=%23trampoline
+
+You can also discuss anything with other attendees on the Google Group before and after the event.
+
+http://groups.google.com/group/trampoline-melb/
+
+* What's next?
+
+Keep an eye out for the awesome things in your life and be ready to share them on Sunday, May 2nd.
+
+See you there!
+
+Peace, love and sticky rice,
+
+-- 
+Pat, Mel, Steve and Aida

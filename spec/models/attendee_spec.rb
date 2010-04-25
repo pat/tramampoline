@@ -137,4 +137,22 @@ describe Attendee do
       Attendee.make(:referral_code => nil).should_not be_invited
     end
   end
+  
+  describe '#inviter' do
+    it "should refer to the attendee with the invite code" do
+      inviter = Attendee.make
+      invited = Attendee.make(:referral_code => inviter.invite_code)
+      
+      invited.inviter.should == inviter
+    end
+  end
+  
+  describe '#invited' do
+    it "should refer to the attendee with the referral code" do
+      inviter = Attendee.make
+      invited = Attendee.make(:referral_code => inviter.invite_code)
+      
+      inviter.invited.should == invited
+    end
+  end
 end

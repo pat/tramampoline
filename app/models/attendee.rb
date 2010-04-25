@@ -6,6 +6,15 @@ class Attendee < ActiveRecord::Base
   before_validation_on_create :set_invite_code
   after_create :send_attendee_email, :send_invited_email
   
+  belongs_to :invited,
+    :class_name  => 'Attendee',
+    :primary_key => 'referral_code',
+    :foreign_key => 'invite_code'
+  belongs_to :inviter,
+    :class_name  => 'Attendee',
+    :primary_key => 'invite_code',
+    :foreign_key => 'referral_code'
+  
   OnSale     = Time.zone.local(2010, 4, 20, 10, 0)
   FreeForAll = Time.zone.local(2010, 4, 29, 10, 0)
   
