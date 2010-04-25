@@ -8,7 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :attendees, :collection => {
     :sold_out => :get,
-    :patience => :get
+    :patience => :get,
+    :pending  => :get
   }
   map.resources :subscribers
   

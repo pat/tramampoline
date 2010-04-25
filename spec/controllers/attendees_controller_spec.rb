@@ -24,6 +24,16 @@ describe AttendeesController do
       response.should redirect_to(patience_attendees_path)
     end
     
+    it "should redirect if Trampoline is finished" do
+      Timecop.travel Time.zone.local(2010, 5, 2, 18, 0)
+      
+      get :new
+      
+      response.should redirect_to(pending_attendees_path)
+      
+      Timecop.return
+    end
+    
     it "should assign a new attendee" do
       get :new
       
