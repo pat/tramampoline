@@ -22,4 +22,12 @@ class Notifications < ActionMailer::Base
     sent_on     Time.zone.now
     body        :attendee => attendee
   end
+  
+  def preparing(attendee)
+    subject     'Preparing for Trampoline'
+    recipients  attendee.email
+    from        'Pat Allan <pat@freelancing-gods.com>'
+    sent_on     Time.zone.now
+    body        :attendee => attendee
+  end
 end
