@@ -2,7 +2,7 @@ Hi <%= @attendee.name %>
 
 Thanks for registering for Trampoline on the 2nd of May!
 
-<%- unless @attendee.invited? -%>
+<%- unless @attendee.invited? || all_released? -%>
 <%- if @attendee.inviting? -%>
 We've also sent an email to <%= @attendee.invite_email %> to see if they'd like to come along as well - just as you asked. If they don't, then you'll want to send on this special one-use-only registration link to someone else:
 

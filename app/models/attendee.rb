@@ -55,7 +55,7 @@ class Attendee < ActiveRecord::Base
   end
   
   def send_invited_email
-    return if invited? || !inviting?
+    return if invited? || !inviting? || Time.zone.now >= FreeForAll
     
     Notifications.deliver_invite self
   end

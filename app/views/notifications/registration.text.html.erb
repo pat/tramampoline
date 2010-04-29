@@ -1,7 +1,7 @@
 <html>
 <body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; ">
 Hi <%= @attendee.name %><br><br>Thanks for registering for Trampoline on the <b>2nd of May</b>!<br><br>
-<%- unless @attendee.invited? -%>
+<%- unless @attendee.invited? || all_released? -%>
 <%- if @attendee.inviting? -%>
 We've also sent an email to <%= @attendee.invite_email %> to see if they'd like to come along as well - just as you&nbsp;asked. If they don't, then you'll want to send on this special one-use-only registration link to someone else:<br><br><a href="http://trampolineday.com<%= accept_path(@attendee.invite_code) %>">http://trampolineday.com<%= accept_path(@attendee.invite_code) %></a><br><br>Please pass it on to someone who <b>hasn't been to a Trampoline before</b>! Make sure they register <b>before April 29th</b>,&nbsp;otherwise we might offer their place to the waiting list.<br><br>
 <% else %>

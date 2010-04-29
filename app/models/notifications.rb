@@ -1,4 +1,6 @@
 class Notifications < ActionMailer::Base
+  helper :application
+  
   def registration(attendee)
     subject     'Trampoline Registration'
     recipients  attendee.email
