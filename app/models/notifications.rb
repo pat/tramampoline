@@ -32,4 +32,11 @@ class Notifications < ActionMailer::Base
     sent_on     Time.zone.now
     body        :attendee => attendee
   end
+  
+  def final_reminder(attendee)
+    subject     'Trampoline: The Final Reminder'
+    recipients  attendee.email
+    from        'Pat Allan <pat@freelancing-gods.com>'
+    sent_on     Time.zone.now
+  end
 end
