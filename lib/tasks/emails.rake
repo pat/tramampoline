@@ -7,4 +7,13 @@ namespace :emails do
     end
     puts "Done."
   end
+  
+  desc 'Send out Wrapping up'
+  task :wrapup => :environment do
+    Attendee.all.each do |attendee|
+      puts "Emailing #{attendee.name}"
+      Notifications.deliver_wrapup attendee
+    end
+    puts "Done."
+  end
 end

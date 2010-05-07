@@ -39,4 +39,11 @@ class Notifications < ActionMailer::Base
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
   end
+  
+  def wrapup(attendee)
+    subject     'Trampoline: Wrapping Up'
+    recipients  attendee.email
+    from        'Pat Allan <pat@freelancing-gods.com>'
+    sent_on     Time.zone.now
+  end
 end
