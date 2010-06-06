@@ -1,3 +1,6 @@
 %p To stay in the loop on upcoming Trampoline events, it's best to be on our announcements email list. We won't send out many emails, and we won't pass your details on to anyone else - this is purely for announcing new Trampolines.
+
+- if flash[:notice].present?
+  %p.warning= flash[:notice]
   
 != render :partial => 'form'

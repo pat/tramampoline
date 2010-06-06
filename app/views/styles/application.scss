@@ -96,6 +96,9 @@ h2, h3, #header p {
     margin-bottom: 20px;
     font: 21px/31px "Aller Bold", sans-serif;
   }
+  p.warning {
+    font-weight: bold;
+  }
   ul {
     padding-left: 1em;
     li {

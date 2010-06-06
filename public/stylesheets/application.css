@@ -84,6 +84,8 @@ h2, h3, #header p {
   .section.main p.summary {
     margin-bottom: 20px;
     font: 21px/31px "Aller Bold", sans-serif; }
+  .section.main p.warning {
+    font-weight: bold; }
   .section.main ul {
     padding-left: 1em; }
     .section.main ul li {
