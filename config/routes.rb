@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.accept '/accept_invite/:invite_code',
     :controller => 'attendees', :action => 'new'
   map.guide '/guide', :controller => 'home', :action => 'guide'
+  map.guide '/sydney', :controller => 'home', :action => 'sydney'
   
   map.resources :attendees, :collection => {
     :sold_out => :get,
