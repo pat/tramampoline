@@ -3,4 +3,4 @@ formtastic    --version 0.9.7 --ignore-dependencies
 will_paginate --version 2.3.12
 exceptional   --version 2.0.3
 haml          --version 3.0.0.beta.2
-lu-tze        --version 0.1.1
+lu-tze        --version 0.1.2
