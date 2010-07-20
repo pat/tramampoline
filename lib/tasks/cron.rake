@@ -1,3 +1,3 @@
 task :cron => :environment do
-  LuTze.gather_and_send 'trampoline'
+  LuTze.gather_and_send
 end
