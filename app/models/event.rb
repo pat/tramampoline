@@ -41,4 +41,8 @@ class Event < ActiveRecord::Base
       uninvited_attendees.count >= (max_attendees / 2)
     end
   end
+  
+  def initial_sold_out?
+    on_sale? && sold_out? && !excess_on_sale?
+  end
 end
