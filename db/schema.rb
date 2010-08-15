@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100418164529) do
+ActiveRecord::Schema.define(:version => 20100813055008) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                          :null => false
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(:version => 20100418164529) do
     t.string   "referral_code", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id",                      :null => false
+  end
+
+  add_index "attendees", ["event_id"], :name => "index_attendees_on_event_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "city"
+    t.string   "venue"
+    t.integer  "max_attendees"
+    t.date     "happens_on"
+    t.datetime "release_at"
+    t.datetime "excess_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address"
+    t.string   "map_uri",          :limit => 512
+    t.string   "embedded_map_uri", :limit => 512
   end
 
   create_table "subscribers", :force => true do |t|

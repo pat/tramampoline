@@ -1,6 +1,22 @@
 .register
   %h2 Next Event
-  %h3 To Be Announced - Watch This Space!
+  - if Event.upcoming?
+    %h3= next_event.city
+    %dl
+      %dt When
+      %dd= next_event.happens_on.to_s(:day_and_date)
+      %dt Where
+      %dd= next_event.venue
+      - if !next_event.on_sale?
+        %dt Tickets
+        %dd= next_event.release_at.to_s(:date_with_hour)
+    - if next_event.on_sale?
+      - unless next_event.sold_out?
+        %a{:href => register_path} Register
+      - else
+        %span Sold Out!
+  - else
+    %h3 To Be Announced - Watch This Space!
 
 .mailing-list
   %h2 Mailing List
@@ -22,9 +38,11 @@
 .past-events
   %h2 Past Events
   %ul#previous
-    %li 28th March 2009 &mdash; Melbourne 
-    %li 24th October 2009 &mdash; Melbourne
-    %li 2nd May 2010 &mdash; Melbourne
+    - Event.past.each do |event|
+      %li
+        = event.happens_on.to_s(:long_ordinal)
+        &mdash;
+        = event.city
 
 .sponsors
   %h2 Many Thanks To...
@@ -41,10 +59,3 @@
     %li
       %a(href="http://pollenizer.com")
         %img(src="/images/pollenizer.png" title="Pollenizer")
-  
-
-- unless Attendee.on_sale?
-  .patience
-    %p Registration isn't open yet! We'll be letting people in on the 20th of April at 10am, and will be announcing this on <a href="/subscribers/new">the mailing list</a>.
-    
-    %p There will only be 75 tickets released - so make sure you're here at 10am on the dot to confirm your place at Trampoline.

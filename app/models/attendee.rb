@@ -6,6 +6,7 @@ class Attendee < ActiveRecord::Base
   before_validation_on_create :set_invite_code
   after_create :send_attendee_email, :send_invited_email
   
+  belongs_to :event
   belongs_to :invited,
     :class_name  => 'Attendee',
     :primary_key => 'referral_code',
@@ -14,22 +15,7 @@ class Attendee < ActiveRecord::Base
     :class_name  => 'Attendee',
     :primary_key => 'invite_code',
     :foreign_key => 'referral_code'
-  
-  OnSale     = Time.zone.local(2010, 4, 20, 10, 0)
-  FreeForAll = Time.zone.local(2010, 4, 29, 10, 0)
-  
-  def self.on_sale?
-    Time.zone.now >= OnSale
-  end
-  
-  def self.sold_out?
-    if Time.zone.now > FreeForAll
-      Attendee.count >= 150
-    else
-      Attendee.count(:conditions => {:referral_code => ''}) >= 75
-    end
-  end
-  
+    
   def inviting?
     invite_email.present?
   end
@@ -55,7 +41,7 @@ class Attendee < ActiveRecord::Base
   end
   
   def send_invited_email
-    return if invited? || !inviting? || Time.zone.now >= FreeForAll
+    return if invited? || !inviting? || Time.zone.now >= event.excess_at
     
     Notifications.deliver_invite self
   end

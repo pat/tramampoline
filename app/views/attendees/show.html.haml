@@ -5,10 +5,12 @@
 %p Now that your spot at Trampoline is secure, you should add the key details to your diary:
 
 %ul
-  %li Sunday, 2nd May, from 9:00am to 6:00pm
-  %li!= link_to "Donkey Wheel House, 673 Bourke Street, Melbourne 3000", "http://maps.google.com.au/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=673+Bourke+Street,+Melbourne&amp;sll=-25.335448,135.745076&amp;sspn=58.82617,78.046875&amp;ie=UTF8&amp;hq=&amp;hnear=673+Bourke+St,+Melbourne+Victoria+3000&amp;ll=-37.815005,144.957304&amp;spn=0.011866,0.018239&amp;z=15"
+  %li
+    = next_event.happens_on.to_s(:day_and_date)
+    from 9:00am to 6:00pm
+  %li!= link_to next_event.address, next_event.map_uri
   
-%iframe(width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=673+Bourke+Street,+Melbourne&amp;sll=-25.335448,135.745076&amp;sspn=58.82617,78.046875&amp;ie=UTF8&amp;hq=&amp;hnear=673+Bourke+St,+Melbourne+Victoria+3000&amp;ll=-37.815005,144.957304&amp;spn=0.011866,0.018239&amp;z=15&amp;output=embed")
+%iframe(width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="#{next_event.embedded_map_uri}")
 
 - unless @attendee.invited? || all_released?
   - if @attendee.inviting?

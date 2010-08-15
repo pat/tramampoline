@@ -12,12 +12,8 @@ describe AttendeesController do
   end
   
   describe '#new' do
-    before :each do
-      Attendee.stub!(:on_sale? => true)
-    end
-    
     it "should redirect if tickets aren't on sale yet" do
-      Attendee.stub!(:on_sale? => false)
+      Event.make :release_at => 1.day.from_now
       
       get :new
       
@@ -25,22 +21,23 @@ describe AttendeesController do
     end
     
     it "should redirect if Trampoline is finished" do
-      Timecop.travel Time.zone.local(2010, 5, 2, 18, 0)
+      Event.make :happens_on => 1.day.ago
       
       get :new
       
       response.should redirect_to(pending_attendees_path)
-      
-      Timecop.return
     end
     
     it "should assign a new attendee" do
+      Event.make :release_at => 1.day.ago
+      
       get :new
       
       assigns[:attendee].should be_a_new_record
     end
     
     it "should pass through the given referral code" do
+      Event.make :release_at => 1.day.ago
       attendee = Attendee.make
       
       get :new, :attendee => {:referral_code => attendee.invite_code}
@@ -49,6 +46,7 @@ describe AttendeesController do
     end
     
     it "should accept invite codes in simple parameters" do
+      Event.make :release_at => 1.day.ago
       attendee = Attendee.make
       
       get :new, :invite_code => attendee.invite_code
@@ -58,6 +56,7 @@ describe AttendeesController do
     
     context 'invalid referral code' do
       before :each do
+        Event.make :release_at => 1.day.ago
         get :new, :attendee => {:referral_code => 'foo'}
       end
       
@@ -72,6 +71,7 @@ describe AttendeesController do
     
     context 'already used referral code' do
       before :each do
+        Event.make :release_at => 1.day.ago
         attendee = Attendee.make :referral_code => Attendee.make.invite_code
         
         get :new, :attendee => {:referral_code => attendee.referral_code}
@@ -88,7 +88,9 @@ describe AttendeesController do
     
     context 'initial release booked out' do
       before :each do
-        Attendee.stub!(:sold_out? => true)
+        event = Event.make :release_at => 1.day.ago
+        event.stub!(:sold_out? => true)
+        Event.stub!(:next => event)
       end
       
       it "should redirect to the sold out view if there's no places free" do
@@ -108,6 +110,10 @@ describe AttendeesController do
   end
   
   describe '#create' do
+    before :each do
+      Event.make :release_at => 1.day.ago
+    end
+    
     let(:attendee) {
       attendee = Attendee.make
       Attendee.stub!(:new => attendee)

@@ -1,6 +1,6 @@
 Hi <%= @attendee.name %>
 
-Thanks for registering for Trampoline on the 2nd of May!
+Thanks for registering for Trampoline on <%= next_event.happens_on.to_s(:ordinal_date_and_month) %>!
 
 <%- unless @attendee.invited? || all_released? -%>
 <%- if @attendee.inviting? -%>
@@ -8,24 +8,24 @@ We've also sent an email to <%= @attendee.invite_email %> to see if they'd like 
 
 http://trampolineday.com<%= accept_path(@attendee.invite_code) %>
 
-Please pass it on to someone who hasn't been to a Trampoline before! Make sure they register before April 29th, otherwise we might offer their place to the waiting list.
+Please pass it on to someone who hasn't been to a Trampoline before! Make sure they register before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.
 <%- else -%>
 Because you've registered nice and early, we've given you a second registration ticket that we'd like you to give to someone who hasn't been to a Trampoline before. You should send the following link to that friend, so we can ensure their place at Trampoline is reserved.
 
 http://trampolineday.com<%= accept_path(@attendee.invite_code) %>
 
-Make sure they register before April 29th, otherwise we might offer their place to the waiting list.
+Make sure they register before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.
 <%- end -%>
 <%- end -%>
 
-We'll be in touch before the event starts, but please keep in mind that we'll be starting at 9am, and wrapping the day up at 6pm. Trampoline will be happening at the wonderful Donkey Wheel House, in the city at 673 Bourke Street.
+We'll be in touch before the event starts, but please keep in mind that we'll be starting at 9am, and wrapping the day up at 6pm. Trampoline will be happening at the wonderful Circus Oz, in Port Melbourne at 40 Bay Street.
 
 If it turns out you cannot make it, please let us know (by replying to this email), because we'd like to fit as many people as possible in on the day.
 
-Looking forward to seeing you on Sunday the 2nd of May!
+Looking forward to seeing you on Sunday <%= next_event.happens_on.to_s(:ordinal_date_and_month) %>!
 
 Peace, love and sticky rice
 
 -- 
-Steve, Pat, Aida and Mel
+<%= team_string %>
 Trampoline

@@ -19,6 +19,7 @@ class AttendeesController < ApplicationController
   end
   
   def create
+    attendee.event = event
     if attendee.save
       redirect_to attendee_path(attendee.invite_code)
     else
@@ -30,6 +31,10 @@ class AttendeesController < ApplicationController
   
   def attendee
     @attendee ||= Attendee.new params[:attendee]
+  end
+  
+  def event
+    @event ||= Event.next
   end
   
   def invalid_referral_code?
@@ -49,7 +54,7 @@ class AttendeesController < ApplicationController
   end
   
   def check_if_on_sale
-    redirect_to patience_attendees_path unless Attendee.on_sale?
+    redirect_to patience_attendees_path unless event.on_sale?
   end
   
   def check_if_sold_out
@@ -57,12 +62,12 @@ class AttendeesController < ApplicationController
   end
   
   def over?
-    Time.zone.now >= Time.zone.local(2010, 5, 2, 18, 0)
+    event.nil?
   end
   
   def sold_out?
     (params[:attendee].blank? || params[:attendee][:referral_code].blank?) &&
-    Attendee.sold_out?
+    event.sold_out?
   end
   
   def translate_params

@@ -50,62 +50,6 @@ describe Attendee do
     end
   end
   
-  describe '.sold_out?' do
-    context 'before 29th April at 10am' do
-      before :each do
-        Timecop.travel Time.zone.local(2010, 4, 29, 9, 59)
-      end
-      
-      after :each do
-        Timecop.return
-      end
-      
-      it "should return true if there are 75 registrations without referral codes" do
-        75.times do
-          Attendee.make
-        end
-        
-        Attendee.should be_sold_out
-      end
-      
-      it "should return false if there are over 75 registrations but not all with referral codes" do
-        74.times do
-          Attendee.make
-        end
-        
-        Attendee.make :referral_code => 'foo'
-        
-        Attendee.should_not be_sold_out
-      end
-    end
-    
-    context 'after 29th April at 10am' do
-      before :each do
-        Timecop.travel Time.zone.local(2010, 4, 29, 10, 0)
-      end
-      
-      after :each do
-        Timecop.return
-      end
-      
-      it "should return true if 150 places are taken" do
-        150.times do
-          Attendee.make
-        end
-        
-        Attendee.should be_sold_out
-      end
-      
-      it "should return false if 149 places are taken" do
-        149.times do
-          Attendee.make
-        end
-        
-        Attendee.should_not be_sold_out
-      end
-    end
-  end
-  
   describe '#valid?' do
     {
       :name  => 'name',

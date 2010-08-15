@@ -165,7 +165,7 @@ p.under {
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   font-family: "Museo Slab", serif;
-  a {
+  a, span {
     display: block;
     background-color: #576645;
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
@@ -178,9 +178,9 @@ p.under {
     border-radius: .7em;
     -moz-border-radius: .7em;
     -webkit-border-radius: .7em;
-    &:hover {
-      background-color: #657453;
-    }
+  }
+  a:hover {
+    background-color: #657453;
   }
   h2, aside .register h3 {
     text-shadow: none; }
