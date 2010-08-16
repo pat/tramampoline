@@ -16,4 +16,13 @@ namespace :emails do
     end
     puts "Done."
   end
+  
+  desc 'Announcing Trampoline Melbourne'
+  task :tramp4 => :environment do
+    Subscriber.all.each do |subscriber|
+      puts "Emailing #{subscriber.name} | #{subscriber.email}"
+      Announcements.deliver_tramp4 subscriber
+    end
+    puts "Done."
+  end
 end
