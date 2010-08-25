@@ -1,4 +1,13 @@
 namespace :emails do
+  desc 'tickets'
+  task :tickets => :environment do
+    Subscriber.all.each do |subscriber|
+      puts "Emailing #{subscriber.name} | #{subscriber.email}"
+      Announcements.deliver_tickets subscriber
+    end
+    puts "Done."
+  end
+  
   desc 'Send out Final Reminder'
   task :final_reminder => :environment do
     Attendee.all.each do |attendee|
