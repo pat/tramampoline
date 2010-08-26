@@ -11,7 +11,7 @@
         %dt Tickets
         %dd= next_event.release_at.to_s(:date_with_hour)
       - elsif next_event.initial_sold_out?
-        %dt Tickets
+        %dt More Tickets
         %dd= next_event.excess_at.to_s(:date_with_hour)
     - if next_event.on_sale?
       - if !next_event.sold_out?
