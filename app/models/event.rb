@@ -3,6 +3,9 @@ class Event < ActiveRecord::Base
   has_many :uninvited_attendees,
     :conditions => "referral_code = ''",
     :class_name => 'Attendee'
+  has_many :invited_attendees,
+    :conditions => "referral_code <> ''",
+    :class_name => 'Attendee'
   
   def self.upcoming?
     last && last.happens_on > Date.today
