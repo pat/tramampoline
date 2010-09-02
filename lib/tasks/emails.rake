@@ -34,4 +34,15 @@ namespace :emails do
     end
     puts "Done."
   end
+  
+  desc 'Send invitation reminders'
+  task :invite_reminders => :environment do
+    Event.last.uninvited_attendees.each do |attendee|
+      next unless attendee.invited.nil?
+      
+      puts "Emailing #{attendee.name}"
+      Notifications.deliver_invite_reminder attendee
+    end
+    puts "Done."
+  end
 end
