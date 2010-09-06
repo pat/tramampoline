@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100813055008) do
+ActiveRecord::Schema.define(:version => 20100906124349) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                          :null => false
@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(:version => 20100813055008) do
     t.string   "referral_code", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_id",                      :null => false
+    t.integer  "event_id",      :default => 3,  :null => false
+    t.datetime "cancelled_at"
   end
-
-  add_index "attendees", ["event_id"], :name => "index_attendees_on_event_id"
 
   create_table "events", :force => true do |t|
     t.string   "city"

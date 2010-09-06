@@ -24,6 +24,10 @@ class Attendee < ActiveRecord::Base
     referral_code.present?
   end
   
+  def cancel!(time = Time.zone.now)
+    update_attributes(:cancelled_at => time)
+  end
+  
   private
   
   def set_invite_code

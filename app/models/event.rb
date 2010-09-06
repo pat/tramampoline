@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
   has_many :attendees
+  has_many :active_attendees,
+    :conditions => "cancelled_at IS NULL",
+    :class_name => 'Attendee'
   has_many :uninvited_attendees,
     :conditions => "referral_code = ''",
     :class_name => 'Attendee'
@@ -39,7 +42,7 @@ class Event < ActiveRecord::Base
   
   def sold_out?
     if excess_on_sale?
-      attendees.count >= max_attendees
+      active_attendees.count >= max_attendees
     else
       uninvited_attendees.count >= (max_attendees / 2)
     end
