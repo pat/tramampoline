@@ -15,6 +15,13 @@ class Announcements < ActionMailer::Base
     sent_on     Time.zone.now
   end
   
+  def more_soon(subscriber)
+    subject     'More Tickets for Trampoline!'
+    recipients  subscriber.email
+    from        'Pat Allan <pat@freelancing-gods.com>'
+    sent_on     Time.zone.now
+  end
+  
   def tramp4(subscriber)
     subject     'Trampoline Melbourne'
     recipients  subscriber.email
