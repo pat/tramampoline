@@ -15,6 +15,10 @@ class Attendee < ActiveRecord::Base
     :class_name  => 'Attendee',
     :primary_key => 'invite_code',
     :foreign_key => 'referral_code'
+  
+  def self.with_code(code)
+    find_by_invite_code(code)
+  end
     
   def inviting?
     invite_email.present?
@@ -33,7 +37,7 @@ class Attendee < ActiveRecord::Base
   def set_invite_code
     self.invite_code = generate_hash("--#{Time.now.utc}--#{email}--")[0..7]
     
-    set_invite_code if Attendee.find_by_invite_code(invite_code)
+    set_invite_code if Attendee.with_code(invite_code) || Invite.with_code(invite_code)
   end
   
   def generate_hash(string)

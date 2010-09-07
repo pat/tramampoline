@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  has_many :invites
   has_many :attendees
   has_many :active_attendees,
     :conditions => "cancelled_at IS NULL",

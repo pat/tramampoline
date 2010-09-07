@@ -33,6 +33,10 @@ class AttendeesController < ApplicationController
     @attendee ||= Attendee.new params[:attendee]
   end
   
+  def invite
+    Invite.with_code(attendee.referral_code)
+  end
+  
   def event
     @event ||= Event.next
   end
@@ -40,11 +44,12 @@ class AttendeesController < ApplicationController
   def invalid_referral_code?
     return false if attendee.referral_code.blank?
     
-    Attendee.find_by_invite_code(attendee.referral_code).nil?
+    Attendee.with_code(attendee.referral_code).nil? && invite.nil?
   end
   
   def used_referral_code?
     return false if attendee.referral_code.blank?
+    return invite.consumed? if invite
     
     !Attendee.find_by_referral_code(attendee.referral_code).nil?
   end

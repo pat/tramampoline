@@ -16,6 +16,12 @@ Event.blueprint do
   max_attendees { 100 }
 end
 
+Invite.blueprint do
+  description { "Special Guest Pass" }
+  event       { Event.next || Event.make }
+  amount      { 1 }
+end
+
 Subscriber.blueprint do
   email { Faker::Internet.email }
 end

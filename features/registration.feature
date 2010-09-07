@@ -22,3 +22,18 @@ Feature: Registration
       And I press "Register"
     Then  I should see "Thanks for registering"
   
+  Scenario: Registering via an invite
+    Given an invite "Sponsors Pass" for 2 people
+    When  I go to the registration page with the invite code for "Sponsors Pass"
+      And I fill in "Name" with "Col Duthie"
+      And I fill in "Email Address" with "col@ergo.com"
+      And I press "Register"
+    Then  I should see "Thanks for registering"
+    When  I go to the registration page with the invite code for "Sponsors Pass"
+      And I fill in "Name" with "Derek Winter"
+      And I fill in "Email Address" with "derek@ergo.com"
+      And I press "Register"
+    Then  I should see "Thanks for registering"
+    When  I go to the registration page with the invite code for "Sponsors Pass"
+    Then  I should see "This invitation has already been registered"
+  

@@ -18,6 +18,10 @@ module NavigationHelpers
       attendee = Attendee.find_by_name $1
       "/register?attendee[referral_code]=#{attendee.invite_code}"
     
+    when /the registration page with the invite code for "([^"]*)"/
+      invite = Invite.find_by_description $1
+      "/register?attendee[referral_code]=#{invite.code}"
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

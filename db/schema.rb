@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100906124349) do
+ActiveRecord::Schema.define(:version => 20100907090642) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                          :null => false
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(:version => 20100906124349) do
     t.string   "map_uri",          :limit => 512
     t.string   "embedded_map_uri", :limit => 512
   end
+
+  create_table "invites", :force => true do |t|
+    t.string   "code",                        :null => false
+    t.string   "description", :default => "", :null => false
+    t.integer  "event_id",                    :null => false
+    t.integer  "amount",      :default => 1,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invites", ["code"], :name => "index_invites_on_code"
+  add_index "invites", ["event_id"], :name => "index_invites_on_event_id"
 
   create_table "subscribers", :force => true do |t|
     t.string   "name",       :default => ""
