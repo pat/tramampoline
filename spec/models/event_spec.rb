@@ -73,7 +73,7 @@ describe Event do
         
         Attendee.find(:all, :limit => 5).each(&:cancel!)
         
-        event.should_not be_sold_out
+        event.should be_sold_out
       end
     end
   end

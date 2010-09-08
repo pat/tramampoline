@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
   
   def sold_out?
     if excess_on_sale?
-      active_attendees.count >= max_attendees
+      attendees.count >= max_attendees
     else
       uninvited_attendees.count >= (max_attendees / 2)
     end
