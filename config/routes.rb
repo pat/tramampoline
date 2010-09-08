@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
     :pending  => :get
   }
   map.resources :subscribers
+  map.resources :waiting_list, :controller => 'waiting_lists'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,0 +1,13 @@
+%h2 Join the Waiting List
+
+%p
+  Even though the upcoming Trampoline is booked out, there's always a handful of people that cancel at the last minute. When they do cancel, their places will get allocated to those on
+  %strong the waiting list
+  &mdash; and this is where you can join that list.
+
+- semantic_form_for @waiter, :url => waiting_list_index_path do |f|
+  - f.inputs do
+    != f.input :name
+    != f.input :email, :label => 'Email Address', :hint => "Just to contact you about this event - nothing else, and definitely no spam."
+  - f.buttons do
+    != f.commit_button 'Join the Queue'
