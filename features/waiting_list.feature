@@ -29,3 +29,21 @@ Feature: Waiting List
       And I follow "this link" in the email
     Then  I should see "This invitation has already been registered"
   
+  Scenario: Re-offering Attendance Positions
+    Given a registered attendee "Peter Spence"
+      And "bei@yin.com" is waiting
+      And "steve@mckinnon.com" is waiting
+    When  "Peter Spence" cancelled his attendance 2 days ago
+    Then  "bei@yin.com" should receive an email
+    When  I open the email
+      And I follow "this link" in the email
+    Then  I should see "This invitation is no longer valid."
+    When  the waiting list is progressed
+    Then  "steve@mckinnon.com" should receive an email
+    When  I open the email
+      And I follow "this link" in the email
+      And I fill in "Name" with "Steve McKinnon"
+      And I fill in "Email Address" with "steve@mckinnon.com"
+      And I press "Register"
+    Then  I should see "Thanks for registering"
+  

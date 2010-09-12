@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100912040738) do
+ActiveRecord::Schema.define(:version => 20100912051811) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                          :null => false
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(:version => 20100912040738) do
     t.datetime "updated_at"
     t.integer  "attendee_id"
     t.datetime "invited_at"
+    t.boolean  "closed",      :default => false
   end
+
+  add_index "waiters", ["closed"], :name => "index_waiters_on_closed"
 
 end

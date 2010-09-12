@@ -77,7 +77,8 @@ class AttendeesController < ApplicationController
   end
   
   def late_list_code?
-    waiter && waiter.invited? && (waiter.invited_at <= (Time.zone.now - 1.day))
+    waiter && waiter.invited? &&
+    ((waiter.invited_at <= (Time.zone.now - 1.day)) || waiter.closed?)
   end
   
   def check_if_over

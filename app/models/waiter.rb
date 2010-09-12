@@ -7,11 +7,23 @@ class Waiter < ActiveRecord::Base
   validates_presence_of :code, :event, :email
   
   named_scope :uninvited,
-    :conditions => 'invited_at IS NULL',
-    :order => 'created_at ASC'
+    :conditions => 'invited_at IS NULL AND closed = FALSE',
+    :order      => 'created_at ASC'
+  named_scope :unclosed,
+    :conditions => [
+      'invited_at IS NOT NULL',
+      "invited_at < (current_timestamp - interval '24 hours')",
+      'closed = FALSE'
+    ].join(' AND ')
   
   def self.invite!(event)
     event.waiters.uninvited.first.invite! unless event.waiters.uninvited.empty?
+  end
+  
+  def self.close_and_reinvite
+    Waiter.unclosed.each do |waiter|
+      waiter.close!
+    end
   end
   
   def position
@@ -27,6 +39,11 @@ class Waiter < ActiveRecord::Base
   
   def invited?
     !invited_at.nil?
+  end
+  
+  def close!
+    update_attributes(:closed => true)
+    Waiter.invite! event
   end
   
   private
