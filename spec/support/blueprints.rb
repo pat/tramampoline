@@ -25,3 +25,9 @@ end
 Subscriber.blueprint do
   email { Faker::Internet.email }
 end
+
+Waiter.blueprint do
+  name  { Faker::Name.name }
+  email { Faker::Internet.email }
+  event { Event.next || Event.make }
+end

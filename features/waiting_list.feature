@@ -14,3 +14,18 @@ Feature: Waiting List
       And I press "Join the Queue"
     Then  I should see "You are 1st in the queue"
   
+  Scenario: Claiming Attendance Position
+    Given a registered attendee "Peter Spence"
+      And "bei@yin.com" is waiting
+    When  "Peter Spence" cancels his attendance
+    Then  "bei@yin.com" should receive an email
+    When  I open the email
+      And I follow "this link" in the email
+      And I fill in "Name" with "Bei Yin"
+      And I fill in "Email Address" with "bei@yin.com"
+      And I press "Register"
+    Then  I should see "Thanks for registering"
+    When  I open the email
+      And I follow "this link" in the email
+    Then  I should see "This invitation has already been registered"
+  

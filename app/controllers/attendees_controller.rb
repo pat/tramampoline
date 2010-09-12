@@ -15,12 +15,22 @@ class AttendeesController < ApplicationController
     elsif used_referral_code?
       flash[:notice] = "This invitation has already been registered."
       render :action => 'warning'
+    elsif invalid_list_code?
+      flash[:notice] = "This link you just clicked isn't quite right."
+      render :action => 'list_warning'
+    elsif used_list_code?
+      flash[:notice] = "This invitation has already been registered."
+      render :action => 'list_warning'
+    elsif late_list_code?
+      flash[:notice] = "This invitation is no longer valid."
+      render :action => 'list_warning'
     end
   end
   
   def create
     attendee.event = event
     if attendee.save
+      waiter.update_attributes(:attendee_id => attendee.id) unless waiter.nil?
       redirect_to attendee_path(attendee.invite_code)
     else
       render :action => 'new'
@@ -34,7 +44,11 @@ class AttendeesController < ApplicationController
   end
   
   def invite
-    Invite.with_code(attendee.referral_code)
+    @invite ||= Invite.with_code(attendee.referral_code)
+  end
+  
+  def waiter
+    @waiter ||= Waiter.find_by_code(params[:waiting_code])
   end
   
   def event
@@ -54,6 +68,18 @@ class AttendeesController < ApplicationController
     !Attendee.find_by_referral_code(attendee.referral_code).nil?
   end
   
+  def invalid_list_code?
+    params[:waiting_code].present? && waiter.nil?
+  end
+  
+  def used_list_code?
+    waiter && waiter.attendee.present?
+  end
+  
+  def late_list_code?
+    waiter && waiter.invited? && (waiter.invited_at <= (Time.zone.now - 1.day))
+  end
+  
   def check_if_over
     redirect_to pending_attendees_path if over?
   end
@@ -71,8 +97,10 @@ class AttendeesController < ApplicationController
   end
   
   def sold_out?
-    (params[:attendee].blank? || params[:attendee][:referral_code].blank?) &&
-    event.sold_out?
+    (
+      params[:attendee].blank? ||
+      params[:attendee][:referral_code].blank?
+    ) && params[:waiting_code].blank? && event.sold_out?
   end
   
   def translate_params

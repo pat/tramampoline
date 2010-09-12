@@ -30,6 +30,7 @@ class Attendee < ActiveRecord::Base
   
   def cancel!(time = Time.zone.now)
     update_attributes(:cancelled_at => time)
+    Waiter.invite! event
   end
   
   private

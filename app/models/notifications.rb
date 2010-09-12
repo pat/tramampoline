@@ -54,4 +54,12 @@ class Notifications < ActionMailer::Base
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
   end
+  
+  def waiting_over(waiter)
+    subject     'Trampoline Waiting List: The Waiting is Over'
+    recipients  waiter.email
+    from        'Pat Allan <pat@freelancing-gods.com>'
+    sent_on     Time.zone.now
+    body        :waiter => waiter
+  end
 end

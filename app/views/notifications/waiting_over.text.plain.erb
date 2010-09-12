@@ -1,0 +1,14 @@
+Hi <%= @waiter.name %>
+
+You're in luck! A place has just opened up, and you can attend Trampoline! To confirm your place, please use the following link to register:
+
+http://trampolineday.com<%= step_forward_path(@waiter.code) %>
+
+Please make sure you register WITHIN 24 HOURS, otherwise we will offer this place to the next person in the queue.
+
+Looking forward to seeing you at Trampoline.
+
+Peace, love and sticky rice
+
+-- 
+<%= team_string %>

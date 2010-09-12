@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'attendees', :action => 'new'
   map.accept '/accept_invite/:invite_code',
     :controller => 'attendees', :action => 'new'
+  map.step_forward '/step_forward/:waiting_code',
+    :controller => 'attendees', :action => 'new'
   map.guide '/guide', :controller => 'home', :action => 'guide'
   map.guide '/sydney', :controller => 'home', :action => 'sydney'
   

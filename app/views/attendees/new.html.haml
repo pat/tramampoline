@@ -10,6 +10,7 @@
   %p This is to ensure that Trampoline attendees continue to have a fantastic mix of interests and expertise - it's this mix that makes it such a great event!
 
 - semantic_form_for @attendee do |f|
+  != hidden_field_tag :waiting_code, params[:waiting_code]
   - f.inputs do
     != f.input :name
     != f.input :email, :label => 'Email Address', :hint => "Just to contact you about this event - nothing else, and definitely no spam."
