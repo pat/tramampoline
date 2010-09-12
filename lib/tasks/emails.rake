@@ -54,4 +54,13 @@ namespace :emails do
     end
     puts "Done."
   end
+  
+  desc 'Send out second ticket release announcement'
+  task :more => :environment do
+    Subscriber.all.each do |subscriber|
+      puts "Emailing #{subscriber.name} | #{subscriber.email}"
+      Announcements.deliver_more subscriber
+    end
+    puts "Done."
+  end
 end
