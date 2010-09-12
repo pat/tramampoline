@@ -1,37 +1,37 @@
 @font-face {
-  font-family: 'Museo Slab';
-  src: url("/fonts/museo_slab_500.eot");
-  src: local("Museo Slab"), url("/fonts/museo_slab_500.woff") format("woff"), url("/fonts/museo_slab_500.ttf") format("truetype"), url("/fonts/museo_slab_500.svg#webfont") format("svg"); }
+  font-family: "Museo Slab";
+  src: url('/fonts/museo_slab_500.eot');
+  src: local("Museo Slab"), url('/fonts/museo_slab_500.woff') format("woff"), url('/fonts/museo_slab_500.ttf') format("truetype"), url('/fonts/museo_slab_500.svg#webfont') format("svg"); }
 
 @font-face {
-  font-family: 'Museo Sans';
-  src: url("/fonts/museosans_500.eot");
-  src: local("Museo Sans"), url("/fonts/museosans_500.woff") format("woff"), url("/fonts/museosans_500.ttf") format("truetype"), url("/fonts/museosans_500.svg#webfont") format("svg"); }
+  font-family: "Museo Sans";
+  src: url('/fonts/museosans_500.eot');
+  src: local("Museo Sans"), url('/fonts/museosans_500.woff') format("woff"), url('/fonts/museosans_500.ttf') format("truetype"), url('/fonts/museosans_500.svg#webfont') format("svg"); }
 
 @font-face {
-  font-family: 'Aller Display';
-  src: url("/fonts/allerdisplay.eot");
-  src: local("Aller Display"), url("/fonts/allerdisplay.woff") format("woff"), url("/fonts/allerdisplay.ttf") format("truetype"), url("/fonts/allerdisplay.svg#webfont") format("svg"); }
+  font-family: "Aller Display";
+  src: url('/fonts/allerdisplay.eot');
+  src: local("Aller Display"), url('/fonts/allerdisplay.woff') format("woff"), url('/fonts/allerdisplay.ttf') format("truetype"), url('/fonts/allerdisplay.svg#webfont') format("svg"); }
 
 @font-face {
-  font-family: 'Aller';
-  src: url("/fonts/aller_rg.eot");
-  src: local("Aller"), url("/fonts/aller_rg.woff") format("woff"), url("/fonts/aller_rg.ttf") format("truetype"), url("/fonts/aller_rg.svg#webfont") format("svg"); }
+  font-family: "Aller";
+  src: url('/fonts/aller_rg.eot');
+  src: local("Aller"), url('/fonts/aller_rg.woff') format("woff"), url('/fonts/aller_rg.ttf') format("truetype"), url('/fonts/aller_rg.svg#webfont') format("svg"); }
 
 @font-face {
-  font-family: 'Aller Italic';
-  src: url("/fonts/aller_it.eot");
-  src: local("Aller Italic"), url("/fonts/aller_it.woff") format("woff"), url("/fonts/aller_it.ttf") format("truetype"), url("/fonts/aller_it.svg#webfont") format("svg"); }
+  font-family: "Aller Italic";
+  src: url('/fonts/aller_it.eot');
+  src: local("Aller Italic"), url('/fonts/aller_it.woff') format("woff"), url('/fonts/aller_it.ttf') format("truetype"), url('/fonts/aller_it.svg#webfont') format("svg"); }
 
 @font-face {
-  font-family: 'Aller Bold Italic';
-  src: url("/fonts/aller_bdit.eot");
-  src: local("Aller Bold Italic"), url("/fonts/aller_bdit.woff") format("woff"), url("/fonts/aller_bdit.ttf") format("truetype"), url("/fonts/aller_bdit.svg#webfont") format("svg"); }
+  font-family: "Aller Bold Italic";
+  src: url('/fonts/aller_bdit.eot');
+  src: local("Aller Bold Italic"), url('/fonts/aller_bdit.woff') format("woff"), url('/fonts/aller_bdit.ttf') format("truetype"), url('/fonts/aller_bdit.svg#webfont') format("svg"); }
 
 @font-face {
-  font-family: 'Aller Bold';
-  src: url("/fonts/aller_bd.eot");
-  src: local("Aller Bold"), url("/fonts/aller_bd.woff") format("woff"), url("/fonts/aller_bd.ttf") format("truetype"), url("/fonts/aller_bd.svg#webfont") format("svg"); }
+  font-family: "Aller Bold";
+  src: url('/fonts/aller_bd.eot');
+  src: local("Aller Bold"), url('/fonts/aller_bd.woff') format("woff"), url('/fonts/aller_bd.ttf') format("truetype"), url('/fonts/aller_bd.svg#webfont') format("svg"); }
 
 html, body, div, p, h1, h2, h3, dl, dd, dt {
   margin: 0;
@@ -89,15 +89,15 @@ h2, h3, #header p {
   .section.main ul {
     padding-left: 1em; }
     .section.main ul li {
-      padding: .1em 1em;
+      padding: 0.1em 1em;
       list-style: square;
-      color: #4C7385; }
+      color: #4c7385; }
       .section.main ul li span {
-        color: #091E23; }
+        color: #091e23; }
   .section.main p a {
-    color: #4C7385;
+    color: #4c7385;
     text-decoration: none;
-    border-bottom: 2px solid #4C7385; }
+    border-bottom: 2px solid #4c7385; }
     .section.main p a:hover {
       color: #608fa4; }
     .section.main p a:active {
@@ -146,7 +146,7 @@ aside p {
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   font-family: "Museo Slab", serif; }
-  #aside .register a, #aside .register span {
+  #aside .register a {
     display: block;
     background-color: #576645;
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
@@ -156,11 +156,25 @@ aside p {
     line-height: 35px;
     text-decoration: none;
     color: #abb3a2;
-    border-radius: .7em;
-    -moz-border-radius: .7em;
-    -webkit-border-radius: .7em; }
+    border-radius: 0.7em;
+    -moz-border-radius: 0.7em;
+    -webkit-border-radius: 0.7em; }
+  #aside .register a.wait {
+    background: none;
+    display: block;
+    color: #091e23;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    font-size: 14px;
+    line-height: 45px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0; }
   #aside .register a:hover {
     background-color: #657453; }
+  #aside .register a.wait:hover {
+    font-weight: bold;
+    background: none; }
   #aside .register h2, #aside .register aside .register h3 {
     text-shadow: none; }
   #aside .register h2, #aside .register dt {
@@ -169,10 +183,13 @@ aside p {
     font-size: 15px;
     text-transform: uppercase;
     margin: 0; }
-  #aside .register h3 {
+  #aside .register h3, #aside .register span {
+    display: block;
     font: 24px/36px "Aller Bold Italic";
     color: #091e23;
     text-shadow: none; }
+  #aside .register span {
+    margin-bottom: 4%; }
   #aside .register dl {
     font-size: 13px;
     margin: 10px 0 15px 0;
@@ -189,7 +206,7 @@ aside p {
     padding-top: 4px;
     text-align: left;
     width: 65%;
-    font: 13px/15px "Museo Sans",sans-serif; }
+    font: 13px/15px "Museo Sans", sans-serif; }
 
 #aside .follow ul {
   margin: 1em 0;
@@ -227,7 +244,7 @@ aside p {
   margin-top: 10px; }
   #aside .past-events ul li {
     font: 13px/20px "Aller Bold", sans-serif;
-    color: #4C7385;
+    color: #4c7385;
     text-shadow: none; }
 #aside .past-events p {
   margin-top: 0; }
@@ -271,9 +288,9 @@ iframe {
   padding: 10px 20px;
   font-size: 12px;
   position: absolute;
-  border-radius: .5em;
-  -moz-border-radius: .5em;
-  -webkit-border-radius: .5em;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0; }
 

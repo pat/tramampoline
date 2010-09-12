@@ -165,7 +165,7 @@ p.under {
   -webkit-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   font-family: "Museo Slab", serif;
-  a, span {
+  a {
     display: block;
     background-color: #576645;
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
@@ -179,8 +179,24 @@ p.under {
     -moz-border-radius: .7em;
     -webkit-border-radius: .7em;
   }
+  a.wait {
+    background: none;
+    display: block;
+    color: #091e23;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    font-size: 14px;
+    line-height: 45px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+  }
   a:hover {
     background-color: #657453;
+  }
+  a.wait:hover {
+    font-weight: bold;
+    background: none;
   }
   h2, aside .register h3 {
     text-shadow: none; }
@@ -190,10 +206,14 @@ p.under {
     font-size: 15px;
     text-transform: uppercase;
     margin: 0; }
-  h3 {
+  h3, span {
+    display: block;
     font: 24px/36px "Aller Bold Italic";
     color: #091e23;
     text-shadow: none; }
+  span {
+    margin-bottom: 4%;
+  }
   dl {
     font-size: 13px;
     margin: 10px 0 15px 0;

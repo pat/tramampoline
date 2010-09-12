@@ -15,6 +15,7 @@
         %a{:href => register_path} Register
       - elsif !next_event.initial_sold_out?
         %span Sold Out!
+        != link_to "Join the waiting list", new_waiting_list_path
       - else
         %span Sold Out!
         %dl
