@@ -66,12 +66,26 @@ describe Event do
         event.should_not be_sold_out
       end
       
-      it "should return true if 150 registrations with some cancelled" do
+      it "should return false if 150 registrations with some cancelled before excess" do
         150.times do
           Attendee.make :event => event
         end
         
-        Attendee.find(:all, :limit => 5).each(&:cancel!)
+        Attendee.find(:all, :limit => 5).each { |attendee|
+          attendee.cancel! event.excess_at - 1.second
+        }
+        
+        event.should_not be_sold_out
+      end
+      
+      it "should return true if 150 registrations with some cancelled after excess released" do
+        150.times do
+          Attendee.make :event => event
+        end
+        
+        Attendee.find(:all, :limit => 5).each { |attendee|
+          attendee.cancel! event.excess_at + 1.second
+        }
         
         event.should be_sold_out
       end
