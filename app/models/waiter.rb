@@ -43,7 +43,7 @@ class Waiter < ActiveRecord::Base
   
   def close!
     update_attributes(:closed => true)
-    Waiter.invite! event
+    Waiter.invite!(event) if attendee.nil?
   end
   
   private
