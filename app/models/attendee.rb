@@ -19,6 +19,7 @@ class Attendee < ActiveRecord::Base
   named_scope :active_or_cancelled_after, lambda { |date|
     {:conditions => ['cancelled_at IS NULL OR cancelled_at >= ?', date]}
   }
+  named_scope :active, :conditions => 'cancelled_at IS NULL'
   
   def self.with_code(code)
     find_by_invite_code(code)

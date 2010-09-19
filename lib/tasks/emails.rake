@@ -8,6 +8,15 @@ namespace :emails do
     puts "Done."
   end
   
+  desc 'Send out Trampoline Preparation Reminder'
+  task :preparing => :environment do
+    Attendee.all.each do |attendee|
+      puts "Emailing #{attendee.name}"
+      Notifications.deliver_preparing attendee
+    end
+    puts "Done."
+  end
+  
   desc 'Send out Final Reminder'
   task :final_reminder => :environment do
     Attendee.all.each do |attendee|
