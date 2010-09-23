@@ -10,7 +10,7 @@ namespace :emails do
   
   desc 'Send out Trampoline Preparation Reminder'
   task :preparing => :environment do
-    Event.next.attendees.active.all.each do |attendee|
+    Event.next.attendees.active.each do |attendee|
       puts "Emailing #{attendee.name}"
       Notifications.deliver_preparing attendee
     end
@@ -19,7 +19,7 @@ namespace :emails do
   
   desc 'Send out Final Reminder'
   task :final_reminder => :environment do
-    Attendee.all.each do |attendee|
+    Event.next.attendees.active.each do |attendee|
       puts "Emailing #{attendee.name}"
       Notifications.deliver_final_reminder attendee
     end
