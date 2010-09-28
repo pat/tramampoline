@@ -1,4 +1,5 @@
 class AttendeesController < ApplicationController
+  before_filter :redirect_if_no_event
   before_filter :translate_params
   before_filter :check_if_over,     :only => [:new, :create]
   before_filter :check_if_on_sale,  :only => [:new, :create]

@@ -1,4 +1,6 @@
 class WaitingListsController < ApplicationController
+  before_filter :redirect_if_no_event
+  
   def new
     @waiter = event.waiters.build
   end
