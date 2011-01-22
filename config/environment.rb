@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'formtastic',    :version => '0.9.7'
   config.gem 'will_paginate', :version => '2.3.12'
-  config.gem 'exceptional',   :version => '2.0.3'
   config.gem 'haml',          :version => "3.0.0.beta.2"
   config.gem 'lu-tze',        :version => '0.2.0', :lib => 'lu_tze'
 
