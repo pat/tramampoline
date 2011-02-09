@@ -25,7 +25,7 @@ describe AttendeesController do
       
       get :new
       
-      response.should redirect_to(pending_attendees_path)
+      response.should redirect_to('/')
     end
     
     it "should assign a new attendee" do

@@ -1,31 +1,21 @@
 class Announcements < ActionMailer::Base
   helper :application
   
+  default :from => 'Pat Allan <pat@freelancing-gods.com>'
+  
   def tickets(subscriber)
-    subject     'Trampoline Tickets Available!'
-    recipients  subscriber.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => subscriber.email, :subject => 'Trampoline Tickets Available!'
   end
   
   def more(subscriber)
-    subject     'More Tickets for Trampoline!'
-    recipients  subscriber.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => subscriber.email, :subject => 'More Tickets for Trampoline!'
   end
   
   def more_soon(subscriber)
-    subject     'More Tickets for Trampoline!'
-    recipients  subscriber.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => subscriber.email, :subject => 'More Tickets for Trampoline!'
   end
   
   def tramp4(subscriber)
-    subject     'Trampoline Melbourne'
-    recipients  subscriber.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => subscriber.email, :subject => 'Trampoline Melbourne'
   end
 end

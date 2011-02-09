@@ -1,70 +1,49 @@
 class Notifications < ActionMailer::Base
   helper :application
   
+  default :from => 'Pat Allan <pat@freelancing-gods.com>'
+  
   def registration(attendee)
     @attendee = attendee
     
-    subject     'Trampoline Registration'
-    recipients  attendee.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => attendee.email, :subject => 'Trampoline Registration'
   end
   
   def invite(attendee)
     @attendee = attendee
     
-    subject     'Trampoline Invitation'
-    recipients  attendee.invite_email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => attendee.invite_email, :subject => 'Trampoline Invitation'
   end
   
   def invite_reminder(attendee)
     @attendee = attendee
-    
-    subject     'Trampoline Invitation Reminder'
-    recipients  attendee.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+
+    mail :to => attendee.email, :subject => 'Trampoline Invitation Reminder'
   end
   
   def preoverview(attendee)
     @attendee = attendee
     
-    subject     'Trampoline Approaching'
-    recipients  attendee.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => attendee.email, :subject => 'Trampoline Approaching'
   end
   
   def preparing(attendee)
     @attendee = attendee
     
-    subject     'Preparing for Trampoline'
-    recipients  attendee.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => attendee.email, :subject => 'Preparing for Trampoline'
   end
   
   def final_reminder(attendee)
-    subject     'Trampoline: The Final Reminder'
-    recipients  attendee.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => attendee.email, :subject => 'Trampoline: The Final Reminder'
   end
   
   def wrapup(attendee)
-    subject     'Trampoline: Wrapping Up'
-    recipients  attendee.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    mail :to => attendee.email, :subject => 'Trampoline: Wrapping Up'
   end
   
   def waiting_over(waiter)
     @waiter = waiter
-    subject     'Trampoline Waiting List: The Waiting is Over'
-    recipients  waiter.email
-    from        'Pat Allan <pat@freelancing-gods.com>'
-    sent_on     Time.zone.now
+    
+    mail :to => waiter.email, :subject => 'Trampoline Waiting List: The Waiting is Over'
   end
 end
