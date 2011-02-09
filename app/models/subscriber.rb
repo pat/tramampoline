@@ -41,6 +41,6 @@ class Subscriber < ActiveRecord::Base
   end
   
   def hominid
-    @hominid ||= Hominid::API.new('17e6699ec030e478d0be4f6f91110353-us2')
+    @hominid ||= Hominid::API.new(ENV['MAILCHIMP_API_KEY'])
   end
 end
