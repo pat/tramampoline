@@ -7,6 +7,7 @@ gem 'haml',          '3.0.25'
 gem 'lu-tze',        '0.2.0', :require => 'lu_tze'
 gem 'pg',            '0.10.1'
 gem 'will_paginate', '2.3.15'
+gem 'hominid',       '3.0.2'
 
 group :development, :test do
   gem 'rspec-rails',    '2.5.0'
