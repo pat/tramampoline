@@ -5,6 +5,7 @@
     %title Trampoline
     != stylesheet_link_tag 'http://yui.yahooapis.com/3.1.0/build/cssreset/reset-min.css', 'formtastic', 'application', 'formtastic_changes'
     %link{ :href => "/favicon.ico", :rel => "Shortcut Icon" }/
+    = csrf_meta_tag
   %body
     #header
       %h1!= link_to 'Trampoline', '/'

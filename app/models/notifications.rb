@@ -2,43 +2,48 @@ class Notifications < ActionMailer::Base
   helper :application
   
   def registration(attendee)
+    @attendee = attendee
+    
     subject     'Trampoline Registration'
     recipients  attendee.email
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
-    body        :attendee => attendee
   end
   
   def invite(attendee)
+    @attendee = attendee
+    
     subject     'Trampoline Invitation'
     recipients  attendee.invite_email
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
-    body        :attendee => attendee
   end
   
   def invite_reminder(attendee)
+    @attendee = attendee
+    
     subject     'Trampoline Invitation Reminder'
     recipients  attendee.email
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
-    body        :attendee => attendee
   end
   
   def preoverview(attendee)
+    @attendee = attendee
+    
     subject     'Trampoline Approaching'
     recipients  attendee.email
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
-    body        :attendee => attendee
   end
   
   def preparing(attendee)
+    @attendee = attendee
+    
     subject     'Preparing for Trampoline'
     recipients  attendee.email
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
-    body        :attendee => attendee
   end
   
   def final_reminder(attendee)
@@ -56,10 +61,10 @@ class Notifications < ActionMailer::Base
   end
   
   def waiting_over(waiter)
+    @waiter = waiter
     subject     'Trampoline Waiting List: The Waiting is Over'
     recipients  waiter.email
     from        'Pat Allan <pat@freelancing-gods.com>'
     sent_on     Time.zone.now
-    body        :waiter => waiter
   end
 end

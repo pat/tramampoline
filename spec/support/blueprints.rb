@@ -1,10 +1,14 @@
 require 'machinist/active_record'
 require 'faker'
 
+Machinist.configure do |config|
+  config.cache_objects = false
+end
+
 Attendee.blueprint do
   name  { Faker::Name.name }
   email { Faker::Internet.email }
-  event { Event.next || Event.make }
+  event { Event.next || Event.make! }
 end
 
 Event.blueprint do
@@ -18,7 +22,7 @@ end
 
 Invite.blueprint do
   description { "Special Guest Pass" }
-  event       { Event.next || Event.make }
+  event       { Event.next || Event.make! }
   amount      { 1 }
 end
 
@@ -29,5 +33,5 @@ end
 Waiter.blueprint do
   name  { Faker::Name.name }
   email { Faker::Internet.email }
-  event { Event.next || Event.make }
+  event { Event.next || Event.make! }
 end

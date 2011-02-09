@@ -3,7 +3,7 @@ require 'digest/sha1'
 class Attendee < ActiveRecord::Base
   validates_presence_of :name, :email, :invite_code
   
-  before_validation_on_create :set_invite_code
+  before_validation :set_invite_code, :on => :create
   after_create :send_attendee_email, :send_invited_email
   
   belongs_to :event
@@ -16,10 +16,10 @@ class Attendee < ActiveRecord::Base
     :primary_key => 'invite_code',
     :foreign_key => 'referral_code'
   
-  named_scope :active_or_cancelled_after, lambda { |date|
-    {:conditions => ['cancelled_at IS NULL OR cancelled_at >= ?', date]}
+  scope :active_or_cancelled_after, lambda { |date|
+    where(['cancelled_at IS NULL OR cancelled_at >= ?', date])
   }
-  named_scope :active, :conditions => 'cancelled_at IS NULL'
+  scope :active, where('cancelled_at IS NULL')
   
   def self.with_code(code)
     find_by_invite_code(code)
@@ -51,12 +51,12 @@ class Attendee < ActiveRecord::Base
   end
   
   def send_attendee_email
-    Notifications.deliver_registration self
+    Notifications.registration(self).deliver
   end
   
   def send_invited_email
     return if invited? || !inviting? || Time.zone.now >= event.excess_at
     
-    Notifications.deliver_invite self
+    Notifications.invite(self).deliver
   end
 end

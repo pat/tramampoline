@@ -5,7 +5,7 @@ class Invite < ActiveRecord::Base
     :primary_key => 'code',
     :foreign_key => 'referral_code'
   
-  before_validation_on_create :set_code
+  before_validation :set_code, :on => :create
   
   validates_presence_of :code, :event
   

@@ -9,14 +9,14 @@
   
   %p This is to ensure that Trampoline attendees continue to have a fantastic mix of interests and expertise - it's this mix that makes it such a great event!
 
-- semantic_form_for @attendee do |f|
-  != hidden_field_tag :waiting_code, params[:waiting_code]
-  - f.inputs do
-    != f.input :name
-    != f.input :email, :label => 'Email Address', :hint => "Just to contact you about this event - nothing else, and definitely no spam."
-    != f.input :phone, :label => 'Phone Number', :hint => "Not essential, but just in case we need to get in touch quickly."
-    - unless @attendee.invited? || all_released?
-      != f.input :invite_email, :label => 'Invitation Email Address', :hint => "You can invite someone who hasn't been to Trampoline before. If you know right now who they are, enter their email address here. If not, we'll give you a link later for the same purpose."
-    != f.input :referral_code, :as => :hidden
-  - f.buttons do
-    != f.commit_button 'Register'
+= semantic_form_for @attendee do |f|
+  = hidden_field_tag :waiting_code, params[:waiting_code]
+  = f.inputs do
+    = f.input :name
+    = f.input :email, :label => 'Email Address', :hint => "Just to contact you about this event - nothing else, and definitely no spam."
+    = f.input :phone, :label => 'Phone Number', :hint => "Not essential, but just in case we need to get in touch quickly."
+    = unless @attendee.invited? || all_released?
+      = f.input :invite_email, :label => 'Invitation Email Address', :hint => "You can invite someone who hasn't been to Trampoline before. If you know right now who they are, enter their email address here. If not, we'll give you a link later for the same purpose."
+    = f.input :referral_code, :as => :hidden
+  = f.buttons do
+    = f.commit_button 'Register'

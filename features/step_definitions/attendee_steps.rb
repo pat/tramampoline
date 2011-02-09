@@ -1,5 +1,5 @@
 Given /^a registered attendee "([^\"]*)"$/ do |name|
-  Attendee.make :name => name
+  Attendee.make! :name => name
 end
 
 When /^"([^"]*)" cancels his attendance$/ do |name|

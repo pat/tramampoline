@@ -1,5 +1,4 @@
 *.tmproj
-Gemfile.lock
 .bundle
 rerun.txt
 .sass-cache
