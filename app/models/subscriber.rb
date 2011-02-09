@@ -31,7 +31,7 @@ class Subscriber < ActiveRecord::Base
   def add_to_mailchimp
     return unless Rails.env.production?
     
-    hominid.list_subscribe MailChimpList, email, [], 'html', false, true, true, false
+    hominid.list_subscribe MailChimpList, email, [], 'html', true, true, true, false
   rescue
     puts "Invalid Email: #{email}"
   end
