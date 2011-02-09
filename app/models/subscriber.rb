@@ -32,12 +32,16 @@ class Subscriber < ActiveRecord::Base
     return unless Rails.env.production?
     
     hominid.list_subscribe MailChimpList, email, [], 'html', false, true, true, false
+  rescue
+    puts "Invalid Email: #{email}"
   end
   
   def remove_from_mailchimp
     return unless Rails.env.production?
     
     hominid.list_unsubscribe MailChimpList, email, false, true, true
+  rescue
+    puts "Invalid Email: #{email}"
   end
   
   def hominid
