@@ -1,5 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  include TronprintHelper
+  
   def next_event
     @next_event ||= Event.next
   end
