@@ -25,4 +25,4 @@
     } catch(err) {}
   .emissions
     %p Emission Estimate: #{ emission_estimate.inspect }
-    %p Total Footprint: #{ number_with_delimiter number_with_precision(total_footprint, :precision => 4) }kgCO<sub>2</sub>e
+    %p Total Footprint: #{ number_with_delimiter number_with_precision(total_footprint, :precision => 4) rescue 0 }kgCO<sub>2</sub>e
