@@ -13,7 +13,7 @@ class SingleDomain
   
   private
   
-  def request
+  def request(env)
     Rack::Request.new(env).url.sub(/trampolinemelb/i, 'trampolineday')
   end
 end
