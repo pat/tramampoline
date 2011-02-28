@@ -4,7 +4,10 @@
   var patience = $('.patience');
 
   patience.css('width', aside.css('width'));
-  patience.css('top', link.position().top + 20);
+  
+  if (link.length > 0) {
+    patience.css('top', link.position().top + 20);
+  }
 
   link.click(function() {
     if (patience.length > 0) {
@@ -12,7 +15,7 @@
       return false;
     }
   });
-  
+
   patience.click(function() {
     patience.toggleClass('wait');
   });
