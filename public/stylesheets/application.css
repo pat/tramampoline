@@ -253,14 +253,22 @@ form.formtastic fieldset.inputs ol li {
   width: 100%; }
 
 input[type="text"],
-form.formtastic fieldset.inputs input[type="text"] {
+input[type="email"],
+input[type="tel"],
+form.formtastic fieldset.inputs input[type="text"],
+form.formtastic fieldset.inputs input[type="email"],
+form.formtastic fieldset.inputs input[type="tel"] {
   margin-bottom: 10px;
   padding: 4px;
   width: 90%;
   border: 2px solid #7e9bc8;
   font-size: 13px; }
   input[type="text"]:focus,
-  form.formtastic fieldset.inputs input[type="text"]:focus {
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  form.formtastic fieldset.inputs input[type="text"]:focus,
+  form.formtastic fieldset.inputs input[type="email"]:focus,
+  form.formtastic fieldset.inputs input[type="tel"]:focus {
     border: 2px solid #091e23; }
 
 input[type="submit"],

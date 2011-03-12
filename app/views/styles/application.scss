@@ -293,7 +293,11 @@ form.formtastic fieldset.inputs ol li {
 }
 
 input[type="text"],
-form.formtastic fieldset.inputs input[type="text"] {
+input[type="email"],
+input[type="tel"],
+form.formtastic fieldset.inputs input[type="text"],
+form.formtastic fieldset.inputs input[type="email"],
+form.formtastic fieldset.inputs input[type="tel"] {
   margin-bottom: 10px;
   padding: 4px;
   width: 90%;
