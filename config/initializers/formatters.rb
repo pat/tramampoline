@@ -1,5 +1,5 @@
 Time::DATE_FORMATS[:date_with_hour] = lambda { |time|
-  time.strftime("%B #{time.day.ordinalize} %Y, %I%p")
+  time.strftime("%B #{time.day.ordinalize} %Y, %l%p")
 }
 
 Date::DATE_FORMATS[:day_and_date] = lambda { |date|
