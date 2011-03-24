@@ -50,7 +50,7 @@ namespace :emails do
       next unless attendee.invited.nil?
       
       puts "Emailing #{attendee.name}"
-      Notifications.deliver_invite_reminder attendee
+      Notifications.invite_reminder(attendee).deliver
     end
     puts "Done."
   end
