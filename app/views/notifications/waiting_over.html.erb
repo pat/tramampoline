@@ -1,2 +1,9 @@
-<html><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; ">Hi <%= @waiter.name %><br><br>You're in luck! A place has just opened up, and you can attend Trampoline! To confirm your place, please use <a href="http://trampolineday.com<%= step_forward_path(@waiter.code) %>">this link</a> to register:<br><br><a href="http://trampolineday.com<%= step_forward_path(@waiter.code) %>">http://trampolineday.com<%= step_forward_path(@waiter.code) %></a><br><br>Please make sure you register <b>WITHIN 24 HOURS</b>, otherwise we will offer this place to the next person in the queue.<br><br>Looking forward to seeing you at Trampoline.<br><br>Peace, love and sticky rice<br><br>--&nbsp;<br>
-<%= team_string %><br></body></html>
+<p>Hi <%= @waiter.name %></p>
+
+<p>You're in luck! A place has just opened up, and you can attend Trampoline! To confirm your place, please use <a href="http://trampolineday.com<%= step_forward_path(@waiter.code) %>">this link</a> to register:</p>
+
+<p><a href="http://trampolineday.com<%= step_forward_path(@waiter.code) %>">http://trampolineday.com<%= step_forward_path(@waiter.code) %></a></p>
+
+<p>Please make sure you register <b>WITHIN 24 HOURS</b>, otherwise we will offer this place to the next person in the queue.</p>
+
+<p>Looking forward to seeing you at Trampoline.</p>
