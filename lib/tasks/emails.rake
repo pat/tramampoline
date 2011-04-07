@@ -10,9 +10,9 @@ namespace :emails do
   
   desc 'Send out Trampoline Preparation Reminder'
   task :preparing => :environment do
-    Event.next.attendees.active.each do |attendee|
+    Event.next.attendees.active.order('created_at ASC').each do |attendee|
       puts "Emailing #{attendee.name}"
-      Notifications.deliver_preparing attendee
+      Notifications.preparing(attendee).deliver
     end
     puts "Done."
   end
