@@ -19,9 +19,9 @@ namespace :emails do
   
   desc 'Send out Final Reminder'
   task :final_reminder => :environment do
-    Event.next.attendees.active.each do |attendee|
+    Event.next.attendees.active.order('created_at ASC').each do |attendee|
       puts "Emailing #{attendee.name}"
-      Notifications.deliver_final_reminder attendee
+      Notifications.final_reminder(attendee).deliver
     end
     puts "Done."
   end
