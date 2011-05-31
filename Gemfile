@@ -9,6 +9,7 @@ gem 'pg',            '0.10.1'
 gem 'will_paginate', '2.3.15'
 gem 'hominid',       '3.0.2'
 gem 'tronprint',     '0.0.16'
+gem 'hoptoad_notifier', '~> 2.4.11'
 
 group :development, :test do
   gem 'rspec-rails',    '2.5.0'
