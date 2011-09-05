@@ -23,6 +23,6 @@
     var pageTracker = _gat._getTracker("UA-2475317-10");
     pageTracker._trackPageview();
     } catch(err) {}
-  .emissions
-    %p Emission Estimate: #{ emission_estimate.inspect }
-    %p Total Footprint: #{ number_with_delimiter number_with_precision(total_footprint, :precision => 4) rescue 0 }kgCO<sub>2</sub>e
+  - if Rails.env.production?
+    .emissions
+      = footprint_badge

@@ -29,21 +29,22 @@ Capybara.default_selector = :css
 #
 ActionController::Base.allow_rescue = false
 
-# If you set this to true, each scenario will run in a database transaction.
-# You can still turn off transactions on a per-scenario basis, simply tagging 
-# a feature or scenario with the @no-txn tag. If you are using Capybara,
-# tagging with @culerity or @javascript will also turn transactions off.
-#
-# If you set this to false, transactions will be off for all scenarios,
-# regardless of whether you use @no-txn or not.
-#
-# Beware that turning transactions off will leave data in your database 
-# after each scenario, which can lead to hard-to-debug failures in 
-# subsequent scenarios. If you do this, we recommend you create a Before
-# block that will explicitly put your database in a known state.
-Cucumber::Rails::World.use_transactional_fixtures = true
+# Remove/comment out the lines below if your app doesn't have a database.
+# For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
+begin
+  DatabaseCleaner.strategy = :transaction
+rescue NameError
+  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
+end
 
-# How to clean your database when transactions are turned off. See
-# http://github.com/bmabey/database_cleaner for more info.
-DatabaseCleaner.strategy = :truncation
-
+# You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
+# See the DatabaseCleaner documentation for details. Example:
+#
+#   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
+#     DatabaseCleaner.strategy = :truncation, {:except => %w[widgets]}
+#   end
+#
+#   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
+#     DatabaseCleaner.strategy = :transaction
+#   end
+#

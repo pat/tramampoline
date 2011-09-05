@@ -1,2 +1,2 @@
 # Let's not go duplicating code, test or otherwise.
-require 'spec/support/blueprints'
+require Rails.root.join('spec', 'support', 'blueprints')

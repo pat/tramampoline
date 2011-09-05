@@ -3,13 +3,15 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  helper TronprintHelper
+
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-  
+
   private
-  
+
   def redirect_if_no_event
     redirect_to '/' unless Event.upcoming?
   end
