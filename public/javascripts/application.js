@@ -4,7 +4,7 @@
   var patience = $('.patience');
 
   patience.css('width', aside.css('width'));
-  
+
   if (link.length > 0) {
     patience.css('top', link.position().top + 20);
   }
@@ -19,7 +19,7 @@
   patience.click(function() {
     patience.toggleClass('wait');
   });
-  
+
   if(!Modernizr.input.placeholder) {
     $("input").each(function() {
       if($(this).val() == "" && $(this).attr("placeholder") != "") {
@@ -35,4 +35,6 @@
       }
     });
   }
+
+  $('form.paypal').submit();
 })();

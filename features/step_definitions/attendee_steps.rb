@@ -11,3 +11,8 @@ When /^"([^"]*)" cancelled his attendance (\d+) days ago$/ do |name, days|
   Attendee.find_by_name(name).cancel!
   Timecop.return
 end
+
+When /^PayPal redirects me back after a successful payment for "([^"]*)"$/ do |name|
+  attendee = Attendee.find_by_name(name)
+  visit confirmed_attendee_path(attendee)
+end

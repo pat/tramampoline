@@ -26,6 +26,19 @@ Invite.blueprint do
   amount      { 1 }
 end
 
+IPNotification.blueprint do
+  business               { 'email@domain.com' }
+  receiver_email         { object.business }
+  transaction_type       { 'send_money' }
+  transaction_id         { 'I-3YTCCUFV7GK6' }
+  attendee               { Attendee.make! }
+  amount                 { 25.00 }
+  payment_date           { Time.zone.local(2011, 9, 8, 19, 1, 31) }
+  verification_signature { 'AFcWxV21C7fd0v3bYYYRCpSSRl31AAnihQSZwCp6N8g3NYySz6.0Wuhu' }
+  query_string           { 'business=email@domain.com&txn_type=send_money' }
+  status                 { 'VERIFIED' }
+end
+
 Subscriber.blueprint do
   email { Faker::Internet.email }
 end

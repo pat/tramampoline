@@ -5,15 +5,21 @@ Tramampoline::Application.routes.draw do
   match '/step_forward/:waiting_code' => 'attendees#new', :as => :step_forward
   match '/guide' => 'home#guide', :as => :guide
   match '/sydney' => 'home#sydney', :as => :guide
-  
+
   resources :attendees do
     collection do
       get :pending, :sold_out, :patience
     end
+
+    member do
+      get :confirmed, :cancelled
+    end
   end
-  
+
+  resources :ipns, :only => :create
+
   resources :subscribers
   resources :waiting_list, :controller => 'waiting_lists'
-  
+
   match '/:controller(/:action(/:id))'
 end

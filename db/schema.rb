@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110213050109) do
+ActiveRecord::Schema.define(:version => 20110905031625) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                          :null => false
@@ -52,6 +53,27 @@ ActiveRecord::Schema.define(:version => 20110213050109) do
 
   add_index "invites", ["code"], :name => "index_invites_on_code"
   add_index "invites", ["event_id"], :name => "index_invites_on_event_id"
+
+  create_table "ip_notifications", :force => true do |t|
+    t.string   "business"
+    t.string   "receiver_email"
+    t.string   "transaction_type"
+    t.string   "transaction_id"
+    t.integer  "attendee_id"
+    t.decimal  "amount",                                 :precision => 6, :scale => 2
+    t.datetime "payment_date"
+    t.string   "verification_signature"
+    t.string   "query_string",           :limit => 2048
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ip_notifications", ["attendee_id"], :name => "index_ip_notifications_on_attendee_id"
+  add_index "ip_notifications", ["business"], :name => "index_ip_notifications_on_business"
+  add_index "ip_notifications", ["status"], :name => "index_ip_notifications_on_status"
+  add_index "ip_notifications", ["transaction_id"], :name => "index_ip_notifications_on_transaction_id"
+  add_index "ip_notifications", ["transaction_type"], :name => "index_ip_notifications_on_transaction_type"
 
   create_table "moneta_store", :id => false, :force => true do |t|
     t.string "key",   :null => false

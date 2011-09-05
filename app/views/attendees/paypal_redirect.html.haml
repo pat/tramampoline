@@ -1,0 +1,7 @@
+%h2 Hold on...
+
+%p We're just sending you off to PayPal to sort out payment.
+
+%form.paypal{:name => '_xclick', :action => 'https://www.paypal.com/cgi-bin/webscr', :method => 'post'}
+  - paypal_form_options(attendee).each do |name, value|
+    %input{:type => 'hidden', :name => name, :value => value}
