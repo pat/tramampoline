@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.10'
 
 gem 'formtastic',       '1.2.3'
 gem 'haml',             '3.0.25'
