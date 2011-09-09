@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def referral_link(attendee)
-    accept_url(attendee.invite_code)
+    accept_url(attendee.invite.code)
   end
 
   def all_released?
@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def team
-    ['Aida', 'Mel', 'Pat', 'Steve'].sort_by { rand }
+    ['Aida', 'Pat'].sort_by { rand }
   end
 
   def team_string

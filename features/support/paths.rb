@@ -7,21 +7,21 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
     when /the home\s?page/
       '/'
-    
+
     when /the registration page$/
       '/register'
-    
+
     when /the registration page with the invite code from "([^"]*)"/
       attendee = Attendee.find_by_name $1
-      "/register?attendee[referral_code]=#{attendee.invite_code}"
-    
+      accept_path(attendee.invite.code)
+
     when /the registration page with the invite code for "([^"]*)"/
       invite = Invite.find_by_description $1
-      "/register?attendee[referral_code]=#{invite.code}"
-    
+      accept_path(invite.code)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

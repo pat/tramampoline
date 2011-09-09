@@ -6,13 +6,13 @@ Thanks for registering for Trampoline on <%= next_event.happens_on.to_s(:ordinal
 <%- if @attendee.inviting? -%>
 We've also sent an email to <%= @attendee.invite_email %> to see if they'd like to come along as well - just as you asked. If they don't, then you'll want to send on this special one-use-only registration link to someone else:
 
-http://trampolineday.com<%= accept_path(@attendee.invite_code) %>
+http://trampolineday.com<%= accept_path(@attendee.invite.code) %>
 
 Please pass it on to someone who hasn't been to a Trampoline before! Make sure they register before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.
 <%- else -%>
 Because you've registered nice and early, we've given you a second registration ticket that we'd like you to give to someone who hasn't been to a Trampoline before. You should send the following link to that friend, so we can ensure their place at Trampoline is reserved.
 
-http://trampolineday.com<%= accept_path(@attendee.invite_code) %>
+http://trampolineday.com<%= accept_path(@attendee.invite.code) %>
 
 Make sure they register before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.
 <%- end -%>
@@ -26,6 +26,6 @@ Looking forward to seeing you on Saturday <%= next_event.happens_on.to_s(:ordina
 
 Peace, love and sticky rice
 
--- 
+--
 <%= team_string %>
 Trampoline

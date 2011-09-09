@@ -2,7 +2,7 @@
 
 <p><b><%= @attendee.name %></b> has invited you to come along to Trampoline - a day filled with awesome ideas, crazy concepts, and amazing people. It's happening on <b><%= next_event.happens_on.to_s(:ordinal_date_and_month) %></b>, and places are limited - so you'll need to confirm your spot by clicking on the link below <b>before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %></b>:</p>
 
-<p><a href="http://trampolineday.com<%= accept_path(@attendee.invite_code) %>">http://trampolineday.com<%= accept_path(@attendee.invite_code) %></a></p>
+<p><a href="http://trampolineday.com<%= accept_path(@attendee.invite.code) %>">http://trampolineday.com<%= accept_path(@attendee.invite.code) %></a></p>
 
 <p>For more general information about the event, have a peruse of our website:</p>
 

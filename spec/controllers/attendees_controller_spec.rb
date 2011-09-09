@@ -5,7 +5,7 @@ describe AttendeesController do
     let(:attendee) { Attendee.make! }
 
     it "should find the attendee by invite code" do
-      get :show, :id => attendee.invite_code
+      get :show, :id => attendee.slug
 
       controller.attendee.should == attendee
     end
@@ -40,18 +40,18 @@ describe AttendeesController do
       Event.make! :release_at => 1.day.ago
       attendee = Attendee.make!
 
-      get :new, :attendee => {:referral_code => attendee.invite_code}
+      get :new, :attendee => {:referral_code => attendee.invite.code}
 
-      controller.attendee.referral_code.should == attendee.invite_code
+      controller.attendee.referral_code.should == attendee.invite.code
     end
 
     it "should accept invite codes in simple parameters" do
       Event.make! :release_at => 1.day.ago
       attendee = Attendee.make!
 
-      get :new, :invite_code => attendee.invite_code
+      get :new, :invite_code => attendee.invite.code
 
-      controller.attendee.referral_code.should == attendee.invite_code
+      controller.attendee.referral_code.should == attendee.invite.code
     end
 
     context 'invalid referral code' do
@@ -72,7 +72,7 @@ describe AttendeesController do
     context 'already used referral code' do
       before :each do
         Event.make! :release_at => 1.day.ago
-        attendee = Attendee.make! :referral_code => Attendee.make!.invite_code
+        attendee = Attendee.make! :referral_code => Attendee.make!.invite.code
 
         get :new, :attendee => {:referral_code => attendee.referral_code}
       end
@@ -102,7 +102,7 @@ describe AttendeesController do
       it "should render the default view if a valid referral code is provided" do
         attendee = Attendee.make!
 
-        get :new, :attendee => {:referral_code => attendee.invite_code}
+        get :new, :attendee => {:referral_code => attendee.invite.code}
 
         response.should render_template('attendees/new')
       end

@@ -11,21 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110905031625) do
+ActiveRecord::Schema.define(:version => 20110909024057) do
 
   create_table "attendees", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.string   "email",                         :null => false
+    t.string   "name",                             :null => false
+    t.string   "email",                            :null => false
     t.string   "phone",         :default => ""
     t.string   "invite_email",  :default => ""
-    t.string   "invite_code",   :default => ""
+    t.string   "slug",          :default => ""
     t.string   "referral_code", :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_id",      :default => 3,  :null => false
+    t.integer  "event_id",      :default => 3,     :null => false
     t.datetime "cancelled_at"
+    t.boolean  "confirmed",     :default => false
   end
 
+  add_index "attendees", ["confirmed"], :name => "index_attendees_on_confirmed"
   add_index "attendees", ["event_id"], :name => "index_attendees_on_event_id"
 
   create_table "events", :force => true do |t|
@@ -49,10 +51,15 @@ ActiveRecord::Schema.define(:version => 20110905031625) do
     t.integer  "amount",      :default => 1,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "parent_type"
+    t.integer  "parent_id"
+    t.datetime "expires_at"
   end
 
   add_index "invites", ["code"], :name => "index_invites_on_code"
   add_index "invites", ["event_id"], :name => "index_invites_on_event_id"
+  add_index "invites", ["parent_id"], :name => "index_invites_on_parent_id"
+  add_index "invites", ["parent_type"], :name => "index_invites_on_parent_type"
 
   create_table "ip_notifications", :force => true do |t|
     t.string   "business"
