@@ -10,7 +10,7 @@ Feature: Registration
     When  I go to the registration page
       And I fill in "Name" with "Steve Hopkins"
       And I fill in "Email Address" with "steve@thesquigglyline.com"
-      And I press "Register"
+      And I press "Continue"
     Then  I should see "We're just sending you off to PayPal"
     When  PayPal redirects me back after a successful payment for "Steve Hopkins"
     Then  I should see "Thanks for registering"

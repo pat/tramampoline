@@ -41,6 +41,10 @@ class AttendeesController < ApplicationController
     render :action => 'show'
   end
 
+  def cancelled
+    redirect_to register_path
+  end
+
   private
 
   def attendee_in_context
