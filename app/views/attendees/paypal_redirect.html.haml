@@ -2,6 +2,11 @@
 
 %p We're just sending you off to PayPal to sort out payment.
 
-%form.paypal{:name => '_xclick', :action => 'https://www.paypal.com/cgi-bin/webscr', :method => 'post'}
+%form.paypal.formtastic{:name => '_xclick', :action => 'https://www.paypal.com/cgi-bin/webscr', :method => 'post'}
   - paypal_form_options(attendee).each do |name, value|
     %input{:type => 'hidden', :name => name, :value => value}
+  %fieldset.buttons
+    %ol
+      %li.commit
+        %p If you're not seeing PayPal's website within a few seconds, hit the button below.
+        %input.create{:type => 'submit', :value => 'Continue to PayPal'}
