@@ -1,6 +1,6 @@
 %h2 Register for Trampoline
 
-- unless attendee.invited? || all_released?
+- if !(attendee.invited? || all_released?)
   %p You can book your spot at Trampoline by filling out this form. It costs $25 (we need to cover our costs), and places are limited, so please register promptly!
 
   %p When you register, you will be given a special website link for someone else to register as well. We would like you to give this link to someone who <strong>hasn't been to Trampoline before</strong> - ideally, someone who works in a different field to yourself.
@@ -8,8 +8,10 @@
   %p If you know right now who you want to invite, give us their email address, and we'll send them the invitation and website link directly.
 
   %p This is to ensure that Trampoline attendees continue to have a fantastic mix of interests and expertise - it's this mix that makes it such a great event!
+- elsif attendee.invited?
+  %p You can book your spot at Trampoline by filling out this form. There is <strong>no cost</strong> for you to attend the event with this special invite - but places are limited, so please register promptly!
 - else
-  %p You can book your spot at Trampoline by filling out this form. There is <strong>no cost</strong> to attend the event - but places are limited, so please register promptly!
+  %p You can book your spot at Trampoline by filling out this form. There is <strong>no cost</strong> for the remaining tickets - but places are limited, so please register promptly!
 
 = semantic_form_for attendee do |f|
   = hidden_field_tag :waiting_code, params[:waiting_code]
