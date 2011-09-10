@@ -20,7 +20,11 @@ module ApplicationHelper
 
   def team_string
     array = team.clone
-    array[0..2].join(', ') + " and #{array.last}"
+    if array.length == 2
+      array.join(' and ')
+    else
+      array[0..-2].join(', ') + " and #{array.last}"
+    end
   end
 
   def paypal_form_options(attendee)
