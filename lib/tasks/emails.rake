@@ -7,7 +7,7 @@ namespace :emails do
     end
     puts "Done."
   end
-  
+
   desc 'Send out Trampoline Preparation Reminder'
   task :preparing => :environment do
     Event.next.attendees.active.order('created_at ASC').each do |attendee|
@@ -16,7 +16,7 @@ namespace :emails do
     end
     puts "Done."
   end
-  
+
   desc 'Send out Final Reminder'
   task :final_reminder => :environment do
     Event.next.attendees.active.order('created_at ASC').each do |attendee|
@@ -25,7 +25,7 @@ namespace :emails do
     end
     puts "Done."
   end
-  
+
   desc 'Send out Wrapping up'
   task :wrapup => :environment do
     Event.past.last.attendees.active.order('created_at ASC').each do |attendee|
@@ -34,7 +34,7 @@ namespace :emails do
     end
     puts "Done."
   end
-  
+
   desc 'Announcing Trampoline Melbourne'
   task :tramp4 => :environment do
     Subscriber.all.each do |subscriber|
@@ -43,18 +43,18 @@ namespace :emails do
     end
     puts "Done."
   end
-  
+
   desc 'Send invitation reminders'
   task :invite_reminders => :environment do
-    Event.last.uninvited_attendees.each do |attendee|
-      next unless attendee.invited.nil?
-      
+    Event.next.uninvited_attendees.each do |attendee|
+      next unless attendee.invite.attendees.empty?
+
       puts "Emailing #{attendee.name}"
       Notifications.invite_reminder(attendee).deliver
     end
     puts "Done."
   end
-  
+
   desc 'Send out notice about upcoming second ticket release'
   task :more_soon => :environment do
     Subscriber.all.each do |subscriber|
@@ -63,7 +63,7 @@ namespace :emails do
     end
     puts "Done."
   end
-  
+
   desc 'Send out second ticket release announcement'
   task :more => :environment do
     Subscriber.all.each do |subscriber|
