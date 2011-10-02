@@ -23,7 +23,7 @@ class Attendee < ActiveRecord::Base
       date, true
     ])
   }
-  scope :active, where('cancelled_at IS NULL')
+  scope :active, where('cancelled_at IS NULL AND confirmed = ?', true)
 
   def cancel!(time = Time.zone.now)
     update_attributes(:cancelled_at => time)
