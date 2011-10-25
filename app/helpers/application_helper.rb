@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def team
-    ['Aida', 'Pat', 'Nick'].sort_by { rand }
+    ['Aida', 'Pat'].sort_by { rand }
   end
 
   def team_string
