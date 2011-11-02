@@ -28,7 +28,7 @@ namespace :emails do
 
   desc 'Send out Wrapping up'
   task :wrapup => :environment do
-    Event.past.last.attendees.active.order('created_at ASC').each do |attendee|
+    Event.latest.attendees.active.order('created_at ASC').each do |attendee|
       puts "Emailing #{attendee.name}"
       Notifications.wrapup(attendee).deliver
     end

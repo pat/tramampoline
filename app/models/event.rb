@@ -34,6 +34,10 @@ class Event < ActiveRecord::Base
       :order => 'happens_on ASC'
   end
 
+  def self.latest
+    where('happens_on <= ?', Date.today).order('happens_on DESC').first
+  end
+
   def on_sale?
     release_at <= Time.zone.now
   end
