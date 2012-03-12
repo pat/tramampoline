@@ -13,7 +13,7 @@ gem 'tronprint',        '1.2.3', :group => :production
 gem 'will_paginate',    '2.3.15'
 
 group :development, :test do
-  gem 'cucumber-rails', '1.0.2'
+  gem 'cucumber-rails', '1.0.2', :require => false
   gem 'email_spec',     '1.1.1'
   gem 'rspec-rails',    '2.6.1'
 end

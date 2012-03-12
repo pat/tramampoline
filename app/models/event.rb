@@ -12,26 +12,19 @@ class Event < ActiveRecord::Base
     :conditions => "referral_code <> '' and confirmed = 't'",
     :class_name => 'Attendee'
 
+  scope :upcoming, lambda {
+    where('happens_on > ?', Date.today).order(:happens_on) }
+  scope :next_and_upcoming, lambda {
+    where('happens_on >= ?', Date.today).order(:happens_on) }
+  scope :past, lambda {
+    where('happens_on < ?', Date.today).order(:happens_on) }
+
   def self.upcoming?
     last && last.happens_on > Date.today
   end
 
   def self.next
-    find :first,
-      :conditions => ['happens_on > ?', Date.today],
-      :order => 'happens_on ASC'
-  end
-
-  def self.upcoming
-    find :all,
-      :conditions => ['happens_on > ?', Date.today],
-      :order => 'happens_on ASC'
-  end
-
-  def self.past
-    find :all,
-      :conditions => ['happens_on <= ?', Date.today],
-      :order => 'happens_on ASC'
+    next_and_upcoming.first
   end
 
   def self.latest
@@ -56,5 +49,9 @@ class Event < ActiveRecord::Base
 
   def initial_sold_out?
     on_sale? && sold_out? && !excess_on_sale?
+  end
+
+  def to_param
+    "#{id}-#{city.downcase}"
   end
 end

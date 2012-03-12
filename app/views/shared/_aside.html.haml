@@ -1,27 +1,30 @@
-.register
-  %h2 Next Event
-  - if Event.upcoming?
-    %h3= next_event.city
+- Event.next_and_upcoming.each do |event|
+  .register
+    %h2 Next Event
+    %h3= event.city
     %dl
       %dt When
-      %dd= next_event.happens_on.to_s(:day_and_date)
+      %dd= event.happens_on.to_s(:day_and_date)
       %dt Where
-      %dd= next_event.venue
-      - if !next_event.on_sale?
+      %dd= event.venue
+      - if !event.on_sale?
         %dt Tickets
-        %dd= next_event.release_at.to_s(:date_with_hour)
-    - if next_event.on_sale?
-      - if !next_event.sold_out?
-        %a{:href => register_path} Register
-      - elsif !next_event.initial_sold_out?
+        %dd= event.release_at.to_s(:date_with_hour)
+    - if event.on_sale?
+      - if !event.sold_out?
+        %a{:href => event_register_path(event)} Register
+      - elsif !event.initial_sold_out?
         %span Sold Out!
-        != link_to "Join the waiting list", new_waiting_list_path
+        != link_to "Join the waiting list", new_event_waiting_list_path(event)
       - else
         %span Sold Out!
         %dl
           %dt More Tickets
-          %dd= next_event.excess_at.to_s(:date_with_hour)
-  - else
+          %dd= event.excess_at.to_s(:date_with_hour)
+
+- if Event.next_and_upcoming.count.zero?
+  .register
+    %h2 Next Event
     %h3 To Be Announced - Watch This Space!
 
 .mailing-list
@@ -56,6 +59,12 @@
     %li
       %a(href="http://www.circusoz.com/")
         %img(src="/images/circusoz.png" title="Circus Oz")
+    %li
+      %a(href="http://oxfordstdesignstore.com.au")
+        %img(src="/images/oxford-design.png" title="Oxford St Design Store")
+    %li
+      %a(href="http://fishburners.org")
+        %img(src="/images/fishburners.png" title="Fishburners")
     %li
       %a(href="http://webdirections.org")
         %img(src="/images/web_directions.png" title="Web Directions")

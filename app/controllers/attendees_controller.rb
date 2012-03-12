@@ -8,7 +8,7 @@ class AttendeesController < ApplicationController
   expose(:attendee) { attendee_in_context }
   expose(:invite)   { Invite.with_code(attendee.referral_code) }
   expose(:waiter)   { Waiter.find_by_code(params[:waiting_code]) }
-  expose(:event)    { Event.next }
+  expose(:event)    { Event.find params[:event_id] }
 
   def new
     if invalid_referral_code?
@@ -28,7 +28,7 @@ class AttendeesController < ApplicationController
     if attendee.save
       waiter.update_attributes(:attendee_id => attendee.id) unless waiter.nil?
       if attendee.confirmed?
-        redirect_to attendee_path(attendee.slug)
+        redirect_to event_attendee_path(event, attendee.slug)
       else
         render :action => 'paypal_redirect'
       end
@@ -68,15 +68,15 @@ class AttendeesController < ApplicationController
   end
 
   def check_if_over
-    redirect_to pending_attendees_path if over?
+    redirect_to pending_event_attendees_path(event) if over?
   end
 
   def check_if_on_sale
-    redirect_to patience_attendees_path unless event.on_sale?
+    redirect_to patience_event_attendees_path(event) unless event.on_sale?
   end
 
   def check_if_sold_out
-    redirect_to sold_out_attendees_path if sold_out?
+    redirect_to sold_out_event_attendees_path(event) if sold_out?
   end
 
   def over?

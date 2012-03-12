@@ -2,7 +2,7 @@ Hi <%= @waiter.name %>
 
 You're in luck! A place has just opened up, and you can attend Trampoline! To confirm your place, please use the following link to register:
 
-http://trampolineday.com<%= accept_path(@waiter.invite.code) %>
+http://trampolineday.com<%= event_accept_path(@waiter.event, @waiter.invite.code) %>
 
 Please make sure you register WITHIN 24 HOURS, otherwise we will offer this place to the next person in the queue.
 

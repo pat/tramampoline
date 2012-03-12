@@ -2,16 +2,8 @@
 module ApplicationHelper
   include TronprintHelper if Rails.env.production?
 
-  def next_event
-    @next_event ||= Event.next
-  end
-
   def referral_link(attendee)
-    accept_url(attendee.invite.code)
-  end
-
-  def all_released?
-    Time.zone.now >= next_event.excess_at
+    event_accept_url(attendee.event, attendee.invite.code)
   end
 
   def team
@@ -36,9 +28,9 @@ module ApplicationHelper
       'amount'        => '25.00',
       'no_shipping'   => '1',
       'no_note'       => '1',
-      'return'        => confirmed_attendee_url(attendee),
+      'return'        => confirmed_event_attendee_url(attendee.event, attendee),
       'rm'            => '1',
-      'cancel_return' => cancelled_attendee_url(attendee),
+      'cancel_return' => cancelled_event_attendee_url(attendee.event, attendee),
       'custom'        => attendee.id,
       'notify_url'    => ipns_url,
       'cbt'           => 'Return to Trampoline'

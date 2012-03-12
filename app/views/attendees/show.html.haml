@@ -6,13 +6,13 @@
 
 %ul
   %li
-    = next_event.happens_on.to_s(:day_and_date)
+    = event.happens_on.to_s(:day_and_date)
     from 9:00am to 6:00pm
-  %li!= link_to next_event.address, next_event.map_uri
+  %li!= link_to event.address, event.map_uri
 
-%iframe(width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="#{next_event.embedded_map_uri}")
+%iframe(width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="#{event.embedded_map_uri}")
 
-- unless attendee.invited? || all_released?
+- unless attendee.invited? || event.excess_on_sale?
   - if attendee.inviting?
     %p
       We've sent an email to

@@ -14,7 +14,7 @@ end
 
 When /^PayPal redirects me back after a successful payment for "([^"]*)"$/ do |name|
   attendee = Attendee.find_by_name(name)
-  visit confirmed_attendee_path(attendee)
+  visit confirmed_event_attendee_path(attendee.event, attendee)
 end
 
 When /^PayPal confirms the payment for "([^"]*)"$/ do |name|

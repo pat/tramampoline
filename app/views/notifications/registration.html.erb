@@ -1,21 +1,21 @@
 <p>
 Hi <%= @attendee.name %></p>
 <p>
-Thanks for registering for Trampoline on <%= next_event.happens_on.to_s(:ordinal_date_and_month) %>!</p>
+Thanks for registering for Trampoline on <%= @attendee.event.happens_on.to_s(:ordinal_date_and_month) %>!</p>
 
-<%- unless @attendee.invited? || all_released? -%>
+<%- unless @attendee.invited? || @attendee.event.excess_on_sale? -%>
 <%- if @attendee.inviting? -%>
 <p>We've also sent an email to <%= @attendee.invite_email %> to see if they'd like to come along as well - just as you asked. If they don't, then you'll want to send on this special one-use-only registration link to someone else:</p>
 
-<p><a href="http://trampolineday.com<%= accept_path(@attendee.invite.code) %>">http://trampolineday.com<%= accept_path(@attendee.invite.code) %></a></p>
+<p><a href="http://trampolineday.com<%= event_accept_path(@attendee.event, @attendee.invite.code) %>">http://trampolineday.com<%= event_accept_path(@attendee.event, @attendee.invite.code) %></a></p>
 
-<p>Please pass it on to someone who hasn't been to a Trampoline before! Make sure they register before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.</p>
+<p>Please pass it on to someone who hasn't been to a Trampoline before! Make sure they register before <%= @attendee.event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.</p>
 <%- else -%>
 <p>Because you've registered nice and early, we've given you a second registration ticket that we'd like you to give to someone who hasn't been to a Trampoline before. You should send the following link to that friend, so we can ensure their place at Trampoline is reserved.</p>
 
-<p><a href="http://trampolineday.com<%= accept_path(@attendee.invite.code) %>">http://trampolineday.com<%= accept_path(@attendee.invite.code) %></a></p>
+<p><a href="http://trampolineday.com<%= event_accept_path(@attendee.event, @attendee.invite.code) %>">http://trampolineday.com<%= event_accept_path(@attendee.event, @attendee.invite.code) %></a></p>
 
-<p>Make sure they register before <%= next_event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.</p>
+<p>Make sure they register before <%= @attendee.event.excess_at.to_s(:ordinal_date_and_month) %>, otherwise we might offer their place to the waiting list.</p>
 <%- end -%>
 <%- end -%>
 
@@ -23,4 +23,4 @@ Thanks for registering for Trampoline on <%= next_event.happens_on.to_s(:ordinal
 
 <p>If it turns out you cannot make it, please let us know (by replying to this email), because we'd like to fit as many people as possible in on the day.</p>
 
-<p>Looking forward to seeing you on Saturday <%= next_event.happens_on.to_s(:ordinal_date_and_month) %>!</p>
+<p>Looking forward to seeing you on Saturday <%= @attendee.event.happens_on.to_s(:ordinal_date_and_month) %>!</p>

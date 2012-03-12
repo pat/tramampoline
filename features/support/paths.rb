@@ -12,15 +12,16 @@ module NavigationHelpers
       '/'
 
     when /the registration page$/
-      '/register'
+      event = Event.next
+      event_register_path(event)
 
     when /the registration page with the invite code from "([^"]*)"/
       attendee = Attendee.find_by_name $1
-      accept_path(attendee.invite.code)
+      event_accept_path(attendee.event, attendee.invite.code)
 
     when /the registration page with the invite code for "([^"]*)"/
       invite = Invite.find_by_description $1
-      accept_path(invite.code)
+      event_accept_path(invite.event, invite.code)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
