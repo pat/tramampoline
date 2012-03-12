@@ -6,12 +6,8 @@ module ApplicationHelper
     event_accept_url(attendee.event, attendee.invite.code)
   end
 
-  def team
-    ['Aida', 'Pat'].sort_by { rand }
-  end
-
-  def team_string
-    array = team.clone
+  def team_string(event)
+    array = event.organisers.split(/[\s,]+/)
     if array.length == 2
       array.join(' and ')
     else

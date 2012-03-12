@@ -1,16 +1,16 @@
 Hi there,
 
-We're excited to have you joining us at Trampoline on the 31st, and we're looking forward to having a great mix of people come together to share what they find amazing.
+We're excited to have you joining us at Trampoline on the <%= @event.happens_on.to_s :ordinal_day %>, and we're looking forward to having a great mix of people come together to share what they find amazing.
 
-When you signed up, we provided you with a special invite link that you can send to someone else who hasn't been to a Trampoline before. At this point, your link hasn't been used - and we would like to fit as many interested people in on the day, so we'll be releasing any spares on Saturday.
+When you signed up, we provided you with a special invite link that you can send to someone else who hasn't been to a Trampoline before. At this point, your link hasn't been used - and we would like to fit as many interested people in on the day, so we'll be releasing any spares on <%= @event.excess_at.strftime '%A' %>.
 
-So, if you've got someone in mind, please make sure they sign up before midday on the 17th of March - otherwise their ticket will be returned to the pool. Here's that link one more time:
+So, if you've got someone in mind, please make sure they sign up before <%= @event.excess_at.to_s :time %> on the <%= @event.excess_at.to_s :day_of_month %> - otherwise their ticket will be returned to the pool. Here's that link one more time:
 
 http://trampolineday.com<%= accept_path(@attendee.invite.code) %>
 
 See you soon!
 
-Peace, love and sticky rice.
+<%= @event.signature %>,
 
 --
-<%= team_string %>.
+<%= team_string @event %>.

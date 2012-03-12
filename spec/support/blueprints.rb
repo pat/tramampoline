@@ -18,6 +18,7 @@ Event.blueprint do
   release_at    { object.happens_on - 1.month }
   excess_at     { object.happens_on - 2.weeks }
   max_attendees { 100 }
+  organisers    { 'Pat, Mel, Aida, Steve' }
 end
 
 Invite.blueprint do

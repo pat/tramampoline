@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Trampoline</title>
-		
+
 	<style type="text/css">
 		#outlook a{
 			padding:0;
@@ -223,7 +223,7 @@
                         <table border="0" cellpadding="10" cellspacing="0" width="600" id="templatePreheader" style="background-color: #ffffff;">
                             <tr>
                                 <td valign="top" class="preheaderContent">
-                                
+
                                 <% unless @header.nil? %>
                                 	<!-- // Begin Module: Standard Preheader \ -->
                                     <table border="0" cellpadding="10" cellspacing="0" width="100%">
@@ -232,12 +232,12 @@
                                             	<div style="color: #505050;font-family: Arial;font-size: 10px;line-height: 100%;text-align: left;"><%= @header %><br>
 </div>
                                             </td>
-                                            <!-- 
+                                            <!--
  -->
 											<td valign="top" width="190">
-                                            	
+
                                             </td>
-											<!-- 
+											<!--
  -->
                                         </tr>
                                     </table>
@@ -254,11 +254,11 @@
                                 	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader" style="background-color: #A2C6FF;border-bottom: 0;padding: 10px;">
                                         <tr>
                                             <td class="headerContent" style="color: #202020;font-family: Arial;font-size: 34px;font-weight: bold;line-height: 100%;padding: 0;text-align: center;vertical-align: middle;">
-                                            
+
                                             	<!-- // Begin Module: Standard Header Image \\ -->
                                             	<div style="text-align: left;"><a href="http://trampolineday.com?utm_source=Trampoline+Subscribers&utm_campaign=82593dc75c-Trampoline_Melbourne_5_Funding3_7_2011&utm_medium=email" style="color: #336699;text-decoration: underline;font-weight: normal;"><img src="http://trampolineday.com/images/trampoline_header.png" alt="Trampoline" border="0" style="margin: 0;padding: 0;max-width: 600px;height: auto;line-height: 100%;outline: none;text-decoration: none;" width="600" height="156" id="headerImage campaign-icon"></a></div>
                                             	<!-- // End Module: Standard Header Image \\ -->
-                                            
+
                                             </td>
                                         </tr>
                                     </table>
@@ -271,27 +271,27 @@
                                 	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
                                     	<tr>
                                             <td valign="top" class="bodyContent" style="background-color: #A2C6FF;">
-                                
+
                                                 <!-- // Begin Module: Standard Content \\ -->
                                                 <table border="0" cellpadding="20" cellspacing="0" width="100%">
                                                     <tr>
                                                         <td valign="top">
                                                             <div style="color: #505050;font-family: Arial;font-size: 14px;line-height: 150%;text-align: left;">
-                                                              
+
 <%= yield %>
-  
+
 <p>
-	Peace, love and sticky rice,</p>
+	<%= @event.signature %>,</p>
 <p>
 	--<br>
-	<%= team_string %><br />
+	<%= team_string @event %><br />
 	Trampoline</p>
 </div>
 														</td>
                                                     </tr>
                                                 </table>
                                                 <!-- // End Module: Standard Content \\ -->
-                                                
+
                                             </td>
                                         </tr>
                                     </table>

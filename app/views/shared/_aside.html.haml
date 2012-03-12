@@ -1,10 +1,10 @@
 - Event.next_and_upcoming.each do |event|
-  .register
+  .register{:id => "event-#{event.id}"}
     %h2 Next Event
     %h3= event.city
     %dl
       %dt When
-      %dd= event.happens_on.to_s(:day_and_date)
+      %dd= event.happens_on.to_s(:day_and_date_and_year)
       %dt Where
       %dd= event.venue
       - if !event.on_sale?

@@ -1,9 +1,9 @@
 Hi everyone!
 
-One last email, just to make sure you have all the key details for Saturday.
+One last email, just to make sure you have all the key details for <%= @event.happens_on.to_s :day %>.
 
-* From 9:00am to 6:00pm, Saturday 31st of March.
-* Circus Oz, 40 Bay Street, Port Melbourne 3207 - http://goo.gl/maps/f8A2
+* From 9:00am to 6:00pm, <%= @event.happens_on.to_s :day_and_date %>.
+* <%= @event.venue %>, <%= @event.address %> - <%= @event.map_uri %>
 
 For those of you driving, give yourself 15 minutes to find a park, and take notice of the zoning - time limits are apparently enforced regularly. For those taking public transport, Tram 109 to the end of the line is your best bet - then it's a short walk south.
 
@@ -11,9 +11,9 @@ Don't forget to keep thinking through what you may want to share on the day. We 
 
 http://trampolineday.com/guide
 
-If you've got any last minute questions or problems, please don't hesitate to get in touch - either by email, or give Pat a call on 0413 273 337. We are very much looking forward to meeting and bouncing with you on Saturday!
+If you've got any last minute questions or problems, please don't hesitate to get in touch - either by email, or give Pat a call on 0413 273 337. We are very much looking forward to meeting and bouncing with you on <%= @event.happens_on.to_s :day %>!
 
-Peace, love, and sticky rice
+<%= @event.signature %>
 
 --
-<%= team_string %>
+<%= team_string @event %>

@@ -16,3 +16,16 @@ Given /^a completely sold out event$/ do
     Attendee.make! :event => event
   end
 end
+
+Given /^an event in (\w+) that is on sale$/ do |city|
+  Event.make! :happens_on => 3.weeks.from_now, :city => city
+end
+
+When /^I register for the (\w+) event$/ do |city|
+  event = Event.find_by_city(city)
+
+  with_scope("\"#event-#{event.id}\"") { click_link 'Register' }
+  fill_in 'Name', :with => 'Steve Hopkins'
+  fill_in 'Email Address', :with => 'steve@thesquigglyline.com'
+  click_button 'Continue'
+end

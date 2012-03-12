@@ -1,10 +1,10 @@
 <p>Hi everyone!</p>
 
-<p>One last email, just to make sure you have all the key details for Saturday.</p>
+<p>One last email, just to make sure you have all the key details for <%= @event.happens_on.to_s :day %>.</p>
 
 <ul>
-  <li>From <b>9:00am</b> to <b>6:00pm</b>, Saturday 31st of March.</li>
-  <li><a href="http://goo.gl/maps/f8A2">Circus Oz, 40 Bay Street, Port Melbourne 3207</a></li>
+  <li>From <b>9:00am</b> to <b>6:00pm</b>, <%= @event.happens_on.to_s :day_and_date %>.</li>
+  <li><%= link_to "#{@event.venue}, #{@event.address}", @event.map_uri %></li>
 </ul>
 
 <p>For those of you driving, give yourself 15 minutes to find a park, and take notice of the zoning - time limits are apparently enforced regularly. For those taking public transport, Tram 109 to the end of the line is your best bet - then it's a short walk south.</p>
@@ -13,4 +13,4 @@
 
 <p><a href="http://trampolineday.com/guide">http://trampolineday.com/guide</a></p>
 
-<p>If you've got any last minute questions or problems, please don't hesitate to get in touch - either by email, or give Pat a call on 0413 273 337. We are very much looking forward to meeting and bouncing with you on Saturday!</p>
+<p>If you've got any last minute questions or problems, please don't hesitate to get in touch - either by email, or give Pat a call on 0413 273 337. We are very much looking forward to meeting and bouncing with you on <%= @event.happens_on.to_s :day %>!</p>

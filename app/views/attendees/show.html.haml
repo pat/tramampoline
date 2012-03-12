@@ -6,7 +6,7 @@
 
 %ul
   %li
-    = event.happens_on.to_s(:day_and_date)
+    = event.happens_on.to_s(:day_and_date_and_year)
     from 9:00am to 6:00pm
   %li!= link_to event.address, event.map_uri
 
