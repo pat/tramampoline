@@ -6,7 +6,7 @@ When you signed up, we provided you with a special invite link that you can send
 
 So, if you've got someone in mind, please make sure they sign up before <%= @event.excess_at.to_s :time %> on the <%= @event.excess_at.to_s :day_of_month %> - otherwise their ticket will be returned to the pool. Here's that link one more time:
 
-http://trampolineday.com<%= accept_path(@attendee.invite.code) %>
+http://trampolineday.com<%= event_accept_path(@event, @attendee.invite.code) %>
 
 See you soon!
 
