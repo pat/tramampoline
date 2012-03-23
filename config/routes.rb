@@ -3,6 +3,7 @@ Tramampoline::Application.routes.draw do
   match '/guide' => 'home#guide', :as => :guide
   match '/sydney' => 'home#sydney', :as => :guide
   match '/register' => redirect('/events/7-melbourne/register')
+  match '/accept_invite/:code' => redirect("/events/7-melbourne/accept_invite/%{code}")
 
   resources :events do
     match '/register' => 'attendees#new', :as => :register
