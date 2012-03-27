@@ -345,14 +345,24 @@ iframe {
   display: block;
 }
 
-.sponsors ul {
-  margin-top: 10px;
-}
+.sponsors {
+  ul {
+    margin-top: 10px;
+  }
 
-.sponsors img {
-  width: 270px;
-  border: 5px solid #e2eefe;
-  background-color: white;
+  h3 {
+    display: block;
+    font: 24px/36px "Aller Bold";
+    color: #091e23;
+    text-shadow: none;
+    text-align: center;
+  }
+
+  img {
+    width: 270px;
+    border: 5px solid #e2eefe;
+    background-color: white;
+  }
 }
 
 .emissions {

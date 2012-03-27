@@ -307,7 +307,12 @@ iframe {
 
 .sponsors ul {
   margin-top: 10px; }
-
+.sponsors h3 {
+  display: block;
+  font: 24px/36px "Aller Bold";
+  color: #091e23;
+  text-shadow: none;
+  text-align: center; }
 .sponsors img {
   width: 270px;
   border: 5px solid #e2eefe;
