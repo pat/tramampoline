@@ -46,7 +46,7 @@ namespace :emails do
 
   desc 'Send invitation reminders'
   task :invite_reminders => :environment do
-    Event.next.uninvited_attendees.each do |attendee|
+    Event.before_excess.upcoming.first.uninvited_attendees.each do |attendee|
       next unless attendee.invite.attendees.empty?
 
       puts "Emailing #{attendee.name}"
