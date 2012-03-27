@@ -1,7 +1,7 @@
 class Notifications < ActionMailer::Base
   helper :application
 
-  default :from => 'Trampoline Team <pat@freelancing-gods.com>'
+  default :from => 'Trampoline Team <team@trampolineday.com>'
 
   def registration(attendee)
     @attendee = attendee
