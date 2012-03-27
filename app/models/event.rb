@@ -18,6 +18,7 @@ class Event < ActiveRecord::Base
     where('happens_on >= ?', Date.today).order(:happens_on) }
   scope :past, lambda {
     where('happens_on < ?', Date.today).order(:happens_on) }
+  scope :before_excess, where('excess_at >= now()')
 
   def self.upcoming?
     last && last.happens_on > Date.today
