@@ -13,11 +13,11 @@ class Event < ActiveRecord::Base
     :class_name => 'Attendee'
 
   scope :upcoming, lambda {
-    where('happens_on > ?', Date.today).order(:happens_on) }
+    where('happens_on > ?', Time.zone.now.to_date).order(:happens_on) }
   scope :next_and_upcoming, lambda {
-    where('happens_on >= ?', Date.today).order(:happens_on) }
+    where('happens_on >= ?', Time.zone.now.to_date).order(:happens_on) }
   scope :past, lambda {
-    where('happens_on < ?', Date.today).order(:happens_on) }
+    where('happens_on < ?', Time.zone.now.to_date).order(:happens_on) }
   scope :before_excess, where('excess_at >= now()')
 
   def self.upcoming?
