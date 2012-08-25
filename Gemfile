@@ -18,10 +18,6 @@ group :development, :test do
   gem 'rspec-rails',    '2.6.1'
 end
 
-group :production do
-  gem 'metrics-rails', '0.1.0'
-end
-
 group :test do
   gem 'capybara',         '1.1.1'
   gem 'database_cleaner', '0.6.7'
