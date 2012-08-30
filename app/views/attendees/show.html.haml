@@ -7,7 +7,7 @@
 %ul
   %li
     = event.happens_on.to_s(:day_and_date_and_year)
-    from 9:00am to 6:00pm
+    from 10:00am to 6:00pm
   %li!= link_to "#{event.venue}, #{event.address}", event.map_uri
 
 %iframe(width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="#{event.embedded_map_uri}")
