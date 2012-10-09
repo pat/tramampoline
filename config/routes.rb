@@ -1,7 +1,8 @@
 Tramampoline::Application.routes.draw do
   match '/' => 'home#index', :as => :home
   match '/guide' => 'home#guide', :as => :guide
-  match '/sydney' => 'home#sydney', :as => :guide
+  match '/sydney' => redirect("http://pozible.com/trampolinesydney")
+  # match '/sydney' => 'home#sydney', :as => :guide
   match '/register' => redirect('/events/7-melbourne/register')
   match '/accept_invite/:code' => redirect("/events/7-melbourne/accept_invite/%{code}")
 
