@@ -37,9 +37,9 @@
           %dd= event.excess_at.to_s(:date_with_hour)
 
 - if Event.next_and_upcoming.count.zero?
-  .register
-    %h2 Next Event
-    %h3 To Be Announced - Watch This Space!
+  -# .register
+  -#   %h2 Next Event
+  -#   %h3 To Be Announced - Watch This Space!
 
 .mailing-list
   %h2 Mailing List
@@ -70,17 +70,17 @@
 .sponsors
   %h2 Many Thanks To Our Supporters &amp; Sponsors
 
-  %h3 Sydney
-  %ul
-    %li
-      %a(href="http://oxfordstdesignstore.com.au")
-        %img(src="/images/oxford-design.png" title="Oxford St Design Store")
-    %li
-      %a(href="http://fishburners.org")
-        %img(src="/images/fishburners.png" title="Fishburners")
-    %li
-      %a(href="http://knowledgebird.com")
-        %img(src="/images/knowledge-bird.png" title="Knowledge Bird")
+  -# %h3 Sydney
+  -# %ul
+  -#   %li
+  -#     %a(href="http://oxfordstdesignstore.com.au")
+  -#       %img(src="/images/oxford-design.png" title="Oxford St Design Store")
+  -#   %li
+  -#     %a(href="http://fishburners.org")
+  -#       %img(src="/images/fishburners.png" title="Fishburners")
+  -#   %li
+  -#     %a(href="http://knowledgebird.com")
+  -#       %img(src="/images/knowledge-bird.png" title="Knowledge Bird")
 
   %h3 Melbourne
   %ul
