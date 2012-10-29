@@ -1,15 +1,3 @@
-.register{:id => "event-sydney"}
-  %h2 Next Event
-  %h3 Sydney
-  %dl
-    %dt When
-    %dd Saturday October 13th 2012
-    %dt Time
-    %dd 10:30AM to 5:00PM
-    %dt Where
-    %dd UTS Green Spaces
-  %a{:href => 'http://www.pozible.com/index.php/archive/index/10709/description/0/0'} Register
-
 - Event.next_and_upcoming.each do |event|
   .register{:id => "event-#{event.id}"}
     %h2 Next Event
@@ -37,9 +25,9 @@
           %dd= event.excess_at.to_s(:date_with_hour)
 
 - if Event.next_and_upcoming.count.zero?
-  -# .register
-  -#   %h2 Next Event
-  -#   %h3 To Be Announced - Watch This Space!
+  .register
+    %h2 Next Event
+    %h3 To Be Announced - Watch This Space!
 
 .mailing-list
   %h2 Mailing List
