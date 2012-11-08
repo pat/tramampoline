@@ -2,11 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
 
+gem 'crashlog',         '1.0.4'
 gem 'decent_exposure',  '1.0.1'
 gem 'formtastic',       '1.2.3'
 gem 'haml',             '3.0.25'
 gem 'hominid',          '3.0.2'
-gem 'airbrake',         '~> 3.0.9'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '0.10.1'
 gem 'tronprint',        '1.2.3', :group => :production
