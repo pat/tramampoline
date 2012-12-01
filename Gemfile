@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
 
-gem 'crashlog',         '1.0.4'
+gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
 gem 'formtastic',       '1.2.3'
 gem 'haml',             '3.0.25'
