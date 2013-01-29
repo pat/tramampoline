@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.0.20'
 
 gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
