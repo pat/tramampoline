@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rack',  '1.2.8'
 gem 'rails', '3.0.20'
 
 gem 'crashlog',         '1.0.7'
