@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rack',  '1.2.8'
-gem 'rails', '3.0.20'
+gem 'rack',  '1.3.10'
+gem 'rails', '3.1.11'
 
 gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
@@ -11,7 +11,7 @@ gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '0.10.1'
 gem 'tronprint',        '1.2.3', :group => :production
-gem 'will_paginate',    '2.3.15'
+gem 'will_paginate',    '3.0.4'
 
 group :development, :test do
   gem 'cucumber-rails', '1.0.2', :require => false
