@@ -9,7 +9,7 @@ gem 'formtastic',       '1.2.3'
 gem 'haml',             '3.0.25'
 gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
-gem 'pg',               '0.10.1'
+gem 'pg',               '0.14.1'
 gem 'tronprint',        '1.2.3', :group => :production
 gem 'will_paginate',    '3.0.4'
 
