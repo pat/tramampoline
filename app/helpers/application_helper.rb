@@ -8,7 +8,9 @@ module ApplicationHelper
 
   def team_string(event)
     array = event.organisers.split(/[\s,]+/)
-    if array.length == 2
+    if array.length == 1
+      event.organisers
+    elsif array.length == 2
       array.join(' and ')
     else
       array[0..-2].join(', ') + " and #{array.last}"
