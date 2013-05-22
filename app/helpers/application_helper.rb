@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def team_string(event)
-    array = event.organisers.split(/[\s,]+/)
+    array = event.organisers.split(/[,]+/)
     if array.length == 1
       event.organisers
     elsif array.length == 2
