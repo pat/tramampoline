@@ -1,15 +1,26 @@
 <p>Hi everyone!</p>
 
-<p>Trampoline is now less than a week away, on <%= @event.happens_on.to_s :day_and_date %>! While we'll be in touch later in the week with the final details, we just want to get the creative juices flowing early...</p>
+<p>Trampoline is now only a few days away, on <%= @event.happens_on.to_s :day_and_date %>! In preparation for a fun and interesting day, we want to get the creative juices flowing early... but first, the key details:</p>
+
+<ul>
+  <li>From <b>10:00am</b> to <b>5:00pm</b>, <%= @event.happens_on.to_s :day_and_date %>.</li>
+  <li><%= link_to "#{@event.venue}, #{@event.address}", @event.map_uri %></li>
+</ul>
 
 <p><b>Presenting on the day - what will you be talking about?</b></p>
 
-<p>Here's a summary video from an early Trampoline in Melbourne:</p>
+<p>Don't stress - we're not going to force you to present, but we're certainly looking forward to hearing what interesting ideas, stories and skills everyone will share on the day.</p>
 
-<p><a href="https://vimeo.com/11404254"><img src="http://trampolineday.com/images/steve-video.png" width="450" /></a></p>
+<p>If you've not been to a Trampoline before, here's a few links for some background:</p>
 
-<p>A reminder that anyone can present at Trampoline. To find out more about the format of Trampoline, and some tips on how to construct your presentation, have a read of <a href="http://trampolineday.com/guide">our essential guide to the day</a>. Get ready to share those things you find amazing in this world!</p>
+<ul>
+  <li><a href="http://vimeo.com/51273955">One of the Trampoline Melbourne founders, Pat, talking about how the event came about.</a></li>
+  <li><a href="https://radio.adelaide.edu.au/bouncing-ideas-higher/">Richie Khoo, one of the Trampoline Adelaide, speaking on Radio Adelaide about what's involved in the event.</a></li>
+  <li><a href="http://vimeo.com/11404254">A summary of an early Trampoline in Melbourne.</a></li>
+</ul>
 
-<p>If you have some ideas already, need some inspiration, or are curious, have a chat about it on <a href="http://www.facebook.com/groups/111632852329315/">the Facebook page</a>.</p>
+<p>To find out more about the format of Trampoline, and some tips on how to construct your presentation, have a read of <a href="http://trampolineday.com/guide">our essential guide to the day</a>. Get ready to share those things you find amazing in this world!</p>
 
-<p>Looking forward to seeing you on the day!</p>
+<p>If you have some ideas already, need some inspiration, or are curious, have a chat about it on <a href="https://www.facebook.com/TrampolineAdelaide">the Facebook page</a>.</p>
+
+<p>If you've got any last minute questions or problems, please don't hesitate to get in touch - either by email, or give Richie a call on 0425 614 388. We are very much looking forward to meeting and bouncing with you on <%= @event.happens_on.to_s :day %>!</p>
