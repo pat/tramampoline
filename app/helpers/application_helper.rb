@@ -1,7 +1,5 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  include TronprintHelper if Rails.env.production?
-
   def referral_link(attendee)
     event_accept_url(attendee.event, attendee.invite.code)
   end
