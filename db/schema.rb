@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312015535) do
+ActiveRecord::Schema.define(:version => 20130705045819) do
 
   create_table "attendees", :force => true do |t|
     t.string   "name",                             :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120312015535) do
     t.string   "embedded_map_uri", :limit => 512
     t.string   "organisers"
     t.string   "signature",                       :default => "Peace, love, and sticky rice"
+    t.string   "ticket_url"
   end
 
   create_table "invites", :force => true do |t|
