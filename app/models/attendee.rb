@@ -55,7 +55,7 @@ class Attendee < ActiveRecord::Base
   end
 
   def set_confirmed
-    self.confirmed = true #if invited? || event.excess_on_sale?
+    self.confirmed = true if invited?
   end
 
   def confirm_referral_code

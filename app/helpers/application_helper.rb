@@ -21,7 +21,7 @@ module ApplicationHelper
       'business'      => IPNotification::Business,
       'item_name'     => 'Trampoline Ticket',
       'currency_code' => 'AUD',
-      'amount'        => '25.00',
+      'amount'        => '10.00',
       'no_shipping'   => '1',
       'no_note'       => '1',
       'return'        => confirmed_event_attendee_url(attendee.event, attendee),
