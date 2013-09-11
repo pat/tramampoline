@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rack',  '1.3.10'
 gem 'rails', '3.1.11'
+gem 'json',  '1.8.0'
 
 gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
