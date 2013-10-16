@@ -56,4 +56,10 @@ class Notifications < ActionMailer::Base
 
     mail :to => waiter.email, :subject => 'Trampoline Waiting List: The Waiting is Over'
   end
+
+  def reminder(event, email)
+    @event = event
+
+    mail :to => email, :subject => 'Trampoline Adelaide 3 Approaches'
+  end
 end
