@@ -5,26 +5,28 @@
     %dl
       %dt When
       %dd= event.happens_on.to_s(:day_and_date_and_year)
-      %dt Time
-      %dd 10:00AM to 5:00PM
-      %dt Where
-      %dd= event.venue
-      - if !event.on_sale?
-        %dt Tickets
-        %dd= event.release_at.to_s(:date_with_hour)
-    - if event.on_sale?
-      - if event.ticket_url.present?
-        %a{:href => event.ticket_url} Register
-      - elsif !event.sold_out?
-        %a{:href => event_register_path(event)} Register
-      - elsif !event.initial_sold_out?
-        %span Sold Out!
-        != link_to "Join the waiting list", new_event_waiting_list_path(event)
-      - else
-        %span Sold Out!
-        %dl
-          %dt More Tickets
-          %dd= event.excess_at.to_s(:date_with_hour)
+
+    %p Ticket sales have closed for this event. Please contact <a href="mailto:shellomatic@hotmail.com">Shelley</a> for more information.
+    /   %dt Time
+    /   %dd 10:00AM to 5:00PM
+    /   %dt Where
+    /   %dd= event.venue
+    /   - if !event.on_sale?
+    /     %dt Tickets
+    /     %dd= event.release_at.to_s(:date_with_hour)
+    / - if event.on_sale?
+    /   - if event.ticket_url.present?
+    /     %a{:href => event.ticket_url}.btn Register
+    /   - elsif !event.sold_out?
+    /     %a{:href => event_register_path(event)}.btn Register
+    /   - elsif !event.initial_sold_out?
+    /     %span Sold Out!
+    /     != link_to "Join the waiting list", new_event_waiting_list_path(event), :class => 'btn'
+    /   - else
+    /     %span Sold Out!
+    /     %dl
+    /       %dt More Tickets
+    /       %dd= event.excess_at.to_s(:date_with_hour)
 
 - if Event.next_and_upcoming.count.zero?
   .register
