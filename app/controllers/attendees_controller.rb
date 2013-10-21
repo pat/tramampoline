@@ -1,5 +1,6 @@
 class AttendeesController < ApplicationController
   before_filter :redirect_if_no_event
+  before_filter :redirect_if_upcoming, :only => [:new, :create]
   before_filter :translate_params
   before_filter :check_if_over,     :only => [:new, :create]
   before_filter :check_if_on_sale,  :only => [:new, :create]
@@ -95,5 +96,9 @@ class AttendeesController < ApplicationController
 
     params[:attendee] ||= {}
     params[:attendee][:referral_code] = params[:invite_code]
+  end
+
+  def redirect_if_upcoming
+    redirect_to '/' if event.id == 15
   end
 end
