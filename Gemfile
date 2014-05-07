@@ -2,14 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rack',  '1.3.10'
-gem 'rails', '3.1.12'
+gem 'rails', '3.2.18'
 gem 'json',  '1.8.1'
 
 gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
 gem 'formtastic',       '1.2.3'
-gem 'haml',             '3.0.25'
+gem 'haml',             '4.0.3'
 gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '0.14.1'
