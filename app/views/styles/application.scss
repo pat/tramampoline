@@ -273,6 +273,12 @@ p.under {
       &.google a {
         background-position: 50% -87px;
       }
+      &.facebook a {
+        background-image: url(/images/facebook.png);
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
   }
   .past-events {

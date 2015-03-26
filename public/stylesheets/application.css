@@ -147,9 +147,6 @@ aside p {
   -moz-box-shadow: rgba(0, 0, 0, 0.05) 4px 4px 0;
   font-family: "Museo Slab", serif; }
   #aside .register a {
-    text-decoration: none;
-  }
-  #aside .register a.btn {
     display: block;
     background-color: #576645;
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0;
@@ -157,11 +154,12 @@ aside p {
     border-radius: 5px;
     font-size: 18px;
     line-height: 35px;
+    text-decoration: none;
     color: #abb3a2;
     border-radius: .7em;
     -moz-border-radius: .7em;
     -webkit-border-radius: .7em; }
-  #aside .register a.btn.wait {
+  #aside .register a.wait {
     background: none;
     display: block;
     color: #091e23;
@@ -172,9 +170,9 @@ aside p {
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0; }
-  #aside .register a.btn:hover {
+  #aside .register a:hover {
     background-color: #657453; }
-  #aside .register a.btn.wait:hover {
+  #aside .register a.wait:hover {
     font-weight: bold;
     background: none; }
   #aside .register h2, #aside .register aside .register h3 {
@@ -208,7 +206,7 @@ aside p {
     padding-top: 4px;
     text-align: left;
     width: 65%;
-    font: 13px/15px "Museo Sans", sans-serif; }
+    font: 13px/15px "Museo Sans",sans-serif; }
 
 #aside .follow ul {
   margin: 1em 0;
@@ -242,6 +240,11 @@ aside p {
       background-position: 50% -55px; }
     #aside .follow ul li.google a {
       background-position: 50% -87px; }
+    #aside .follow ul li.facebook a {
+      background-image: url(/images/facebook.png);
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      background-position: center; }
 #aside .past-events ul {
   margin-top: 10px; }
   #aside .past-events ul li {
