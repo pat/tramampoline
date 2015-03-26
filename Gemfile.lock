@@ -146,6 +146,7 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.6.0)
     rubyzip (0.9.9)
+    sass (3.2.18)
     selenium-webdriver (2.29.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -195,5 +196,6 @@ DEPENDENCIES
   pg (= 0.14.1)
   rails (= 3.2.18)
   rspec-rails (= 2.6.1)
+  sass
   timecop (= 0.3.5)
   will_paginate (= 3.0.4)

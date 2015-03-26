@@ -18,6 +18,7 @@ group :development, :test do
   gem 'cucumber-rails', '1.0.2', :require => false
   gem 'email_spec',     '1.1.1'
   gem 'rspec-rails',    '2.6.1'
+  gem 'sass'
 end
 
 group :test do
