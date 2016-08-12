@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '3.2.22.2'
+gem 'rails', '3.2.22.3'
 
 gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
