@@ -13,6 +13,10 @@ gem 'pg',               '0.18.4'
 gem 'test-unit',        '~> 3.0'
 gem 'will_paginate',    '3.0.4'
 
+group :staging, :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'cucumber-rails', '1.0.2', :require => false
   gem 'email_spec',     '1.1.1'

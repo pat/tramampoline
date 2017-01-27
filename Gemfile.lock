@@ -103,6 +103,11 @@ GEM
       activesupport (= 3.2.22.3)
       bundler (~> 1.0)
       railties (= 3.2.22.3)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (3.2.22.3)
       actionpack (= 3.2.22.3)
       activesupport (= 3.2.22.3)
@@ -175,6 +180,7 @@ DEPENDENCIES
   machinist (= 2.0.0.beta2)
   pg (= 0.18.4)
   rails (= 3.2.22.3)
+  rails_12factor
   rspec-rails (= 2.6.1)
   sass
   test-unit (~> 3.0)
