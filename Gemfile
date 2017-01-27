@@ -4,13 +4,13 @@ ruby '2.3.1'
 
 gem 'rails', '3.2.22.3'
 
-gem 'crashlog',         '1.0.7'
 gem 'decent_exposure',  '1.0.1'
 gem 'formtastic',       '1.2.3'
 gem 'haml',             '4.0.3'
 gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '0.18.4'
+gem 'test-unit',        '~> 3.0'
 gem 'will_paginate',    '3.0.4'
 
 group :development, :test do
@@ -18,7 +18,6 @@ group :development, :test do
   gem 'email_spec',     '1.1.1'
   gem 'rspec-rails',    '2.6.1'
   gem 'sass'
-  gem 'test-unit',      '~> 3.0'
 end
 
 group :test do
