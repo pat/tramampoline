@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.3.5'
 
-gem 'rails', '3.2.22.3'
+gem 'rails', '3.2.22.5'
 
 gem 'decent_exposure',  '1.0.1'
 gem 'formtastic',       '1.2.3'
