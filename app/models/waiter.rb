@@ -41,7 +41,7 @@ class Waiter < ActiveRecord::Base
     )
     update_attributes(:invited_at => Time.zone.now)
 
-    Notifications.waiting_over(self).deliver
+    Notifications.waiting_over(self).deliver_now
   end
 
   def invited?

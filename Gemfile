@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.5'
 
-gem 'rails', '~> 4.1.16'
+gem 'rails', '~> 4.2.9'
 
 gem 'decent_exposure',  '~> 3.0'
 gem 'formtastic',       '~> 2.1'

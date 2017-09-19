@@ -2,7 +2,7 @@ Hello there
 
 <%= @attendee.name %> has invited you to come along to Trampoline - a day filled with awesome ideas, crazy concepts, and amazing people. It's happening on <%= @attendee.event.happens_on.to_s(:ordinal_date_and_month) %>, and places are limited - so you'll need to confirm your spot by clicking on the link below before <%= @attendee.event.excess_at.to_s(:ordinal_date_and_month) %>:
 
-http://trampolineday.com<%= event_accept_path(@attendee.event, @attendee.invite.code) %>
+http://trampolineday.com<%= event_accept_url(@attendee.event, @attendee.invite.code, :path_only => true) %>
 
 For more general information about the event, have a peruse of our website:
 

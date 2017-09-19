@@ -12,7 +12,7 @@ namespace :emails do
   task :preparing => :environment do
     Event.next.attendees.active.order('created_at ASC').each do |attendee|
       puts "Emailing #{attendee.name}"
-      Notifications.preparing(attendee).deliver
+      Notifications.preparing(attendee).deliver_now
     end
     puts "Done."
   end
@@ -21,7 +21,7 @@ namespace :emails do
   task :final_reminder => :environment do
     Event.next.attendees.active.order('created_at ASC').each do |attendee|
       puts "Emailing #{attendee.name}"
-      Notifications.final_reminder(attendee).deliver
+      Notifications.final_reminder(attendee).deliver_now
     end
     puts "Done."
   end
@@ -30,7 +30,7 @@ namespace :emails do
   task :wrapup => :environment do
     Event.latest.attendees.active.order('created_at ASC').each do |attendee|
       puts "Emailing #{attendee.name}"
-      Notifications.wrapup(attendee).deliver
+      Notifications.wrapup(attendee).deliver_now
     end
     puts "Done."
   end
@@ -50,7 +50,7 @@ namespace :emails do
       next unless attendee.invite.attendees.empty?
 
       puts "Emailing #{attendee.name}"
-      Notifications.invite_reminder(attendee).deliver
+      Notifications.invite_reminder(attendee).deliver_now
     end
     puts "Done."
   end

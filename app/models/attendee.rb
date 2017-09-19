@@ -69,10 +69,10 @@ class Attendee < ActiveRecord::Base
   def send_emails
     return unless confirmed?
 
-    Notifications.registration(self).deliver
+    Notifications.registration(self).deliver_now
 
     if invite.present? && invite_email.present?
-      Notifications.invite(self).deliver
+      Notifications.invite(self).deliver_now
     end
   end
 
