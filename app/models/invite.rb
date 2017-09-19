@@ -25,7 +25,7 @@ class Invite < ActiveRecord::Base
   private
 
   def set_code
-    self.code = generate_hash("--#{Time.now.utc}--#{description}--")[0..7]
+    self.code = generate_hash("--#{Time.now.to_f}--#{description}--")[0..7]
 
     set_code if Invite.with_code(code)
   end

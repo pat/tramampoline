@@ -90,9 +90,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        Attendee.limit(1).each { |attendee|
-          attendee.cancel! event.excess_at - 1.second
-        }
+        Attendee.first.cancel! event.excess_at - 10.seconds
 
         expect(event).not_to be_sold_out
       end
@@ -102,9 +100,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        Attendee.limit(1).each { |attendee|
-          attendee.cancel! event.excess_at + 1.second
-        }
+        Attendee.first.cancel! event.excess_at + 1.second
 
         expect(event).to be_sold_out
       end

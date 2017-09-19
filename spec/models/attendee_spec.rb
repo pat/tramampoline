@@ -40,7 +40,8 @@ describe Attendee do
       Attendee.make!(
         :invite_email  => 'foo@bar.com',
         :referral_code => invite.code,
-        :confirmed     => true
+        :confirmed     => true,
+        :invite        => nil
       )
 
       expect(ActionMailer::Base.deliveries.detect { |mail|

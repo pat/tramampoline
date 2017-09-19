@@ -3,6 +3,6 @@ class IpnsController < ApplicationController
 
   def create
     IPNotification.process request
-    render :text => 'OK'
+    render :plain => 'OK'
   end
 end

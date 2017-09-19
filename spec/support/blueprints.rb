@@ -9,6 +9,7 @@ Attendee.blueprint do
   name  { Faker::Name.name }
   email { Faker::Internet.email }
   event { Event.next || Event.make! }
+  invite { Invite.make!(:event => object.event) }
 end
 
 Event.blueprint do

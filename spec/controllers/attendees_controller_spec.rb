@@ -38,7 +38,7 @@ describe AttendeesController do
 
     it "should pass through the given referral code" do
       event = Event.make! :release_at => 1.day.ago
-      attendee = Attendee.make!
+      attendee = Attendee.make! :event => event
 
       get :new, :event_id => event.to_param,
         :attendee => {:referral_code => attendee.invite.code}
