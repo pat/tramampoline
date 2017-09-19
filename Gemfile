@@ -18,8 +18,8 @@ end
 
 group :development, :test do
   gem 'cucumber-rails', '1.5.0', :require => false
-  gem 'email_spec',     '1.1.1'
-  gem 'rspec-rails',    '~> 2.6'
+  gem 'email_spec',     '~> 2.1'
+  gem 'rspec-rails',    '~> 3.6'
   gem 'sass'
 end
 

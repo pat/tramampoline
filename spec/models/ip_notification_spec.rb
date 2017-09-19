@@ -24,8 +24,8 @@ describe IPNotification do
 
     context 'legit' do
       before :each do
-        IPNotification.stub(:create! => notification)
-        notification.stub(:legit? => true)
+        allow(IPNotification).to receive_messages(:create! => notification)
+        allow(notification).to receive_messages(:legit? => true)
       end
 
       it "calls #process on the notification object if valid" do
@@ -41,8 +41,8 @@ describe IPNotification do
 
     context 'not legit' do
       before :each do
-        IPNotification.stub(:new => notification)
-        notification.stub(:legit? => false)
+        allow(IPNotification).to receive_messages(:new => notification)
+        allow(notification).to receive_messages(:legit? => false)
       end
 
       it "doesn't call #process" do
@@ -62,22 +62,22 @@ describe IPNotification do
     let(:notification) { IPNotification.new :request => request }
 
     it "is valid when verified and business matches" do
-      notification.stub(:verified? => true, :correct_business? => true)
+      allow(notification).to receive_messages(:verified? => true, :correct_business? => true)
       expect(notification).to be_legit
     end
 
     it "isn't valid when not verified but business matches" do
-      notification.stub(:verified? => false, :correct_business? => true)
+      allow(notification).to receive_messages(:verified? => false, :correct_business? => true)
       expect(notification).not_to be_legit
     end
 
     it "isn't valid when not verified and business doesn't match" do
-      notification.stub(:verified? => false, :correct_business? => false)
+      allow(notification).to receive_messages(:verified? => false, :correct_business? => false)
       expect(notification).not_to be_legit
     end
 
     it "isn't valid when verified but business doesn't match" do
-      notification.stub(:verified? => true, :correct_business? => false)
+      allow(notification).to receive_messages(:verified? => true, :correct_business? => false)
       expect(notification).not_to be_legit
     end
   end
@@ -141,12 +141,12 @@ describe IPNotification do
     before :each do
       request.params['custom'] = attendee.id.to_s
 
-      Attendee.stub(:find => attendee)
+      allow(Attendee).to receive_messages(:find => attendee)
     end
 
     context 'not legit' do
       before :each do
-        notification.stub(:legit? => false)
+        allow(notification).to receive_messages(:legit? => false)
       end
 
       it "raises an exception if invalid" do
@@ -168,7 +168,7 @@ describe IPNotification do
 
     context 'legit' do
       before :each do
-        notification.stub(:legit? => true, :attendee => attendee)
+        allow(notification).to receive_messages(:legit? => true, :attendee => attendee)
       end
 
       it "confirms the attendee if money is sent" do

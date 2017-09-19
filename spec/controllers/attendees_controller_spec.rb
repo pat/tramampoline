@@ -95,8 +95,8 @@ describe AttendeesController do
       let(:event) { Event.make! :release_at => 1.day.ago }
 
       before :each do
-        event.stub(:sold_out? => true)
-        Event.stub(:find => event)
+        allow(event).to receive_messages(:sold_out? => true)
+        allow(Event).to receive_messages(:find => event)
       end
 
       it "should redirect to the sold out view if there's no places free" do
@@ -119,11 +119,11 @@ describe AttendeesController do
   describe '#create' do
     let(:event) { Event.make! :release_at => 1.day.ago }
     let(:attendee) {
-      Attendee.make!.tap { |attendee| Attendee.stub(:new => attendee) }
+      Attendee.make!.tap { |attendee| allow(Attendee).to receive_messages(:new => attendee) }
     }
 
     it "should render the paypal page on success" do
-      attendee.stub(:save => true)
+      allow(attendee).to receive_messages(:save => true)
 
       post :create, :event_id => event.to_param, :attendee => {}
 
@@ -131,7 +131,7 @@ describe AttendeesController do
     end
 
     it "should re-render the new view on failure" do
-      attendee.stub(:save => false)
+      allow(attendee).to receive_messages(:save => false)
 
       post :create, :event_id => event.to_param, :attendee => {}
 
