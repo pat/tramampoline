@@ -22,5 +22,5 @@
     - if invite.nil? && !event.excess_on_sale?
       = f.input :invite_email, :label => 'Invitation Email Address', :hint => "You can invite someone who hasn't been to Trampoline before for free. If you know right now who they are, enter their email address here. If not, we'll give you a link later for the same purpose."
     = f.input :referral_code, :as => :hidden
-  = f.buttons do
-    = f.commit_button('Continue')
+  = f.actions do
+    = f.action :submit, :label => "Continue"

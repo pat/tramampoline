@@ -25,7 +25,10 @@ When /^I register for the (\w+) event$/ do |city|
   event = Event.find_by(:city => city)
 
   with_scope("\"#event-#{event.id}\"") { click_link 'Register' }
-  fill_in 'Name', :with => 'Steve Hopkins'
-  fill_in 'Email Address', :with => 'steve@thesquigglyline.com'
-  click_button 'Continue'
+
+  with_scope('"#new_attendee"') do
+    fill_in 'Name', :with => 'Steve Hopkins'
+    fill_in 'Email Address', :with => 'steve@thesquigglyline.com'
+    click_button 'Continue'
+  end
 end

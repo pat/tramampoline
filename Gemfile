@@ -17,15 +17,15 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem 'cucumber-rails', '1.0.2', :require => false
+  gem 'cucumber-rails', '1.5.0', :require => false
   gem 'email_spec',     '1.1.1'
   gem 'rspec-rails',    '~> 2.6'
   gem 'sass'
 end
 
 group :test do
-  gem 'capybara',         '1.1.1'
-  gem 'database_cleaner', '0.6.7'
+  gem 'capybara',         '~> 2.0'
+  gem 'database_cleaner', '~> 1.6.1'
   gem 'escape_utils',     '0.2.3'
   gem 'faker',            '0.3.1'
   gem 'machinist',        '2.0.0.beta2'

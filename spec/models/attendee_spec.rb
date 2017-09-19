@@ -113,7 +113,8 @@ describe Attendee do
     }.each do |attribute, human_name|
       it "should be invalid without a #{human_name}" do
         attendee = Attendee.make attribute => nil
-        expect(attendee).to have(1).error_on(attribute)
+        expect(attendee).not_to be_valid
+        expect(attendee.errors[attribute].size).to eq(1)
       end
     end
   end

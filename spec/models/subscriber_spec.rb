@@ -41,13 +41,15 @@ describe Subscriber do
   describe '#valid?' do
     it "should be invalid without an email address" do
       subscriber = Subscriber.make :email => nil
-      expect(subscriber).to have(1).error_on(:email)
+      expect(subscriber).not_to be_valid
+      expect(subscriber.errors[:email].size).to eq(1)
     end
 
     it "should be invalid without a unique email address" do
       existing = Subscriber.make!
       subscriber = Subscriber.make :email => existing.email
-      expect(subscriber).to have(1).error_on(:email)
+      expect(subscriber).not_to be_valid
+      expect(subscriber.errors[:email].size).to eq(1)
     end
   end
 end

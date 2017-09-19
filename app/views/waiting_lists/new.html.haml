@@ -9,5 +9,5 @@
   = f.inputs do
     = f.input :name
     = f.input :email, :label => 'Email Address', :hint => "Just to contact you about this event - nothing else, and definitely no spam."
-  = f.buttons do
-    = f.commit_button 'Join the Queue'
+  = f.actions do
+    = f.action :submit, :label => "Join the Queue"
