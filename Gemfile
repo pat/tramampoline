@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.5'
+ruby '2.4.2'
 
 gem 'rails', '~> 5.1.4'
 
@@ -9,7 +9,7 @@ gem 'formtastic',       '~> 2.1'
 gem 'haml',             '~> 5.0.3'
 gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
-gem 'pg',               '~> 0.19.0'
+gem 'pg',               '~> 0.21.0'
 
 group :staging, :production do
   gem 'rails_12factor'
