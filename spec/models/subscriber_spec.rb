@@ -11,8 +11,8 @@ describe Subscriber do
       Subscriber.cleanup!
 
       subscribers = Subscriber.where(:email => 'x@shay.com')
-      subscribers.length.should == 1
-      subscribers.first.name.should == 'Xavier Shay'
+      expect(subscribers.length).to eq(1)
+      expect(subscribers.first.name).to eq('Xavier Shay')
     end
 
     it "should keep one subscriber if there are multiple with no names for the same email address" do
@@ -23,7 +23,7 @@ describe Subscriber do
 
       Subscriber.cleanup!
 
-      Subscriber.where(:email => 's@sabey.com').length.should == 1
+      expect(Subscriber.where(:email => 's@sabey.com').length).to eq(1)
     end
 
     it "should remove all but one named subscriber for each email address" do
@@ -34,20 +34,20 @@ describe Subscriber do
 
       Subscriber.cleanup!
 
-      Subscriber.where(:email => 'p@spen.ce').length.should == 1
+      expect(Subscriber.where(:email => 'p@spen.ce').length).to eq(1)
     end
   end
 
   describe '#valid?' do
     it "should be invalid without an email address" do
       subscriber = Subscriber.make :email => nil
-      subscriber.should have(1).error_on(:email)
+      expect(subscriber).to have(1).error_on(:email)
     end
 
     it "should be invalid without a unique email address" do
       existing = Subscriber.make!
       subscriber = Subscriber.make :email => existing.email
-      subscriber.should have(1).error_on(:email)
+      expect(subscriber).to have(1).error_on(:email)
     end
   end
 end

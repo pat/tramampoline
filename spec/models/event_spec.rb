@@ -16,7 +16,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        event.should be_sold_out
+        expect(event).to be_sold_out
       end
 
       it "should return false if there are 5 registrations but not all with referral codes" do
@@ -26,7 +26,7 @@ describe Event do
 
         Attendee.make! :referral_code => Invite.make!.code, :confirmed => true
 
-        event.should_not be_sold_out
+        expect(event).not_to be_sold_out
       end
 
       it "does not count unconfirmed attendees" do
@@ -35,7 +35,7 @@ describe Event do
         end
         Attendee.make! :confirmed => false
 
-        event.should_not be_sold_out
+        expect(event).not_to be_sold_out
       end
 
       it "should return true if 5 registrations with some cancelled" do
@@ -45,7 +45,7 @@ describe Event do
 
         Attendee.limit(2).each(&:cancel!)
 
-        event.should be_sold_out
+        expect(event).to be_sold_out
       end
     end
 
@@ -64,7 +64,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        event.should be_sold_out
+        expect(event).to be_sold_out
       end
 
       it "should return false if 9 places are taken" do
@@ -72,7 +72,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        event.should_not be_sold_out
+        expect(event).not_to be_sold_out
       end
 
       it "should not count unconfirmed attendees" do
@@ -82,7 +82,7 @@ describe Event do
         attendee = Attendee.make! :event => event
         attendee.update_attributes(:confirmed => false)
 
-        event.should_not be_sold_out
+        expect(event).not_to be_sold_out
       end
 
       it "should return false if 10 registrations with some cancelled before excess" do
@@ -94,7 +94,7 @@ describe Event do
           attendee.cancel! event.excess_at - 1.second
         }
 
-        event.should_not be_sold_out
+        expect(event).not_to be_sold_out
       end
 
       it "should return true if 10 registrations with some cancelled after excess released" do
@@ -106,7 +106,7 @@ describe Event do
           attendee.cancel! event.excess_at + 1.second
         }
 
-        event.should be_sold_out
+        expect(event).to be_sold_out
       end
     end
   end
