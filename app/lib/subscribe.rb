@@ -7,7 +7,7 @@ class Subscribe
     members.create(
       :body => {
         :email_address => email,
-        :status        => 'subscribed',
+        :status        => 'pending',
         :merge_fields  => {:FULLNAME => name}
       }
     )
