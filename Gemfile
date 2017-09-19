@@ -6,8 +6,8 @@ gem 'rails', '~> 5.1.4'
 
 gem 'decent_exposure',  '~> 3.0'
 gem 'formtastic',       '~> 2.1'
+gem 'gibbon',           '~> 2.2.4'
 gem 'haml',             '~> 5.0.3'
-gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '~> 0.21.0'
 

@@ -31,20 +31,16 @@ class Subscriber < ApplicationRecord
   def add_to_mailchimp
     return unless Rails.env.production?
 
-    hominid.list_subscribe MailChimpList, email, [], 'html', true, true, true, false
-  rescue
+    Subscribe.new(MailChimpList).call email
+  rescue Gibbon::MailChimpError => error
     puts "Invalid Email: #{email}"
   end
 
   def remove_from_mailchimp
     return unless Rails.env.production?
 
-    hominid.list_unsubscribe MailChimpList, email, false, true, true
-  rescue
+    Unsubscribe.new(MailChimpList).call email
+  rescue Gibbon::MailChimpError => error
     puts "Invalid Email: #{email}"
-  end
-
-  def hominid
-    @hominid ||= Hominid::API.new(ENV['MAILCHIMP_API_KEY'])
   end
 end
