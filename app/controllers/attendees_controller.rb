@@ -8,7 +8,7 @@ class AttendeesController < ApplicationController
 
   expose(:attendee) { attendee_in_context }
   expose(:invite)   { Invite.with_code(attendee.referral_code) }
-  expose(:waiter)   { Waiter.find_by_code(params[:waiting_code]) }
+  expose(:waiter)   { Waiter.find_by(:code => params[:waiting_code]) }
   expose(:event)    { Event.find params[:event_id] }
 
   def new
@@ -48,11 +48,16 @@ class AttendeesController < ApplicationController
 
   private
 
+  def attendee_params
+    params.fetch(:attendee, {}).permit :name, :email, :phone, :invite_email,
+      :referral_code
+  end
+
   def attendee_in_context
     if params[:id].present?
-      Attendee.find_by_slug(params[:id]) || Attendee.find(params[:id])
+      Attendee.find_by(:slug => params[:id]) || Attendee.find(params[:id])
     else
-      Attendee.new params[:attendee]
+      Attendee.new attendee_params
     end
   end
 

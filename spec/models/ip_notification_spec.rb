@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe IPNotification do
+  let(:paypal_regex) {
+    /^https:\/\/www\.paypal\.com\/cgi-bin\/webscr/
+  }
+
+  before :each do
+    stub_request(:get, paypal_regex).to_return(body: 'VERIFIED')
+  end
+
   describe '.process' do
     let(:request)      { double('request', :params => {}, :body => body) }
     let(:body)         { double('body', :read => '') }
@@ -27,7 +35,7 @@ describe IPNotification do
       end
 
       it "returns true" do
-        IPNotification.process(request).should be_true
+        IPNotification.process(request).should eq(true)
       end
     end
 
@@ -44,7 +52,7 @@ describe IPNotification do
       end
 
       it "returns false" do
-        IPNotification.process(request).should be_false
+        IPNotification.process(request).should eq(false)
       end
     end
   end
@@ -75,36 +83,36 @@ describe IPNotification do
   end
 
   describe '#verified?' do
-    let(:paypal_regex) {
-      /^https:\/\/www\.paypal\.com\/cgi-bin\/webscr/
-    }
     let(:body)         { stub('body', :read => 'foo=bar') }
     let(:request)      { stub('request', :params => {}, :body => body) }
     let(:notification) { IPNotification.make! :request => request }
 
     it "is verified when PayPal returns VERIFIED" do
-      FakeWeb.register_uri(:get, paypal_regex, :body => 'VERIFIED')
+      stub_request(:get, paypal_regex).to_return(body: 'VERIFIED')
 
       notification.should be_verified
     end
 
     it "is invalid when PayPal returns INVALID" do
-      FakeWeb.register_uri(:get, paypal_regex, :body => 'INVALID')
+      stub_request(:get, paypal_regex).to_return(body: 'INVALID')
 
       notification.should_not be_verified
     end
 
     it "is invalid when PayPal returns anything else" do
-      FakeWeb.register_uri(:get, paypal_regex, :body => 'foo')
+      stub_request(:get, paypal_regex).to_return(body: 'foo')
 
       notification.should_not be_verified
     end
 
     it "passes the original query string back to PayPal" do
+      stub_request(:get, paypal_regex).to_return(body: 'VERIFIED')
+
       notification.verified?
 
-      FakeWeb.should have_requested(:get,
+      expect(a_request(:get,
         'https://www.paypal.com/cgi-bin/webscr?cmd=_notify-validate&foo=bar')
+      ).to have_been_made.once
     end
   end
 
@@ -127,7 +135,7 @@ describe IPNotification do
   describe '#process!' do
     let(:body)         { stub('body', :read => '') }
     let(:request)      { stub('request', :params => {}, :body => body) }
-    let(:notification) { IPNotification.make! :request => request }
+    let(:notification) { IPNotification.make! :request => request, :attendee => attendee }
     let(:attendee)     { Attendee.make! }
 
     before :each do
@@ -160,11 +168,11 @@ describe IPNotification do
 
     context 'legit' do
       before :each do
-        notification.stub!(:legit? => true)
+        notification.stub(:legit? => true, :attendee => attendee)
       end
 
       it "confirms the attendee if money is sent" do
-        attendee.should_receive(:confirm!)
+        expect(attendee).to receive(:confirm!)
 
         notification.transaction_type = 'send_money'
         notification.process!

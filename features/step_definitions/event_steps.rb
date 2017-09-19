@@ -22,7 +22,7 @@ Given /^an event in (\w+) that is on sale$/ do |city|
 end
 
 When /^I register for the (\w+) event$/ do |city|
-  event = Event.find_by_city(city)
+  event = Event.find_by(:city => city)
 
   with_scope("\"#event-#{event.id}\"") { click_link 'Register' }
   fill_in 'Name', :with => 'Steve Hopkins'

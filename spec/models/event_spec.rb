@@ -43,7 +43,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        Attendee.find(:all, :limit => 2).each(&:cancel!)
+        Attendee.limit(2).each(&:cancel!)
 
         event.should be_sold_out
       end
@@ -90,7 +90,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        Attendee.find(:all, :limit => 1).each { |attendee|
+        Attendee.limit(1).each { |attendee|
           attendee.cancel! event.excess_at - 1.second
         }
 
@@ -102,7 +102,7 @@ describe Event do
           Attendee.make! :event => event, :confirmed => true
         end
 
-        Attendee.find(:all, :limit => 1).each { |attendee|
+        Attendee.limit(1).each { |attendee|
           attendee.cancel! event.excess_at + 1.second
         }
 

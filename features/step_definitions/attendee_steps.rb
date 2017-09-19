@@ -3,24 +3,25 @@ Given /^a registered attendee "([^\"]*)"$/ do |name|
 end
 
 When /^"([^"]*)" cancels his attendance$/ do |name|
-  Attendee.find_by_name(name).cancel!
+  Attendee.find_by(:name => name).cancel!
 end
 
 When /^"([^"]*)" cancelled his attendance (\d+) days ago$/ do |name, days|
   Timecop.travel Time.zone.now - days.to_i.days
-  Attendee.find_by_name(name).cancel!
+  Attendee.find_by(:name => name).cancel!
   Timecop.return
 end
 
 When /^PayPal redirects me back after a successful payment for "([^"]*)"$/ do |name|
-  attendee = Attendee.find_by_name(name)
+  attendee = Attendee.find_by(:name => name)
   visit confirmed_event_attendee_path(attendee.event, attendee)
 end
 
 When /^PayPal confirms the payment for "([^"]*)"$/ do |name|
-  FakeWeb.register_uri :get, /^https:\/\/www\.paypal\.com\/cgi-bin\/webscr/,
-    :body => 'VERIFIED'
-  attendee = Attendee.find_by_name(name)
+  stub_request(:get, /^https:\/\/www\.paypal\.com\/cgi-bin\/webscr/).
+    to_return(body: 'VERIFIED')
+
+  attendee = Attendee.find_by(:name => name)
   post ipns_path, {
     :business       => IPNotification::Business,
     :receiver_email => IPNotification::Business,
@@ -34,10 +35,11 @@ When /^PayPal confirms the payment for "([^"]*)"$/ do |name|
 end
 
 When /^PayPal confirms the payment from "([^"]*)" for the (\w+) event$/ do |name, city|
-  FakeWeb.register_uri :get, /^https:\/\/www\.paypal\.com\/cgi-bin\/webscr/,
-    :body => 'VERIFIED'
-  event    = Event.find_by_city(city)
-  attendee = event.attendees.find_by_name(name)
+  stub_request(:get, /^https:\/\/www\.paypal\.com\/cgi-bin\/webscr/).
+    to_return(body: 'VERIFIED')
+
+  event    = Event.find_by(:city => city)
+  attendee = event.attendees.find_by(:name => name)
   post ipns_path, {
     :business       => IPNotification::Business,
     :receiver_email => IPNotification::Business,
@@ -51,7 +53,7 @@ When /^PayPal confirms the payment from "([^"]*)" for the (\w+) event$/ do |name
 end
 
 Then /^I should have an email for the (\w+) event$/ do |city|
-  event = Event.find_by_city(city)
+  event = Event.find_by(:city => city)
   ActionMailer::Base.deliveries.select { |mail|
     mail.subject == 'Trampoline Registration'
   }.detect { |mail|

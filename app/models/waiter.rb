@@ -7,12 +7,15 @@ class Waiter < ActiveRecord::Base
 
   validates_presence_of :code, :event, :email
 
-  scope :uninvited, where('invited_at IS NULL AND closed = FALSE').
+  scope :uninvited, lambda {
+    where('invited_at IS NULL AND closed = FALSE').
     order('created_at ASC')
-  scope :unclosed,
+  }
+  scope :unclosed, lambda {
     where('invited_at IS NOT NULL').
     where("invited_at < (current_timestamp - interval '24 hours')").
     where(['closed = ?', false])
+  }
 
   def self.invite!(event)
     event.waiters.uninvited.first.invite! unless event.waiters.uninvited.empty?
@@ -55,7 +58,7 @@ class Waiter < ActiveRecord::Base
   def set_code
     self.code = generate_hash("--#{Time.now.utc}--#{email}--")[0..7]
 
-    set_code if Waiter.find_by_code(code)
+    set_code if Waiter.find_by(:code => code)
   end
 
   def generate_hash(string)

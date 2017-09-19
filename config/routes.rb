@@ -1,14 +1,14 @@
 Tramampoline::Application.routes.draw do
-  match '/' => 'home#index', :as => :home
-  match '/guide' => 'home#guide', :as => :guide
-  match '/sydney' => redirect("http://pozible.com/trampolinesydney")
+  get '/' => 'home#index', :as => :home
+  get '/guide' => 'home#guide', :as => :guide
+  get '/sydney' => redirect("http://pozible.com/trampolinesydney")
   # match '/sydney' => 'home#sydney', :as => :guide
-  match '/register' => redirect('/events/7-melbourne/register')
-  match '/accept_invite/:code' => redirect("/events/7-melbourne/accept_invite/%{code}")
+  get '/register' => redirect('/events/7-melbourne/register')
+  get '/accept_invite/:code' => redirect("/events/7-melbourne/accept_invite/%{code}")
 
   resources :events do
-    match '/register' => 'attendees#new', :as => :register
-    match '/accept_invite/:invite_code' => 'attendees#new', :as => :accept
+    get '/register' => 'attendees#new', :as => :register
+    get '/accept_invite/:invite_code' => 'attendees#new', :as => :accept
 
     resources :attendees do
       collection do
@@ -26,6 +26,4 @@ Tramampoline::Application.routes.draw do
   resources :ipns, :only => :create
 
   resources :subscribers
-
-  match '/:controller(/:action(/:id))'
 end

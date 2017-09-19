@@ -2,15 +2,15 @@ class Event < ActiveRecord::Base
   has_many :invites
   has_many :waiters
   has_many :attendees
-  has_many :active_attendees,
-    :conditions => "cancelled_at IS NULL and confirmed = 't'",
-    :class_name => 'Attendee'
-  has_many :uninvited_attendees,
-    :conditions => "referral_code = '' and confirmed = 't'",
-    :class_name => 'Attendee'
-  has_many :invited_attendees,
-    :conditions => "referral_code <> '' and confirmed = 't'",
-    :class_name => 'Attendee'
+  has_many :active_attendees, lambda {
+        where "cancelled_at IS NULL and confirmed = 't'"
+      }, :class_name => 'Attendee'
+  has_many :uninvited_attendees, lambda {
+      where "referral_code = '' and confirmed = 't'"
+    }, :class_name => 'Attendee'
+  has_many :invited_attendees, lambda {
+      where "referral_code <> '' and confirmed = 't'"
+    }, :class_name => 'Attendee'
 
   scope :upcoming, lambda {
     where('happens_on > ?', Time.zone.now.to_date).order(:happens_on) }
@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
     where('happens_on >= ?', Time.zone.now.to_date).order(:happens_on) }
   scope :past, lambda {
     where('happens_on < ?', Time.zone.now.to_date).order(:happens_on) }
-  scope :before_excess, where('excess_at >= now()')
+  scope :before_excess, lambda { where('excess_at >= now()') }
 
   def self.upcoming?
     last && last.happens_on > Date.today

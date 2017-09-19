@@ -23,7 +23,9 @@ class Attendee < ActiveRecord::Base
       date, true
     ])
   }
-  scope :active, where('cancelled_at IS NULL AND confirmed = ?', true)
+  scope :active, lambda {
+    where('cancelled_at IS NULL AND confirmed = ?', true)
+  }
 
   def cancel!(time = Time.zone.now)
     update_attributes(:cancelled_at => time)
@@ -47,7 +49,7 @@ class Attendee < ActiveRecord::Base
   def set_slug
     self.slug = generate_hash("--#{Time.now.utc}--#{email}--")[0..7]
 
-    set_slug if Attendee.find_by_slug(slug)
+    set_slug if Attendee.find_by(:slug => slug)
   end
 
   def generate_hash(string)

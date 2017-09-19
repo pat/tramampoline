@@ -16,18 +16,18 @@ module NavigationHelpers
       event_register_path(event)
 
     when /the registration page with the invite code from "([^"]*)"/
-      attendee = Attendee.find_by_name $1
+      attendee = Attendee.find_by :name => $1
       event_accept_path(attendee.event, attendee.invite.code)
 
     when /the registration page with the invite code for "([^"]*)"/
-      invite = Invite.find_by_description $1
+      invite = Invite.find_by :description => $1
       event_accept_path(invite.event, invite.code)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+    #     user_profile_path(User.find_by(:login => $1))
 
     else
       begin
