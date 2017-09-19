@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.3.5'
 
-gem 'rails', '~> 5.0.6'
+gem 'rails', '~> 5.1.4'
 
 gem 'decent_exposure',  '~> 3.0'
 gem 'formtastic',       '~> 2.1'
-gem 'haml',             '4.0.7'
+gem 'haml',             '~> 5.0.3'
 gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '~> 0.19.0'

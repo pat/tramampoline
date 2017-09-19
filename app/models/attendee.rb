@@ -77,7 +77,7 @@ class Attendee < ApplicationRecord
   end
 
   def send_emails_if_confirmed
-    send_emails if confirmed? && confirmed_changed?
+    send_emails if confirmed? && saved_change_to_confirmed?
   end
 
   def add_invite
