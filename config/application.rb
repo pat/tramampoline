@@ -33,6 +33,10 @@ module Tramampoline
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
+    config.active_record.belongs_to_required_by_default = false
+
+    config.action_controller.per_form_csrf_tokens = true
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

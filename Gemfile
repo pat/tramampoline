@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.5'
 
-gem 'rails', '~> 4.2.9'
+gem 'rails', '~> 5.0.6'
 
 gem 'decent_exposure',  '~> 3.0'
 gem 'formtastic',       '~> 2.1'
@@ -10,7 +10,6 @@ gem 'haml',             '4.0.7'
 gem 'hominid',          '3.0.2'
 gem 'lu-tze',           '0.2.0', :require => 'lu_tze'
 gem 'pg',               '~> 0.19.0'
-gem 'will_paginate',    '3.0.4'
 
 group :staging, :production do
   gem 'rails_12factor'

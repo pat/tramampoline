@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   has_many :invites
   has_many :waiters
   has_many :attendees

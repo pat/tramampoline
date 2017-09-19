@@ -1,4 +1,4 @@
-class Waiter < ActiveRecord::Base
+class Waiter < ApplicationRecord
   belongs_to :event
   belongs_to :attendee
   has_one :invite, :as => :parent

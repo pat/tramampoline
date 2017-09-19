@@ -1,4 +1,4 @@
-class Subscriber < ActiveRecord::Base
+class Subscriber < ApplicationRecord
   validates_presence_of :email
   validates_uniqueness_of :email
 

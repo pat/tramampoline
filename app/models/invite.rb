@@ -1,4 +1,4 @@
-class Invite < ActiveRecord::Base
+class Invite < ApplicationRecord
   belongs_to :event
   belongs_to :parent, :polymorphic => true
   has_many :attendees,

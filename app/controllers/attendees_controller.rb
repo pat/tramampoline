@@ -1,10 +1,10 @@
 class AttendeesController < ApplicationController
-  before_filter :redirect_if_no_event
-  before_filter :redirect_if_upcoming, :only => [:new, :create]
-  before_filter :translate_params
-  before_filter :check_if_over,     :only => [:new, :create]
-  before_filter :check_if_on_sale,  :only => [:new, :create]
-  before_filter :check_if_sold_out, :only => [:new, :create]
+  before_action :redirect_if_no_event
+  before_action :redirect_if_upcoming, :only => [:new, :create]
+  before_action :translate_params
+  before_action :check_if_over,     :only => [:new, :create]
+  before_action :check_if_on_sale,  :only => [:new, :create]
+  before_action :check_if_sold_out, :only => [:new, :create]
 
   expose(:attendee) { attendee_in_context }
   expose(:invite)   { Invite.with_code(attendee.referral_code) }

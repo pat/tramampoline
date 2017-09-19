@@ -1,5 +1,5 @@
 class WaitingListsController < ApplicationController
-  before_filter :redirect_if_no_event
+  before_action :redirect_if_no_event
 
   expose(:event) { Event.find params[:event_id] }
 

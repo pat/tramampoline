@@ -1,6 +1,6 @@
 require 'digest/sha1'
 
-class Attendee < ActiveRecord::Base
+class Attendee < ApplicationRecord
   validates_presence_of :name, :email, :slug
   validate :confirm_referral_code
 

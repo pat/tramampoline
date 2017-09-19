@@ -1,6 +1,6 @@
 require 'open-uri'
 
-class IPNotification < ActiveRecord::Base
+class IPNotification < ApplicationRecord
   PayPalUrl  = 'https://www.paypal.com/cgi-bin/webscr'
   Business   = 'pat@freelancing-gods.com'
 
