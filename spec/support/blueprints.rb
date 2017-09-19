@@ -1,10 +1,6 @@
 require 'machinist/active_record'
 require 'faker'
 
-Machinist.configure do |config|
-  config.cache_objects = false
-end
-
 Attendee.blueprint do
   name  { Faker::Name.name }
   email { Faker::Internet.email }

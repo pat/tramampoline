@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/pat/machinist.git
+  revision: ff04f1a92d211a0dcefcc08b400602e542e586b8
+  ref: ff04f1a92d
+  branch: master
+  specs:
+    machinist (2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -108,7 +116,6 @@ GEM
     lu-tze (0.2.0)
       activerecord (>= 2.3.5)
       rest-client (>= 1.4.2)
-    machinist (2.0.0.beta2)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
@@ -234,7 +241,7 @@ DEPENDENCIES
   gibbon (~> 2.2.4)
   haml (~> 5.0.3)
   lu-tze (= 0.2.0)
-  machinist (= 2.0.0.beta2)
+  machinist!
   pg (~> 0.21.0)
   rails (~> 5.1.4)
   rails_12factor
