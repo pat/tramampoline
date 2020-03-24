@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.4'
 
 gem 'decent_exposure',  '~> 3.0'
 gem 'formtastic',       '~> 2.1'
@@ -16,7 +16,7 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem 'cucumber-rails', '1.5.0', :require => false
+  gem 'cucumber-rails', '~> 1.5', :require => false
   gem 'email_spec',     '~> 2.1'
   gem 'rspec-rails',    '~> 3.6'
   gem 'sass'
